@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
 		E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */; };
 		E348EB4B27866774009CA251 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348EB4A27866774009CA251 /* ContentView.swift */; };
 		E348EB4D27866779009CA251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E348EB4C27866779009CA251 /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E348EB4527866774009CA251 /* FriendSurroundApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendSurroundApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSurroundAppApp.swift; sourceTree = "<group>"; };
 		E348EB4A27866774009CA251 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,17 +30,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3132310454A7BD8ACB385FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E348EB3C27866774009CA251 = {
 			isa = PBXGroup;
 			children = (
 				E348EB4727866774009CA251 /* FriendSurroundApp */,
 				E348EB4627866774009CA251 /* Products */,
+				E7BF667C7C23D952394AA9A6 /* Pods */,
+				E3132310454A7BD8ACB385FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,9 +66,10 @@
 		E348EB4727866774009CA251 /* FriendSurroundApp */ = {
 			isa = PBXGroup;
 			children = (
-				E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */,
-				E348EB4A27866774009CA251 /* ContentView.swift */,
-				E348EB4C27866779009CA251 /* Assets.xcassets */,
+				E37780F22787A8280018A1C5 /* ViewModel */,
+				E37780F12787A8220018A1C5 /* View */,
+				E37780F02787A8150018A1C5 /* Resources */,
+				E37780EF2787A80C0018A1C5 /* Model */,
 				E348EB4E27866779009CA251 /* Preview Content */,
 			);
 			path = FriendSurroundApp;
@@ -67,6 +83,46 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E37780EF2787A80C0018A1C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E37780F02787A8150018A1C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E348EB4C27866779009CA251 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E37780F12787A8220018A1C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */,
+				E348EB4A27866774009CA251 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E37780F22787A8280018A1C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7BF667C7C23D952394AA9A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */,
+				1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E348EB5327866779009CA251 /* Build configuration list for PBXNativeTarget "FriendSurroundApp" */;
 			buildPhases = (
+				749D925F25A07C8EDD64C92C /* [CP] Check Pods Manifest.lock */,
 				E348EB4127866774009CA251 /* Sources */,
 				E348EB4227866774009CA251 /* Frameworks */,
 				E348EB4327866774009CA251 /* Resources */,
+				69053F6BE9119FD7F39C52A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +189,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69053F6BE9119FD7F39C52A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		749D925F25A07C8EDD64C92C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendSurroundApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E348EB4127866774009CA251 /* Sources */ = {
@@ -263,6 +363,7 @@
 		};
 		E348EB5427866779009CA251 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,6 +393,7 @@
 		};
 		E348EB5527866779009CA251 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
