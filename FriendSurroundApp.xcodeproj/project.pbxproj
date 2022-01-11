@@ -8,21 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
+		E33CD12B278D36D700D6420A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD12A278D36D600D6420A /* User.swift */; };
+		E33CD12D278D37B000D6420A /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD12C278D37B000D6420A /* FriendList.swift */; };
+		E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD130278D398E00D6420A /* FriendViewModel.swift */; };
+		E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD134278D3AF800D6420A /* FriendListView.swift */; };
 		E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */; };
-		E348EB4B27866774009CA251 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348EB4A27866774009CA251 /* ContentView.swift */; };
+		E348EB4B27866774009CA251 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348EB4A27866774009CA251 /* LoginView.swift */; };
 		E348EB4D27866779009CA251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E348EB4C27866779009CA251 /* Assets.xcassets */; };
 		E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E348EB4F27866779009CA251 /* Preview Assets.xcassets */; };
+		E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = E39C8F9A278D53D000073C6B /* amongUsPink.png */; };
+		E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C8F9C278D554E00073C6B /* FriendDetailView.swift */; };
+		E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C8F9E278D593C00073C6B /* EditableText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
 		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33CD12A278D36D600D6420A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E33CD12C278D37B000D6420A /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
+		E33CD130278D398E00D6420A /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
+		E33CD134278D3AF800D6420A /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
 		E348EB4527866774009CA251 /* FriendSurroundApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendSurroundApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSurroundAppApp.swift; sourceTree = "<group>"; };
-		E348EB4A27866774009CA251 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E348EB4A27866774009CA251 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E348EB4C27866779009CA251 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E348EB4F27866779009CA251 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E39C8F9A278D53D000073C6B /* amongUsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amongUsPink.png; sourceTree = "<group>"; };
+		E39C8F9C278D554E00073C6B /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
+		E39C8F9E278D593C00073C6B /* EditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +80,11 @@
 		E348EB4727866774009CA251 /* FriendSurroundApp */ = {
 			isa = PBXGroup;
 			children = (
-				E37780F22787A8280018A1C5 /* ViewModel */,
-				E37780F12787A8220018A1C5 /* View */,
-				E37780F02787A8150018A1C5 /* Resources */,
 				E37780EF2787A80C0018A1C5 /* Model */,
+				E37780F02787A8150018A1C5 /* Resources */,
+				E39C8F99278D539800073C6B /* Utility */,
+				E37780F12787A8220018A1C5 /* View */,
+				E37780F22787A8280018A1C5 /* ViewModel */,
 				E348EB4E27866779009CA251 /* Preview Content */,
 			);
 			path = FriendSurroundApp;
@@ -86,6 +101,8 @@
 		E37780EF2787A80C0018A1C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E33CD12A278D36D600D6420A /* User.swift */,
+				E33CD12C278D37B000D6420A /* FriendList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,8 +118,9 @@
 		E37780F12787A8220018A1C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */,
-				E348EB4A27866774009CA251 /* ContentView.swift */,
+				E39C8FA1278D595800073C6B /* App */,
+				E39C8FA2278D596100073C6B /* Components */,
+				E39C8FA0278D594E00073C6B /* Screens */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,8 +128,43 @@
 		E37780F22787A8280018A1C5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E33CD130278D398E00D6420A /* FriendViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E39C8F99278D539800073C6B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E39C8F9A278D53D000073C6B /* amongUsPink.png */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		E39C8FA0278D594E00073C6B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E348EB4A27866774009CA251 /* LoginView.swift */,
+				E33CD134278D3AF800D6420A /* FriendListView.swift */,
+				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E39C8FA1278D595800073C6B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E348EB4827866774009CA251 /* FriendSurroundAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E39C8FA2278D596100073C6B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E39C8F9E278D593C00073C6B /* EditableText.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E7BF667C7C23D952394AA9A6 /* Pods */ = {
@@ -184,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */,
+				E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */,
 				E348EB4D27866779009CA251 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,8 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E348EB4B27866774009CA251 /* ContentView.swift in Sources */,
+				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
+				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
+				E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */,
 				E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */,
+				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
+				E33CD12B278D36D700D6420A /* User.swift in Sources */,
+				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
+				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
