@@ -19,6 +19,12 @@
 		E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = E39C8F9A278D53D000073C6B /* amongUsPink.png */; };
 		E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C8F9C278D554E00073C6B /* FriendDetailView.swift */; };
 		E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C8F9E278D593C00073C6B /* EditableText.swift */; };
+		E3CE77BB2790EAA100EEFA6E /* WhoIsCloseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */; };
+		E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */; };
+		E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */; };
+		E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = E3CE77C42791009600EEFA6E /* iPhoneNumberField */; };
+		E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */; };
+		E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +43,11 @@
 		E39C8F9A278D53D000073C6B /* amongUsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amongUsPink.png; sourceTree = "<group>"; };
 		E39C8F9C278D554E00073C6B /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
 		E39C8F9E278D593C00073C6B /* EditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableText.swift; sourceTree = "<group>"; };
+		E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsCloseView.swift; sourceTree = "<group>"; };
+		E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPhoneNumberView.swift; sourceTree = "<group>"; };
+		E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationView.swift; sourceTree = "<group>"; };
+		E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */,
+				E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +156,12 @@
 		E39C8FA0278D594E00073C6B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E3CE77C8279110D100EEFA6E /* SetUp */,
 				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E33CD134278D3AF800D6420A /* FriendListView.swift */,
 				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
+				E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */,
+				E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -165,6 +180,16 @@
 				E39C8F9E278D593C00073C6B /* EditableText.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E3CE77C8279110D100EEFA6E /* SetUp */ = {
+			isa = PBXGroup;
+			children = (
+				E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */,
+				E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */,
+				E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */,
+			);
+			path = SetUp;
 			sourceTree = "<group>";
 		};
 		E7BF667C7C23D952394AA9A6 /* Pods */ = {
@@ -194,6 +219,9 @@
 			dependencies = (
 			);
 			name = FriendSurroundApp;
+			packageProductDependencies = (
+				E3CE77C42791009600EEFA6E /* iPhoneNumberField */,
+			);
 			productName = FriendSurroundApp;
 			productReference = E348EB4527866774009CA251 /* FriendSurroundApp.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +250,9 @@
 				Base,
 			);
 			mainGroup = E348EB3C27866774009CA251;
+			packageReferences = (
+				E3CE77C32791009600EEFA6E /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
+			);
 			productRefGroup = E348EB4627866774009CA251 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,10 +323,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
+				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
+				E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */,
 				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
 				E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */,
+				E3CE77BB2790EAA100EEFA6E /* WhoIsCloseView.swift in Sources */,
 				E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */,
+				E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */,
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
+				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
@@ -503,6 +539,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3CE77C32791009600EEFA6E /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3CE77C42791009600EEFA6E /* iPhoneNumberField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3CE77C32791009600EEFA6E /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
+			productName = iPhoneNumberField;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E348EB3D27866774009CA251 /* Project object */;
 }

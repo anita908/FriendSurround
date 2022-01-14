@@ -1,14 +1,13 @@
 //
-//  FriendListView.swift
+//  WhoIsCloseView.swift
 //  FriendSurroundApp
 //
-//  Created by 吳若瑀 on 1/10/22.
+//  Created by 吳若瑀 on 1/13/22.
 //
 
 import SwiftUI
 
-struct FriendListView: View {
-    
+struct WhoIsCloseView: View {
     @EnvironmentObject var friendViewModel: FriendViewModel
     
     var body: some View {
@@ -39,17 +38,7 @@ struct FriendListView: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Friend List"))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                   addFriend()
-               }, label: {
-                   Image(systemName: "plus")
-                       .imageScale(.large)
-               })
-            }
-        }
+        .navigationBarTitle(Text("Who's close"))
     }
                                 
     private func addFriend(){
@@ -57,8 +46,8 @@ struct FriendListView: View {
     }
 }
 
-struct FriendListView_Previews: PreviewProvider {
+struct WhoIsCloseView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendListView().environmentObject(FriendViewModel())
+        WhoIsCloseView().environmentObject(FriendViewModel())
     }
 }

@@ -41,7 +41,7 @@ struct LoginView: View {
                 Spacer()
                 
                 NavigationLink("Sign In", destination: {
-                    FriendListView()
+                    MenuView()
                 })
                     .font(.headline)
                     .foregroundColor(.white)
