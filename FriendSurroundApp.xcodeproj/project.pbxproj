@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
+		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
+		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
+		E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F4279775F6008C3D9A /* MyAccountView.swift */; };
 		E33CD12B278D36D700D6420A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD12A278D36D600D6420A /* User.swift */; };
 		E33CD12D278D37B000D6420A /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD12C278D37B000D6420A /* FriendList.swift */; };
 		E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CD130278D398E00D6420A /* FriendViewModel.swift */; };
@@ -31,6 +34,9 @@
 		1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
 		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
+		E33334F2279764A7008C3D9A /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
+		E33334F4279775F6008C3D9A /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
 		E33CD12A278D36D600D6420A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E33CD12C278D37B000D6420A /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
 		E33CD130278D398E00D6420A /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
@@ -157,11 +163,13 @@
 			isa = PBXGroup;
 			children = (
 				E3CE77C8279110D100EEFA6E /* SetUp */,
-				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E33CD134278D3AF800D6420A /* FriendListView.swift */,
 				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
-				E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */,
+				E33334F2279764A7008C3D9A /* InviteFriendView.swift */,
+				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */,
+				E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */,
+				E33334F4279775F6008C3D9A /* MyAccountView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */,
 				E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */,
 				E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */,
+				E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */,
 			);
 			path = SetUp;
 			sourceTree = "<group>";
@@ -324,6 +333,8 @@
 			files = (
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
+				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
+				E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */,
 				E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */,
 				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
 				E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */,
@@ -332,6 +343,7 @@
 				E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */,
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
 				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
+				E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,

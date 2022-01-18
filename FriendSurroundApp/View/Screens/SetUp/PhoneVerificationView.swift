@@ -22,12 +22,11 @@ struct PhoneVerificationView: View {
                     .frame(width: 300, height: 100)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.roundedBorder)
-                    .font(.system(size: 22, weight: .bold, design: .default))
+                    .font(.system(size: 26, weight: .bold, design: .default))
                     .padding()
                 
                 Text("Code sent to \(phoneNumber)")
-                
-                Text("change number")
+
             }
             Spacer()
         }

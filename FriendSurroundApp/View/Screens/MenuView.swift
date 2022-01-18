@@ -22,7 +22,7 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("Who's CLose").font(.system(size: 25, weight: .bold, design: .default))
+                                Text("Who's Close").font(.system(size: 25, weight: .bold, design: .default))
                             }
                         }
                         .padding()
@@ -52,7 +52,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: FriendListView())
+                            NavigationLink(destination: InviteFriendView())
                             {
                                 EmptyView()
                             }
@@ -71,7 +71,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: FriendListView())
+                            NavigationLink(destination: MyAccountView())
                             {
                                 EmptyView()
                             }
@@ -87,7 +87,10 @@ struct MenuView: View {
                 }
                 .padding()
             }
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
         }
+        
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

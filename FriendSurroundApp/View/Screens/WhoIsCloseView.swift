@@ -38,11 +38,7 @@ struct WhoIsCloseView: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Who's close"))
-    }
-                                
-    private func addFriend(){
-        friendViewModel.append(User(name: "Anita Wu", phone: 1234567890, connection: "school", email: "anita123123@gmail.com"))
+        .navigationBarTitle("Who's Close", displayMode: .inline)
     }
 }
 

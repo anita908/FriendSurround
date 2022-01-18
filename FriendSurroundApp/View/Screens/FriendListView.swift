@@ -39,21 +39,17 @@ struct FriendListView: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Friend List"))
+        .navigationBarTitle("Friend List", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                   addFriend()
-               }, label: {
-                   Image(systemName: "plus")
-                       .imageScale(.large)
-               })
+                NavigationLink(
+                    destination:
+                        InviteFriendView()
+                ) {
+                    Text("Invite")
+                }
             }
         }
-    }
-                                
-    private func addFriend(){
-        friendViewModel.append(User(name: "Anita Wu", phone: 1234567890, connection: "school", email: "anita123123@gmail.com"))
     }
 }
 
