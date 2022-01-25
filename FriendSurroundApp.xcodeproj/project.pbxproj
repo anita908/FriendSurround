@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C8C1E5927A0A83B00E79CBA /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5827A0A83B00E79CBA /* Contacts.swift */; };
+		2C8C1E5B27A0A8F700E79CBA /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */; };
+		2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */; };
+		2C8C1E5F27A0A9EB00E79CBA /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */; };
 		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
 		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
 		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		2C8C1E5827A0A83B00E79CBA /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
+		2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
+		2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			children = (
 				E33CD12A278D36D600D6420A /* User.swift */,
 				E33CD12C278D37B000D6420A /* FriendList.swift */,
+				2C8C1E5827A0A83B00E79CBA /* Contacts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				E33CD130278D398E00D6420A /* FriendViewModel.swift */,
+				2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				E39C8F9A278D53D000073C6B /* amongUsPink.png */,
+				2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 				E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */,
 				E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */,
 				E33334F4279775F6008C3D9A /* MyAccountView.swift */,
+				2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -331,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8C1E5B27A0A8F700E79CBA /* String+Digits.swift in Sources */,
+				2C8C1E5F27A0A9EB00E79CBA /* ContactsViewModel.swift in Sources */,
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
@@ -341,12 +355,14 @@
 				E3CE77BB2790EAA100EEFA6E /* WhoIsCloseView.swift in Sources */,
 				E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */,
 				E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */,
+				2C8C1E5927A0A83B00E79CBA /* Contacts.swift in Sources */,
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
 				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
 				E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
+				2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
