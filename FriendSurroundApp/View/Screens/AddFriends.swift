@@ -13,27 +13,102 @@ struct AddFriends: View {
     @ObservedObject var contactsApp: Contacts
     
     var body: some View {
+        mass_invite_options
+        contacts
+        Spacer()
+            .navigationTitle("Add Friends")
+    }
+    
+    var mass_invite_options: some View {
+        HStack {
+            NavigationLink("FRIEND REQUEST ALL", destination: {
+            })
+                .font(.system(size: 10, weight: .semibold))
+                .foregroundColor(.black)
+                .frame(width: 100, height: 30)
+                .background(Color(0xFFB186))
+                .cornerRadius(5.0)
+                .shadow(radius: 5.0, x: 10, y: 5)
+                .padding()
+            Spacer()
+            NavigationLink("INVITE ALL CONTACTS", destination: {
+            })
+                .font(.system(size: 10, weight: .semibold))
+                .foregroundColor(.black)
+                .frame(width: 100, height: 30)
+                .background(Color.white)
+                .cornerRadius(5.0)
+                .shadow(radius: 5.0, x: 10, y: 5)
+                .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color(0xFFB186), lineWidth: 2))
+                .padding()
+                
+        }
         
-        ForEach(contactsApp.contacts, id: \.self) { contact in
-            HStack {
-                if contact.profileImage != nil {
-                    Image(uiImage: UIImage(data: contact.profileImage!)!)
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
+    }
+    
+    var contacts: some View {
+        VStack(alignment: .leading){
+            ForEach(contactsApp.contacts, id: \.self) { contact in
+                HStack {
+                    if contact.profileImage != nil {
+                        Image(uiImage: UIImage(data: contact.profileImage!)!)
+                                            .resizable()
+                                            .frame(width: 50, height: 50)
+                    }
+                    else {
+                        Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    }
+                    VStack(alignment: .leading){
+                        Text(contact.fullName)
+                        Text(contact.phoneNumber)
+                    }
+
+                    Spacer()
+                    VStack(alignment: .trailing){
+                        
+                        //Change these if statements when we can distinguish whether user is on the app or not.
+                        if contact.profileImage != nil {
+                            NavigationLink("INVITE TO APP", destination: {
+                            })
+                                .font(.system(size: 10, weight: .semibold))
+                                .foregroundColor(.black)
+                                .frame(width: 85, height: 30)
+                                .background(Color.white)
+                                .cornerRadius(5.0)
+                                .shadow(radius: 5.0, x: 10, y: 5)
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color(0xFFB186), lineWidth: 2))
+                            
+                            
+                        }
+                        else {
+                            NavigationLink("FRIEND REQUEST", destination: {
+                            })
+                                .font(.system(size: 10, weight: .semibold))
+                                .foregroundColor(.black)
+                                .frame(width: 85, height: 30)
+                                .background(Color(0xFFB186))
+                                .cornerRadius(5.0)
+                                .shadow(radius: 5.0, x: 10, y: 5)
+                        }
+                    }
+                
+                    
                 }
-                else {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                }
-                Text(contact.fullName)
-                Text(contact.phoneNumber)
                 
             }
-            
         }
+        .padding()
+        
     }
 }
+
+
 
 struct AddFriends_Previews: PreviewProvider {
     static var previews: some View {

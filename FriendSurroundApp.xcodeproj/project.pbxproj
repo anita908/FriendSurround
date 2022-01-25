@@ -11,6 +11,7 @@
 		2C8C1E5B27A0A8F700E79CBA /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */; };
 		2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */; };
 		2C8C1E5F27A0A9EB00E79CBA /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */; };
+		2C8C1E6127A0B68C00E79CBA /* SwiftUI+HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E6027A0B68C00E79CBA /* SwiftUI+HexColors.swift */; };
 		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
 		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
 		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
@@ -40,6 +41,7 @@
 		2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
 		2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
 		2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
+		2C8C1E6027A0B68C00E79CBA /* SwiftUI+HexColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+HexColors.swift"; sourceTree = "<group>"; };
 		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				E39C8F9A278D53D000073C6B /* amongUsPink.png */,
 				2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */,
+				2C8C1E6027A0B68C00E79CBA /* SwiftUI+HexColors.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */,
 				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
 				E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */,
+				2C8C1E6127A0B68C00E79CBA /* SwiftUI+HexColors.swift in Sources */,
 				E3CE77BB2790EAA100EEFA6E /* WhoIsCloseView.swift in Sources */,
 				E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */,
 				E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */,

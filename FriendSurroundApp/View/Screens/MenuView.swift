@@ -52,7 +52,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: InviteFriendView())
+                            NavigationLink(destination: AddFriends(contactsApp: Contacts()))
                             {
                                 EmptyView()
                             }
