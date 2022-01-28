@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
+    
     var body: some View {
         NavigationView {
             Form {
@@ -22,7 +25,8 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("Who's Close").font(.system(size: 25, weight: .bold, design: .default))
+                                Text("Who's Close").font(.system(size: 25 * scale, weight: .bold, design: .default))
+                                    .accessibilityAddTraits(.isButton)
                             }
                         }
                         .padding()
@@ -41,7 +45,8 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("My Friends").font(.system(size: 25, weight: .bold, design: .default))
+                                Text("My Friends").font(.system(size: 25 * scale, weight: .bold, design: .default))
+                                    .accessibilityAddTraits(.isButton)
                             }
                         }
                         .padding()
@@ -60,7 +65,8 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("Add a friend").font(.system(size: 25, weight: .bold, design: .default))
+                                Text("Add a friend").font(.system(size: 25 * scale, weight: .bold, design: .default))
+                                    .accessibilityAddTraits(.isButton)
                             }
                         }
                         .padding()
@@ -79,7 +85,8 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("My Account").font(.system(size: 25, weight: .bold, design: .default))
+                                Text("My Account").font(.system(size: 25 * scale, weight: .bold, design: .default))
+                                    .accessibilityAddTraits(.isButton)
                             }
                         }
                         .padding()
