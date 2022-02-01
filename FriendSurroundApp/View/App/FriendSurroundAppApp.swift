@@ -12,8 +12,7 @@ struct FriendSurroundAppApp: App {
     var body: some Scene {
         WindowGroup {
 //            MenuView().environmentObject(FriendViewModel())
-//            SetUpPhoneNumberView()
-            notification()
+            SetUpPhoneNumberView()
         }
     }
 }

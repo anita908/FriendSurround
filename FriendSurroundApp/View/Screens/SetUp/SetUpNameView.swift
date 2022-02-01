@@ -18,6 +18,8 @@ struct SetUpNameView: View {
     @State var email: String = ""
     @State private var showTermsAndPrivacyPolicy = false
     @State private var handleNext = false
+    @State private var isShowPhotoLibrary = false
+    @State private var image = UIImage()
     
     var body: some View {
         
@@ -25,54 +27,70 @@ struct SetUpNameView: View {
             MenuView()
         } else {
             VStack {
-                Form {
-                    HStack {
-                        VStack {
-                            Image(systemName: "person")
-                                .resizable()
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .padding()
-                            
-                            Button(action: {}) {
-                                Text("Add Photo")
-                                    .padding()
-                            }
-                            .foregroundColor(.white)
-                            .background(Color.orange)
-                        }
-                        .border(Color.black)
-                        .cornerRadius(5.0)
-                       
-                        VStack {
-                            TextField("First name", text: $firstName)
-                                .padding()
+                Spacer()
+                
+                HStack {
+                    VStack {
+                        Image(uiImage: self.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 90, height: 90, alignment: .center)
+                            .edgesIgnoringSafeArea(.all)
                         
-                            TextField("Last name", text: $lastName)
-                                .padding()
-                        
-                            TextField("Email", text: $email)
+                        Button(action: {
+                            self.isShowPhotoLibrary = true
+                        }) {
+                            Text("Add Photo")
+                                .font(.headline)
                                 .padding()
                         }
+                        .foregroundColor(.white)
+                        .background(Color.orange)
                     }
+                    .border(Color.black)
+                    .cornerRadius(5.0)
+                    .sheet(isPresented: $isShowPhotoLibrary) {
+                        ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
+                    }
+                   
+                    VStack {
+                        TextField("First name", text: $firstName)
+                            .padding()
                     
-                    Button(action: {
-                        showTermsAndPrivacyPolicy = true
-                    }, label: {
-                        (Text("By continuing you agree to our ")
-                            + Text("Terms ")
-                                .foregroundColor(Color.blue)
-                            + Text(" and ")
-                         + Text("Privacy Policy")
-                            .foregroundColor(Color.blue)
-                            )
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(Font.system(size: 14, weight: .medium))
-                            .foregroundColor(Color.black)
-                            .fixedSize(horizontal: false, vertical: true)
-                    })
-                        .padding([.vertical], 10)
+                        TextField("Last name", text: $lastName)
+                            .padding()
+                    
+                        TextField("Email", text: $email)
+                            .padding()
+                    }
                 }
-                 
+                .padding()
+                .padding(.top, -200)
+                
+                Button(action: {
+                    showTermsAndPrivacyPolicy = true
+                }, label: {
+                    (Text("By continuing you agree to our ")
+                        + Text("Terms ")
+                            .foregroundColor(Color.blue)
+                        + Text(" and ")
+                     + Text("Privacy Policy")
+                        .foregroundColor(Color.blue)
+                        )
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(Font.system(size: 14, weight: .medium))
+                        .foregroundColor(Color.black)
+                        .fixedSize(horizontal: false, vertical: true)
+                })
+                .padding([.vertical], 10)
+                .sheet(isPresented: $showTermsAndPrivacyPolicy) {
+                    showTermsAndPrivacyPolicyView(onDismiss: {
+                        showTermsAndPrivacyPolicy = false
+                    })
+                }
+                
+                Spacer()
+                
                 VStack {
                     Button(action: {
                         saveInfo()
@@ -89,13 +107,9 @@ struct SetUpNameView: View {
                 }
                 .padding([.vertical], 10)
             }
-            .sheet(isPresented: $showTermsAndPrivacyPolicy) {
-                showTermsAndPrivacyPolicyView(onDismiss: {
-                    showTermsAndPrivacyPolicy = false
-                })
-            }
         }
     }
+    
     private func saveInfo(){
         friendViewModel.append(User(firstName: firstName, lastName: lastName, phone: phoneNumber, connection: "", email: email, type: 0))
         handleNext = true

@@ -20,6 +20,7 @@
 		E348EB4D27866779009CA251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E348EB4C27866779009CA251 /* Assets.xcassets */; };
 		E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E348EB4F27866779009CA251 /* Preview Assets.xcassets */; };
 		E358A9FD27A9BA65006C6184 /* notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358A9FC27A9BA65006C6184 /* notification.swift */; };
+		E358A9FF27A9E6D8006C6184 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358A9FE27A9E6D8006C6184 /* ImagePicker.swift */; };
 		E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = E39C8F9A278D53D000073C6B /* amongUsPink.png */; };
 		E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C8F9C278D554E00073C6B /* FriendDetailView.swift */; };
 		E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C8F9E278D593C00073C6B /* EditableText.swift */; };
@@ -48,6 +49,7 @@
 		E348EB4C27866779009CA251 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E348EB4F27866779009CA251 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E358A9FC27A9BA65006C6184 /* notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notification.swift; sourceTree = "<group>"; };
+		E358A9FE27A9E6D8006C6184 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E39C8F9A278D53D000073C6B /* amongUsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amongUsPink.png; sourceTree = "<group>"; };
 		E39C8F9C278D554E00073C6B /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
 		E39C8F9E278D593C00073C6B /* EditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableText.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				E39C8F9A278D53D000073C6B /* amongUsPink.png */,
+				E358A9FE27A9E6D8006C6184 /* ImagePicker.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
+				E358A9FF27A9E6D8006C6184 /* ImagePicker.swift in Sources */,
 				E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */,
 				E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */,
 				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
