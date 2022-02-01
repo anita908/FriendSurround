@@ -16,6 +16,7 @@ struct FriendList {
     // MARK: - Initializers
     
     init() {
+        
         if let jsonData = try? Data(contentsOf: fileUrl()),
         let userList = try? JSONDecoder().decode([User].self, from: jsonData) {
             users = userList.sorted(by: compareByName)
@@ -24,25 +25,41 @@ struct FriendList {
     
 //    // MARK: - CRUD operations
 
-    mutating func addFriend(_ user: User) {
+    mutating func addPerson(_ user: User) {
         users.append(user)
     }
-//
-//    mutating func removePushupTally(_ pushupTally: PushupTally) {
-//        if let index =  pushupTallies.firstIndex(where: { pushupTally.id == $0.id }) {
-//            pushupTallies.remove(at: index)
-//        }
-//    }
-//
-//    mutating func remove(at index: Int) {
-//        if index >= 0 && index < pushupTallies.count {
-//            pushupTallies.remove(at: index)
-//        }
-//    }
-//
+    
+    mutating func deleteAccount() {
+        users.removeAll()
+    }
+
     mutating func updateConnection(_ connection: String, for User: User) {
         if let index = users.firstIndex(where: { User.id == $0.id }) {
             users[index].connection = connection
+        }
+    }
+    
+    mutating func updateMyFirstName(_ firstName: String, for User: User) {
+        if let index = users.firstIndex(where: { User.id == $0.id }) {
+            users[index].firstName = firstName
+        }
+    }
+    
+    mutating func updateMyLastName(_ lastName: String, for User: User) {
+        if let index = users.firstIndex(where: { User.id == $0.id }) {
+            users[index].lastName = lastName
+        }
+    }
+    
+    mutating func updateMyEmail(_ email: String, for User: User) {
+        if let index = users.firstIndex(where: { User.id == $0.id }) {
+            users[index].email = email
+        }
+    }
+    
+    mutating func updateMyPhone(_ phone: String, for User: User) {
+        if let index = users.firstIndex(where: { User.id == $0.id }) {
+            users[index].phone = phone
         }
     }
     
@@ -54,7 +71,7 @@ struct FriendList {
 
     // MARK: - Helpers
     private func compareByName(_ user: User, _ otherUser: User) -> Bool {
-        user.name < otherUser.name
+        user.lastName < otherUser.lastName
     }
 
     private func fileUrl() throws -> URL {

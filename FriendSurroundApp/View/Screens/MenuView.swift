@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject var friendViewModel: FriendViewModel
+    
     var body: some View {
-        NavigationView {
             Form {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: WhoIsCloseView())
+                            NavigationLink(destination: WhoIsCloseView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -33,7 +34,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: FriendListView())
+                            NavigationLink(destination: FriendListView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -52,7 +53,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: InviteFriendView())
+                            NavigationLink(destination: InviteFriendView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -71,7 +72,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: MyAccountView())
+                            NavigationLink(destination: MyAccountView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -89,11 +90,6 @@ struct MenuView: View {
             }
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
-        }
-        
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -42,6 +42,9 @@ struct SetUpPhoneNumberView: View {
                     .padding()
             }
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

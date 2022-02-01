@@ -13,7 +13,7 @@ struct PhoneVerificationView: View {
     
     var body: some View {
         if verificationCode == "0000" {
-            SetUpNameView()
+            SetUpNameView(phoneNumber: phoneNumber).environmentObject(FriendViewModel())
        }
         else {
             VStack {

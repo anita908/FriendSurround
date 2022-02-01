@@ -20,7 +20,7 @@ struct InviteFriendView: View {
     }
     
     private func addFriend(){
-        friendViewModel.append(User(name: "Anita Wu", phone: 1234567890, connection: "school", email: "anita123123@gmail.com"))
+        friendViewModel.append(User(firstName: "Anita", lastName: "Wu", phone: "1231231234", connection: "school", email: "anita123123@email.com", type: 1))
     }
 }
 

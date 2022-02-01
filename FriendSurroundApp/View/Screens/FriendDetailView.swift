@@ -35,7 +35,7 @@ struct FriendDetailView: View {
                                 Text("Name")
                                     .layoutPriority(1)
                                 Spacer()
-                                Text(user.name)
+                                Text("\(user.firstName) \(user.lastName)")
                                     .multilineTextAlignment(.trailing)
                             }
                             
@@ -79,12 +79,11 @@ struct FriendDetailView: View {
                 .padding([.vertical], 10)
             }
         }
-        .navigationBarTitle(Text("\(user.name)"), displayMode: .inline)
+        .navigationBarTitle(Text("\(user.firstName) \(user.lastName)"), displayMode: .inline)
         .navigationBarItems(
             trailing: EditButton()
         )
         .environment(\.editMode, $editMode)
-
     }
 }
 
