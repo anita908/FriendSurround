@@ -11,9 +11,9 @@ import SwiftUI
 struct FriendSurroundAppApp: App {
     var body: some Scene {
         WindowGroup {
-//            MenuView().environmentObject(FriendViewModel())
+            MenuView().environmentObject(FriendViewModel())
 //            SetUpPhoneNumberView()
-            notification()
+//            notification()
         }
     }
 }

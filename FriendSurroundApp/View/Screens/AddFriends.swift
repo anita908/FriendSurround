@@ -98,6 +98,7 @@ struct AddFriends: View {
                             }
                         }
                     }
+
                 }
             }
             .padding()
