@@ -45,7 +45,7 @@ struct SetUpNameView: View {
                                 .padding()
                         }
                         .foregroundColor(.white)
-                        .background(Color.orange)
+                        .background(Color(0xFFB186))
                     }
                     .border(Color.black)
                     .cornerRadius(5.0)
@@ -100,7 +100,7 @@ struct SetUpNameView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(width: 300, height: 70)
-                            .background(Color.orange)
+                            .background(Color(0xFFB186))
                             .cornerRadius(15.0)
                             .shadow(radius: 5.0, x: 10, y: 5)
                     })
@@ -111,7 +111,7 @@ struct SetUpNameView: View {
     }
     
     private func saveInfo(){
-        friendViewModel.append(User(firstName: firstName, lastName: lastName, phone: phoneNumber, connection: "", email: email, type: 0))
+        friendViewModel.append(User(firstName: firstName, lastName: lastName, phone: phoneNumber, connection: "", email: email, type: 0, isFollow: false))
         handleNext = true
     }
 }

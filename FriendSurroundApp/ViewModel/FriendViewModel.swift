@@ -25,6 +25,11 @@ class FriendViewModel: ObservableObject {
         save()
     }
     
+    func removeFriend(at index: Int) {
+        friendList.remove(at: index)
+        save()
+    }
+    
     func deleteAccount() {
         friendList.deleteAccount()
         save()
@@ -52,6 +57,11 @@ class FriendViewModel: ObservableObject {
     
     func updateMyPhone(phone: String, for user: User) {
         friendList.updateMyPhone(phone, for: user)
+        save()
+    }
+    
+    func updateFollow(isFollow: Bool, for user: User) {
+        friendList.updateFollow(isFollow, for: user)
         save()
     }
     

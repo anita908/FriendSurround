@@ -30,6 +30,11 @@
 		E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = E3CE77C42791009600EEFA6E /* iPhoneNumberField */; };
 		E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */; };
 		E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */; };
+		E3D56C2B27B2EB29005213B6 /* SwiftUI+HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */; };
+		E3D56C2D27B2EB38005213B6 /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C2C27B2EB38005213B6 /* String+Digits.swift */; };
+		E3D56C2F27B2EC09005213B6 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C2E27B2EC09005213B6 /* Contacts.swift */; };
+		E3D56C3127B2EC1A005213B6 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */; };
+		E3D56C3327B2EC25005213B6 /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C3227B2EC25005213B6 /* AddFriends.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,11 @@
 		E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPhoneNumberView.swift; sourceTree = "<group>"; };
 		E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationView.swift; sourceTree = "<group>"; };
 		E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNameView.swift; sourceTree = "<group>"; };
+		E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI+HexColors.swift"; sourceTree = "<group>"; };
+		E3D56C2C27B2EB38005213B6 /* String+Digits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
+		E3D56C2E27B2EC09005213B6 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
+		E3D56C3227B2EC25005213B6 /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +133,9 @@
 		E37780EF2787A80C0018A1C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E33CD12A278D36D600D6420A /* User.swift */,
+				E3D56C2E27B2EC09005213B6 /* Contacts.swift */,
 				E33CD12C278D37B000D6420A /* FriendList.swift */,
+				E33CD12A278D36D600D6420A /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +161,7 @@
 		E37780F22787A8280018A1C5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */,
 				E33CD130278D398E00D6420A /* FriendViewModel.swift */,
 			);
 			path = ViewModel;
@@ -160,6 +172,8 @@
 			children = (
 				E39C8F9A278D53D000073C6B /* amongUsPink.png */,
 				E358A9FE27A9E6D8006C6184 /* ImagePicker.swift */,
+				E3D56C2C27B2EB38005213B6 /* String+Digits.swift */,
+				E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -168,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				E3CE77C8279110D100EEFA6E /* SetUp */,
+				E3D56C3227B2EC25005213B6 /* AddFriends.swift */,
 				E33CD134278D3AF800D6420A /* FriendListView.swift */,
 				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
 				E33334F2279764A7008C3D9A /* InviteFriendView.swift */,
@@ -339,6 +354,7 @@
 			files = (
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
+				E3D56C3327B2EC25005213B6 /* AddFriends.swift in Sources */,
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
 				E358A9FF27A9E6D8006C6184 /* ImagePicker.swift in Sources */,
 				E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */,
@@ -352,9 +368,13 @@
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
 				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
 				E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */,
+				E3D56C2B27B2EB29005213B6 /* SwiftUI+HexColors.swift in Sources */,
+				E3D56C2D27B2EB38005213B6 /* String+Digits.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
+				E3D56C3127B2EC1A005213B6 /* ContactsViewModel.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
+				E3D56C2F27B2EC09005213B6 /* Contacts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +508,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FriendSurroundApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSContactsUsageDescription = "Allow contact access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -518,6 +539,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FriendSurroundApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSContactsUsageDescription = "Allow contact access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

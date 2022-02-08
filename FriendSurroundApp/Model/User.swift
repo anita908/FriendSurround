@@ -15,4 +15,5 @@ struct User: Identifiable, Codable {
     var connection: String
     var email: String
     var type: Int
+    var isFollow: Bool
 }

@@ -29,6 +29,12 @@ struct FriendList {
         users.append(user)
     }
     
+    mutating func remove(at index: Int) {
+        if index >= 0 && index < users.count {
+            users.remove(at: index)
+        }
+    }
+    
     mutating func deleteAccount() {
         users.removeAll()
     }
@@ -60,6 +66,12 @@ struct FriendList {
     mutating func updateMyPhone(_ phone: String, for User: User) {
         if let index = users.firstIndex(where: { User.id == $0.id }) {
             users[index].phone = phone
+        }
+    }
+    
+    mutating func updateFollow(_ isFollow: Bool, for User: User) {
+        if let index = users.firstIndex(where: { User.id == $0.id }) {
+            users[index].isFollow = isFollow
         }
     }
     

@@ -13,7 +13,6 @@ struct FriendDetailView: View {
     
     @EnvironmentObject var friendViewModel: FriendViewModel
     @State private var editMode: EditMode = .inactive
-
     
     var body: some View {
         NavigationView {
@@ -27,7 +26,6 @@ struct FriendDetailView: View {
                             .padding()
                         Spacer()
                     }
-//                    .frame(width: 100, height: 100)
                     
                     Section {
                         List {
@@ -55,28 +53,50 @@ struct FriendDetailView: View {
                     }
                 }
                 
-                VStack{
-                    NavigationLink("Call", destination: {
-                    })
-                        .font(.system(size: 35, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 300, height: 70)
-                        .background(Color.orange)
-                        .cornerRadius(15.0)
-                        .shadow(radius: 5.0, x: 10, y: 5)
-                        .padding()
-                    
-                    NavigationLink("Text", destination: {
-                    })
-                        .font(.system(size: 35, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 300, height: 70)
-                        .background(Color.orange)
-                        .cornerRadius(15.0)
-                        .shadow(radius: 5.0, x: 10, y: 5)
-                        .padding()
+                if editMode.isEditing {
+                    Button(action: {
+                        friendViewModel.updateFollow(isFollow: !user.isFollow, for: user)
+                    }) {
+                        if user.isFollow {
+                            Text("UNFOLLOW")
+                                .font(.headline)
+                                .padding()
+                        } else {
+                            Text("FOLLOW")
+                                .font(.headline)
+                        }
+                    }
+                    .font(.system(size: 35, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 70)
+                    .background(Color(0xFFB186))
+                    .cornerRadius(15.0)
+                    .shadow(radius: 5.0, x: 10, y: 5)
+                    .padding()
+                } else {
+                    VStack{
+                        NavigationLink("CALL", destination: {
+                        })
+                            .font(.system(size: 35, weight: .semibold))
+                            .foregroundColor(.white)
+                            .frame(width: 300, height: 70)
+                            .background(Color(0xFFB186))
+                            .cornerRadius(15.0)
+                            .shadow(radius: 5.0, x: 10, y: 5)
+                            .padding()
+                        
+                        NavigationLink("TEXT", destination: {
+                        })
+                            .font(.system(size: 35, weight: .semibold))
+                            .foregroundColor(.white)
+                            .frame(width: 300, height: 70)
+                            .background(Color(0xFFB186))
+                            .cornerRadius(15.0)
+                            .shadow(radius: 5.0, x: 10, y: 5)
+                            .padding()
+                    }
+                    .padding([.vertical], 10)
                 }
-                .padding([.vertical], 10)
             }
         }
         .navigationBarTitle(Text("\(user.firstName) \(user.lastName)"), displayMode: .inline)

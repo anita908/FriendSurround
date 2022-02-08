@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var friendViewModel: FriendViewModel
+    @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     var body: some View {
             Form {
@@ -53,7 +54,8 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: InviteFriendView().environmentObject(FriendViewModel()))
+                            NavigationLink(destination: AddFriends(contactsApp: Contacts()))
+//                            NavigationLink(destination: InviteFriendView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }

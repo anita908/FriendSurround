@@ -19,7 +19,7 @@ struct FriendListView: View {
                         if user.type == 1 {
                             NavigationLink(
                                 destination:
-                                    FriendDetailView(user:user)
+                                    FriendDetailView(user:user).environmentObject(FriendViewModel())
                             ) {
                                 HStack {
                                     Image(systemName: "person")
@@ -37,6 +37,9 @@ struct FriendListView: View {
                             }
                             .padding()
                         }
+                    }
+                    .onDelete{ IndexSet in
+                        IndexSet.forEach { friendViewModel.removeFriend(at: $0) }
                     }
                 }
             }

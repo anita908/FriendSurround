@@ -90,7 +90,7 @@ struct MyAccountView: View {
                                         .font(.system(size: 25, weight: .semibold))
                                         .foregroundColor(.white)
                                         .frame(width: 300, height: 70)
-                                        .background(Color.orange)
+                                        .background(Color(0xFFB186))
                                         .cornerRadius(15.0)
                                         .shadow(radius: 5.0, x: 10, y: 5)
                                         .padding()
