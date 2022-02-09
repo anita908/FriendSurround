@@ -62,7 +62,6 @@ struct ContactsApp {
             
             contacts.append(contact)
         }
-        print(contacts)
         return contacts
     }
     

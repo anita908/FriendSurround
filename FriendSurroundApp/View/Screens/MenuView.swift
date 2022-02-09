@@ -4,10 +4,13 @@
 //
 //  Created by 吳若瑀 on 1/13/22.
 //
-
+import Amplify
 import SwiftUI
 
 struct MenuView: View {
+    
+    let user: AuthUser
+    @EnvironmentObject var sessionManager: SessionManager
     
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
@@ -105,7 +108,12 @@ struct MenuView: View {
 }
 
 struct MenuView_Previews: PreviewProvider {
+    private struct DummyUser: AuthUser {
+        let userId: String = "1"
+        let username: String = "dummy"
+    }
+    
     static var previews: some View {
-        MenuView()
+        MenuView(user: DummyUser())
     }
 }

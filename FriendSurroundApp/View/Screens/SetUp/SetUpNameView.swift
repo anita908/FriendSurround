@@ -11,8 +11,12 @@ import GRDB
 struct SetUpNameView: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
+    @State var username: String = ""
+    @State var password: String = ""
     @State var email: String = ""
+    @State var phone: String = ""
     @State private var showTermsAndPrivacyPolicy = false
+    @EnvironmentObject var sessionManager: SessionManager
     
     var body: some View {
         VStack {
@@ -37,11 +41,17 @@ struct SetUpNameView: View {
                     VStack {
                         TextField("First name", text: $firstName)
                             .padding()
-                    
                         TextField("Last name", text: $lastName)
                             .padding()
-                    
+                        TextField("Username", text: $username)
+                            .padding()
+                            .autocapitalization(.none)
+                        SecureField("Password", text: $password)
+                            .padding()
                         TextField("Email", text: $email)
+                            .padding()
+                            .autocapitalization(.none)
+                        TextField("Phone", text: $phone)
                             .padding()
                     }
                 }
@@ -62,11 +72,27 @@ struct SetUpNameView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 })
                     .padding([.vertical], 10)
+                
             }
-             
+            
+            
             VStack {
-                NavigationLink("Next", destination: {
-                    MenuView().environmentObject(FriendViewModel())
+                HStack{
+                    Text("Already have an account? ")
+                    Button(action: {sessionManager.showLogin()}){
+                        Text("Log in")
+                    }
+                }
+                
+                Button("Sign Up", action: {
+                    sessionManager.signUp(
+                        username: username,
+                        phoneNumber: phone,
+                        email: email,
+                        password: password,
+                        firstname: firstName,
+                        lastname: lastName)
+//                    MenuView().environmentObject(FriendViewModel())
                 })
                     .font(.headline)
                     .foregroundColor(.white)
@@ -77,6 +103,8 @@ struct SetUpNameView: View {
                     .shadow(radius: 5.0, x: 10, y: 5)
             }
             .padding([.vertical], 10)
+            Text("\(sessionManager.errorMessage)")
+                .foregroundColor(Color.red)
             
         }
         .sheet(isPresented: $showTermsAndPrivacyPolicy) {
