@@ -4,18 +4,11 @@
 //
 //  Created by 吳若瑀 on 1/13/22.
 //
-import Amplify
+
 import SwiftUI
 
 struct MenuView: View {
-<<<<<<< HEAD
-    
-    let user: AuthUser
-    @EnvironmentObject var sessionManager: SessionManager
-    
-=======
     @EnvironmentObject var friendViewModel: FriendViewModel
->>>>>>> origin/Anita05
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     var body: some View {
@@ -31,8 +24,7 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("Who's Close").font(.system(size: 25 * scale, weight: .bold, design: .default))
-                                    .accessibilityAddTraits(.isButton)
+                                Text("Who's Close").font(.system(size: 25, weight: .bold, design: .default))
                             }
                         }
                         .padding()
@@ -51,8 +43,7 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("My Friends").font(.system(size: 25 * scale, weight: .bold, design: .default))
-                                    .accessibilityAddTraits(.isButton)
+                                Text("My Friends").font(.system(size: 25, weight: .bold, design: .default))
                             }
                         }
                         .padding()
@@ -64,10 +55,7 @@ struct MenuView: View {
                     List {
                         ZStack {
                             NavigationLink(destination: AddFriends(contactsApp: Contacts()))
-<<<<<<< HEAD
-=======
 //                            NavigationLink(destination: InviteFriendView().environmentObject(FriendViewModel()))
->>>>>>> origin/Anita05
                             {
                                 EmptyView()
                             }
@@ -75,8 +63,7 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("Add a friend").font(.system(size: 25 * scale, weight: .bold, design: .default))
-                                    .accessibilityAddTraits(.isButton)
+                                Text("Add a friend").font(.system(size: 25, weight: .bold, design: .default))
                             }
                         }
                         .padding()
@@ -95,17 +82,13 @@ struct MenuView: View {
                             .buttonStyle(PlainButtonStyle())
                             
                             HStack {
-                                Text("My Account").font(.system(size: 25 * scale, weight: .bold, design: .default))
-                                    .accessibilityAddTraits(.isButton)
+                                Text("My Account").font(.system(size: 25, weight: .bold, design: .default))
                             }
                         }
                         .padding()
                     }
-                    
                 }
                 .padding()
-            
-                Button("Sign Out", action: sessionManager.signOut)
             }
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
@@ -113,12 +96,7 @@ struct MenuView: View {
 }
 
 struct MenuView_Previews: PreviewProvider {
-    private struct DummyUser: AuthUser {
-        let userId: String = "1"
-        let username: String = "dummy"
-    }
-    
     static var previews: some View {
-        MenuView(user: DummyUser())
+        MenuView()
     }
 }

@@ -7,16 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C69A23427ACB8300044F5B0 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C69A23327ACB82F0044F5B0 /* amplifyconfiguration.json */; };
-		2C69A23727ACC4BB0044F5B0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23627ACC4BB0044F5B0 /* AuthService.swift */; };
-		2C69A23927AF51C60044F5B0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23827AF51C60044F5B0 /* SessionManager.swift */; };
-		2C69A23B27AF70F20044F5B0 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23A27AF70F20044F5B0 /* ConfirmationView.swift */; };
-		2C8C1E5927A0A83B00E79CBA /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5827A0A83B00E79CBA /* Contacts.swift */; };
-		2C8C1E5B27A0A8F700E79CBA /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */; };
-		2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */; };
-		2C8C1E5F27A0A9EB00E79CBA /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */; };
-		2C8C1E6127A0B68C00E79CBA /* SwiftUI+HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E6027A0B68C00E79CBA /* SwiftUI+HexColors.swift */; };
-		301B271638B4B0D2EAE19F29 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B7B623B5FCD977054300FD /* Pods_FriendSurroundApp.framework */; };
+		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
 		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
 		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
 		E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F4279775F6008C3D9A /* MyAccountView.swift */; };
@@ -38,33 +29,18 @@
 		E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */; };
 		E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = E3CE77C42791009600EEFA6E /* iPhoneNumberField */; };
 		E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */; };
-<<<<<<< HEAD
-		E3CE77CA2791110F00EEFA6E /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C92791110F00EEFA6E /* SignUp.swift */; };
-=======
 		E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */; };
 		E3D56C2B27B2EB29005213B6 /* SwiftUI+HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */; };
 		E3D56C2D27B2EB38005213B6 /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C2C27B2EB38005213B6 /* String+Digits.swift */; };
 		E3D56C2F27B2EC09005213B6 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C2E27B2EC09005213B6 /* Contacts.swift */; };
 		E3D56C3127B2EC1A005213B6 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */; };
 		E3D56C3327B2EC25005213B6 /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D56C3227B2EC25005213B6 /* AddFriends.swift */; };
->>>>>>> origin/Anita05
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01F908B012551801B8BBD5AA /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
-		2C69A23327ACB82F0044F5B0 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
-		2C69A23527ACBA300044F5B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		2C69A23627ACC4BB0044F5B0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		2C69A23827AF51C60044F5B0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		2C69A23A27AF70F20044F5B0 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
-		2C8C1E5827A0A83B00E79CBA /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
-		2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
-		2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
-		2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
-		2C8C1E6027A0B68C00E79CBA /* SwiftUI+HexColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+HexColors.swift"; sourceTree = "<group>"; };
-		2C8C1E6527A9F6CF00E79CBA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
-		75B7B623B5FCD977054300FD /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDC988E95358B1C2FE545053 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
 		E33334F2279764A7008C3D9A /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
 		E33334F4279775F6008C3D9A /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
@@ -86,16 +62,12 @@
 		E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPhoneNumberView.swift; sourceTree = "<group>"; };
 		E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		E3CE77C92791110F00EEFA6E /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
-=======
 		E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNameView.swift; sourceTree = "<group>"; };
 		E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI+HexColors.swift"; sourceTree = "<group>"; };
 		E3D56C2C27B2EB38005213B6 /* String+Digits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
 		E3D56C2E27B2EC09005213B6 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		E3D56C3227B2EC25005213B6 /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
->>>>>>> origin/Anita05
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,18 +75,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */,
 				E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */,
-				301B271638B4B0D2EAE19F29 /* Pods_FriendSurroundApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		75D21686EBFD2F41EB4B99A3 /* Frameworks */ = {
+		E3132310454A7BD8ACB385FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				75B7B623B5FCD977054300FD /* Pods_FriendSurroundApp.framework */,
+				CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,7 +97,7 @@
 				E348EB4727866774009CA251 /* FriendSurroundApp */,
 				E348EB4627866774009CA251 /* Products */,
 				E7BF667C7C23D952394AA9A6 /* Pods */,
-				75D21686EBFD2F41EB4B99A3 /* Frameworks */,
+				E3132310454A7BD8ACB385FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,9 +112,6 @@
 		E348EB4727866774009CA251 /* FriendSurroundApp */ = {
 			isa = PBXGroup;
 			children = (
-				2C69A23527ACBA300044F5B0 /* Info.plist */,
-				2C69A23327ACB82F0044F5B0 /* amplifyconfiguration.json */,
-				2C8C1E6527A9F6CF00E79CBA /* awsconfiguration.json */,
 				E37780EF2787A80C0018A1C5 /* Model */,
 				E37780F02787A8150018A1C5 /* Resources */,
 				E39C8F99278D539800073C6B /* Utility */,
@@ -166,11 +135,7 @@
 			children = (
 				E3D56C2E27B2EC09005213B6 /* Contacts.swift */,
 				E33CD12C278D37B000D6420A /* FriendList.swift */,
-<<<<<<< HEAD
-				2C8C1E5827A0A83B00E79CBA /* Contacts.swift */,
-=======
 				E33CD12A278D36D600D6420A /* User.swift */,
->>>>>>> origin/Anita05
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,9 +163,6 @@
 			children = (
 				E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */,
 				E33CD130278D398E00D6420A /* FriendViewModel.swift */,
-				2C8C1E5E27A0A9EB00E79CBA /* ContactsViewModel.swift */,
-				2C69A23627ACC4BB0044F5B0 /* AuthService.swift */,
-				2C69A23827AF51C60044F5B0 /* SessionManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,14 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				E39C8F9A278D53D000073C6B /* amongUsPink.png */,
-<<<<<<< HEAD
-				2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */,
-				2C8C1E6027A0B68C00E79CBA /* SwiftUI+HexColors.swift */,
-=======
 				E358A9FE27A9E6D8006C6184 /* ImagePicker.swift */,
 				E3D56C2C27B2EB38005213B6 /* String+Digits.swift */,
 				E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */,
->>>>>>> origin/Anita05
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -224,19 +181,15 @@
 		E39C8FA0278D594E00073C6B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				E3CE77C8279110D100EEFA6E /* Authentication */,
-=======
 				E3CE77C8279110D100EEFA6E /* SetUp */,
 				E3D56C3227B2EC25005213B6 /* AddFriends.swift */,
->>>>>>> origin/Anita05
 				E33CD134278D3AF800D6420A /* FriendListView.swift */,
 				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
 				E33334F2279764A7008C3D9A /* InviteFriendView.swift */,
+				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */,
 				E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */,
 				E33334F4279775F6008C3D9A /* MyAccountView.swift */,
-				2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -258,24 +211,22 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		E3CE77C8279110D100EEFA6E /* Authentication */ = {
+		E3CE77C8279110D100EEFA6E /* SetUp */ = {
 			isa = PBXGroup;
 			children = (
-				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */,
-				2C69A23A27AF70F20044F5B0 /* ConfirmationView.swift */,
 				E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */,
-				E3CE77C92791110F00EEFA6E /* SignUp.swift */,
+				E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */,
 				E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */,
 			);
-			path = Authentication;
+			path = SetUp;
 			sourceTree = "<group>";
 		};
 		E7BF667C7C23D952394AA9A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				01F908B012551801B8BBD5AA /* Pods-FriendSurroundApp.debug.xcconfig */,
-				CDC988E95358B1C2FE545053 /* Pods-FriendSurroundApp.release.xcconfig */,
+				35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */,
+				1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -287,11 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E348EB5327866779009CA251 /* Build configuration list for PBXNativeTarget "FriendSurroundApp" */;
 			buildPhases = (
-				7A5E620D5CE5889B8D88BDF4 /* [CP] Check Pods Manifest.lock */,
+				749D925F25A07C8EDD64C92C /* [CP] Check Pods Manifest.lock */,
 				E348EB4127866774009CA251 /* Sources */,
 				E348EB4227866774009CA251 /* Frameworks */,
 				E348EB4327866774009CA251 /* Resources */,
-				1DEE097056EC81DD2E6507D6 /* [CP] Embed Pods Frameworks */,
+				69053F6BE9119FD7F39C52A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -349,14 +300,13 @@
 				E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */,
 				E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */,
 				E348EB4D27866779009CA251 /* Assets.xcassets in Resources */,
-				2C69A23427ACB8300044F5B0 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1DEE097056EC81DD2E6507D6 /* [CP] Embed Pods Frameworks */ = {
+		69053F6BE9119FD7F39C52A8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,7 +323,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7A5E620D5CE5889B8D88BDF4 /* [CP] Check Pods Manifest.lock */ = {
+		749D925F25A07C8EDD64C92C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,43 +352,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8C1E5B27A0A8F700E79CBA /* String+Digits.swift in Sources */,
-				2C69A23927AF51C60044F5B0 /* SessionManager.swift in Sources */,
-				2C8C1E5F27A0A9EB00E79CBA /* ContactsViewModel.swift in Sources */,
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
 				E3D56C3327B2EC25005213B6 /* AddFriends.swift in Sources */,
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
-<<<<<<< HEAD
-				2C69A23727ACC4BB0044F5B0 /* AuthService.swift in Sources */,
-=======
 				E358A9FF27A9E6D8006C6184 /* ImagePicker.swift in Sources */,
->>>>>>> origin/Anita05
 				E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */,
-				E3CE77CA2791110F00EEFA6E /* SignUp.swift in Sources */,
+				E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */,
 				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
 				E358A9FD27A9BA65006C6184 /* notification.swift in Sources */,
 				E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */,
-				2C8C1E6127A0B68C00E79CBA /* SwiftUI+HexColors.swift in Sources */,
 				E3CE77BB2790EAA100EEFA6E /* WhoIsCloseView.swift in Sources */,
 				E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */,
 				E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */,
-				2C8C1E5927A0A83B00E79CBA /* Contacts.swift in Sources */,
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
 				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
 				E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */,
 				E3D56C2B27B2EB29005213B6 /* SwiftUI+HexColors.swift in Sources */,
 				E3D56C2D27B2EB38005213B6 /* String+Digits.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
-				2C69A23B27AF70F20044F5B0 /* ConfirmationView.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
 				E3D56C3127B2EC1A005213B6 /* ContactsViewModel.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
-<<<<<<< HEAD
-				2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */,
-=======
 				E3D56C2F27B2EC09005213B6 /* Contacts.swift in Sources */,
->>>>>>> origin/Anita05
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +499,7 @@
 		};
 		E348EB5427866779009CA251 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01F908B012551801B8BBD5AA /* Pods-FriendSurroundApp.debug.xcconfig */;
+			baseConfigurationReference = 35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -572,18 +508,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FriendSurroundApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-<<<<<<< HEAD
-				INFOPLIST_FILE = FriendSurroundApp/Info.plist;
-				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
-=======
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow contact access";
->>>>>>> origin/Anita05
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +530,7 @@
 		};
 		E348EB5527866779009CA251 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDC988E95358B1C2FE545053 /* Pods-FriendSurroundApp.release.xcconfig */;
+			baseConfigurationReference = 1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -608,18 +539,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FriendSurroundApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-<<<<<<< HEAD
-				INFOPLIST_FILE = FriendSurroundApp/Info.plist;
-				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
-=======
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow contact access";
->>>>>>> origin/Anita05
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
