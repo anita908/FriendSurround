@@ -20,7 +20,7 @@ struct LoginView: View {
                 VStack {
                     Button("Sign Out", action: sessionManager.signOut)
                     Text("FriendSurround")
-                        .font(.largeTitle).foregroundColor(Color.orange)
+                        .font(.largeTitle).foregroundColor(Color(0xFFB186))
                         .padding([.top, .bottom], 40)
                 }
                 
@@ -54,7 +54,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 300, height: 50)
-                    .background(Color.orange)
+                    .background(Color(0xFFB186))
                     .cornerRadius(15.0)
                     .shadow(radius: 5.0, x: 10, y: 5)
 

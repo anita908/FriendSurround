@@ -22,7 +22,7 @@ struct SetUpPhoneNumberView: View {
                     .foregroundColor(Color.pink)
                     .clearButtonMode(.whileEditing)
                     .onClear { _ in isEditing.toggle() }
-                    .accentColor(Color.orange)
+                    .accentColor(Color(0xFFB186))
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
@@ -33,7 +33,7 @@ struct SetUpPhoneNumberView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(width: 300, height: 70)
-                        .background(Color.orange)
+                        .background(Color(0xFFB186))
                         .cornerRadius(15.0)
                         .shadow(radius: 5.0, x: 10, y: 5)
                         .padding()
@@ -42,6 +42,9 @@ struct SetUpPhoneNumberView: View {
                     .padding()
             }
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

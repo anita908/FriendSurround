@@ -16,25 +16,30 @@ struct FriendListView: View {
             Section {
                 List {
                     ForEach(friendViewModel.users) { user in
-                        NavigationLink(
-                            destination:
-                                FriendDetailView(user:user)
-                        ) {
-                            HStack {
-                                Image(systemName: "person")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                Spacer()
-                                VStack {
-                                    Text("\(user.name)")
-                                        .layoutPriority(1)
-                                    Text("From \(user.connection)")
-                                        .layoutPriority(1)
+                        if user.type == 1 {
+                            NavigationLink(
+                                destination:
+                                    FriendDetailView(user:user).environmentObject(FriendViewModel())
+                            ) {
+                                HStack {
+                                    Image(systemName: "person")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                    Spacer()
+                                    VStack {
+                                        Text("\(user.firstName) \(user.lastName)")
+                                            .layoutPriority(1)
+                                        Text("From \(user.connection)")
+                                            .layoutPriority(1)
+                                    }
+                                    Spacer()
                                 }
-                                Spacer()
                             }
+                            .padding()
                         }
-                        .padding()
+                    }
+                    .onDelete{ IndexSet in
+                        IndexSet.forEach { friendViewModel.removeFriend(at: $0) }
                     }
                 }
             }
@@ -44,7 +49,7 @@ struct FriendListView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(
                     destination:
-                        InviteFriendView()
+                        InviteFriendView().environmentObject(FriendViewModel())
                 ) {
                     Text("Invite")
                 }

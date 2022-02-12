@@ -22,6 +22,7 @@ struct FriendSurroundAppApp: App {
     
     var body: some Scene {
         WindowGroup {
+<<<<<<< HEAD
             switch sessionManager.authState {
             case .login:
                 LoginView()
@@ -52,6 +53,11 @@ struct FriendSurroundAppApp: App {
             print("Configured Amplify Successfully!")
         } catch {
             print("Failed to configure Amplify 😢")
+=======
+//            MenuView().environmentObject(FriendViewModel())
+            SetUpPhoneNumberView()
+//            notification()
+>>>>>>> origin/Anita05
         }
     }
 }

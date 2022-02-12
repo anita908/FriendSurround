@@ -13,7 +13,11 @@ struct PhoneVerificationView: View {
     
     var body: some View {
         if verificationCode == "0000" {
+<<<<<<< HEAD:FriendSurroundApp/View/Screens/Authentication/PhoneVerificationView.swift
             SignUpView()
+=======
+            SetUpNameView(phoneNumber: phoneNumber).environmentObject(FriendViewModel())
+>>>>>>> origin/Anita05:FriendSurroundApp/View/Screens/SetUp/PhoneVerificationView.swift
        }
         else {
             VStack {

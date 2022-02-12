@@ -12,15 +12,15 @@ struct InviteFriendView: View {
 
     var body: some View {
         Button(action: {
-           addFriend()
+            addFriend(friendViewModel.users.count)
        }, label: {
            Text("Invite")
        })
 
     }
     
-    private func addFriend(){
-        friendViewModel.append(User(name: "Anita Wu", phone: 1234567890, connection: "school", email: "anita123123@gmail.com"))
+    private func addFriend(_ count: Int){
+        friendViewModel.append(User(firstName: "Anita\(count+1)", lastName: "Wu", phone: "1231231234", connection: "school", email: "anita123123@email.com", type: 1, isFollow: true))
     }
 }
 

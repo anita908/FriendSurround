@@ -8,19 +8,22 @@ import Amplify
 import SwiftUI
 
 struct MenuView: View {
+<<<<<<< HEAD
     
     let user: AuthUser
     @EnvironmentObject var sessionManager: SessionManager
     
+=======
+    @EnvironmentObject var friendViewModel: FriendViewModel
+>>>>>>> origin/Anita05
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     var body: some View {
-        NavigationView {
             Form {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: WhoIsCloseView())
+                            NavigationLink(destination: WhoIsCloseView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -40,7 +43,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: FriendListView())
+                            NavigationLink(destination: FriendListView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -61,6 +64,10 @@ struct MenuView: View {
                     List {
                         ZStack {
                             NavigationLink(destination: AddFriends(contactsApp: Contacts()))
+<<<<<<< HEAD
+=======
+//                            NavigationLink(destination: InviteFriendView().environmentObject(FriendViewModel()))
+>>>>>>> origin/Anita05
                             {
                                 EmptyView()
                             }
@@ -80,7 +87,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: MyAccountView())
+                            NavigationLink(destination: MyAccountView().environmentObject(FriendViewModel()))
                             {
                                 EmptyView()
                             }
@@ -102,11 +109,6 @@ struct MenuView: View {
             }
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
-        }
-        
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
     }
 }
 

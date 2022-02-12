@@ -21,12 +21,47 @@ class FriendViewModel: ObservableObject {
     // MARK: - User Intents
     
     func append(_ user: User) {
-        friendList.addFriend(user)
+        friendList.addPerson(user)
+        save()
+    }
+    
+    func removeFriend(at index: Int) {
+        friendList.remove(at: index)
+        save()
+    }
+    
+    func deleteAccount() {
+        friendList.deleteAccount()
         save()
     }
     
     func updateConnection(connection: String, for user: User) {
         friendList.updateConnection(connection, for: user)
+        save()
+    }
+    
+    func updateMyFirstName(firstName: String, for user: User) {
+        friendList.updateMyFirstName(firstName, for: user)
+        save()
+    }
+    
+    func updateMyLastName(lastName: String, for user: User) {
+        friendList.updateMyLastName(lastName, for: user)
+        save()
+    }
+    
+    func updateMyEmail(email: String, for user: User) {
+        friendList.updateMyEmail(email, for: user)
+        save()
+    }
+    
+    func updateMyPhone(phone: String, for user: User) {
+        friendList.updateMyPhone(phone, for: user)
+        save()
+    }
+    
+    func updateFollow(isFollow: Bool, for user: User) {
+        friendList.updateFollow(isFollow, for: user)
         save()
     }
     
