@@ -13,12 +13,7 @@
     },
     "categories": {
       "auth": {
-        "friendsurroundbcd3640c": {
-          "userPoolId": "us-east-1_aD0UCmAxq",
-          "userPoolName": "FriendSurroundUsers",
-          "webClientId": "1av4vm00i7ke2l2ebjno8qief9",
-          "nativeClientId": "22aniam4kl9i6lopcsgrrator5"
-        }
+        "friendsurrounda067a608": {}
       }
     }
   }

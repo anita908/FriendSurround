@@ -1,11 +1,28 @@
 {
   "auth": {
-    "friendsurroundbcd3640c": {
+    "friendsurrounda067a608": {
       "service": "Cognito",
-      "serviceType": "imported",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
-      "customAuth": false
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      }
     }
   }
 }

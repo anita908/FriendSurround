@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmailVerificationView: View {
+struct ConfirmationView: View {
     
     @State var verificationCode: String = ""
     
@@ -17,7 +17,7 @@ struct EmailVerificationView: View {
     var email: String
     var body: some View {
         if verificationCode == "0000" {
-            SetUpNameView()
+            SignUpView()
        }
         else {
             VStack {
@@ -53,7 +53,7 @@ struct EmailVerificationView: View {
 
 struct EmailVerificationView_Previews: PreviewProvider {
     static var previews: some View {
-        EmailVerificationView(username: "user", email: "friendsurround@gmail.com")
+        ConfirmationView(username: "user", email: "friendsurround@gmail.com")
     }
 }
 

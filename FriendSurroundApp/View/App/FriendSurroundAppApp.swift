@@ -17,6 +17,7 @@ struct FriendSurroundAppApp: App {
     
     init(){
         configureAmplify()
+        sessionManager.getCurrentAuthUser()
     }
     
     var body: some Scene {
@@ -26,18 +27,15 @@ struct FriendSurroundAppApp: App {
                 LoginView()
                     .environmentObject(sessionManager)
             case .signUp:
-                SetUpNameView()
+                SignUpView()
                     .environmentObject(sessionManager)
-//            case .confirmCode(let username):
-//                ConfirmationView()
+            case .confirmCode(let username, let email):
+                ConfirmationView(username: username, email: email)
+                    .environmentObject(sessionManager)
             case .session(let user):
                 MenuView(user: user)
                     .environmentObject(sessionManager)
-            default:
-                LoginView()
-                    .environmentObject(sessionManager)
                     .environmentObject(friendViewModel)
-            
             }
 //            MenuView()
 //                .environmentObject(FriendViewModel())

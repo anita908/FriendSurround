@@ -94,8 +94,11 @@ struct MenuView: View {
                         }
                         .padding()
                     }
+                    
                 }
                 .padding()
+            
+                Button("Sign Out", action: sessionManager.signOut)
             }
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)

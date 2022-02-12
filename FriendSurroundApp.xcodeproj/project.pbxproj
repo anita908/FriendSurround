@@ -10,7 +10,7 @@
 		2C69A23427ACB8300044F5B0 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C69A23327ACB82F0044F5B0 /* amplifyconfiguration.json */; };
 		2C69A23727ACC4BB0044F5B0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23627ACC4BB0044F5B0 /* AuthService.swift */; };
 		2C69A23927AF51C60044F5B0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23827AF51C60044F5B0 /* SessionManager.swift */; };
-		2C69A23B27AF70F20044F5B0 /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23A27AF70F20044F5B0 /* EmailVerificationView.swift */; };
+		2C69A23B27AF70F20044F5B0 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69A23A27AF70F20044F5B0 /* ConfirmationView.swift */; };
 		2C8C1E5927A0A83B00E79CBA /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5827A0A83B00E79CBA /* Contacts.swift */; };
 		2C8C1E5B27A0A8F700E79CBA /* String+Digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */; };
 		2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */; };
@@ -36,7 +36,7 @@
 		E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */; };
 		E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = E3CE77C42791009600EEFA6E /* iPhoneNumberField */; };
 		E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */; };
-		E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */; };
+		E3CE77CA2791110F00EEFA6E /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE77C92791110F00EEFA6E /* SignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		2C69A23527ACBA300044F5B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2C69A23627ACC4BB0044F5B0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2C69A23827AF51C60044F5B0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		2C69A23A27AF70F20044F5B0 /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
+		2C69A23A27AF70F20044F5B0 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		2C8C1E5827A0A83B00E79CBA /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		2C8C1E5A27A0A8F700E79CBA /* String+Digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Digits.swift"; sourceTree = "<group>"; };
 		2C8C1E5C27A0A9A100E79CBA /* AddFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPhoneNumberView.swift; sourceTree = "<group>"; };
 		E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationView.swift; sourceTree = "<group>"; };
-		E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNameView.swift; sourceTree = "<group>"; };
+		E3CE77C92791110F00EEFA6E /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,11 +191,10 @@
 		E39C8FA0278D594E00073C6B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E3CE77C8279110D100EEFA6E /* SetUp */,
+				E3CE77C8279110D100EEFA6E /* Authentication */,
 				E33CD134278D3AF800D6420A /* FriendListView.swift */,
 				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
 				E33334F2279764A7008C3D9A /* InviteFriendView.swift */,
-				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E3CE77BC2790EBBD00EEFA6E /* MenuView.swift */,
 				E3CE77BA2790EAA100EEFA6E /* WhoIsCloseView.swift */,
 				E33334F4279775F6008C3D9A /* MyAccountView.swift */,
@@ -220,16 +219,17 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		E3CE77C8279110D100EEFA6E /* SetUp */ = {
+		E3CE77C8279110D100EEFA6E /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E348EB4A27866774009CA251 /* LoginView.swift */,
 				E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */,
-				2C69A23A27AF70F20044F5B0 /* EmailVerificationView.swift */,
+				2C69A23A27AF70F20044F5B0 /* ConfirmationView.swift */,
 				E3CE77C12790FEFC00EEFA6E /* SetUpPhoneNumberView.swift */,
-				E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */,
+				E3CE77C92791110F00EEFA6E /* SignUp.swift */,
 				E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */,
 			);
-			path = SetUp;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		E7BF667C7C23D952394AA9A6 /* Pods */ = {
@@ -371,7 +371,7 @@
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
 				2C69A23727ACC4BB0044F5B0 /* AuthService.swift in Sources */,
 				E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */,
-				E3CE77CA2791110F00EEFA6E /* SetUpNameView.swift in Sources */,
+				E3CE77CA2791110F00EEFA6E /* SignUp.swift in Sources */,
 				E33CD131278D398E00D6420A /* FriendViewModel.swift in Sources */,
 				E33CD135278D3AF800D6420A /* FriendListView.swift in Sources */,
 				2C8C1E6127A0B68C00E79CBA /* SwiftUI+HexColors.swift in Sources */,
@@ -383,7 +383,7 @@
 				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
 				E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
-				2C69A23B27AF70F20044F5B0 /* EmailVerificationView.swift in Sources */,
+				2C69A23B27AF70F20044F5B0 /* ConfirmationView.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
 				2C8C1E5D27A0A9A100E79CBA /* AddFriends.swift in Sources */,

@@ -11,7 +11,7 @@ import Amplify
 enum AuthState {
     case signUp
     case login
-    case confirmCode(username: String)
+    case confirmCode(username: String, email: String)
     case session(user: AuthUser)
 }
 
@@ -21,6 +21,7 @@ final class SessionManager: ObservableObject {
     @Published var errorMessage: String = ""
     //What state is the user in?
     func getCurrentAuthUser(){
+        print("checking for user...")
         //If we get a user, then we know they are logged in
         if let user = Amplify.Auth.getCurrentUser() {
             authState = .session(user: user)
@@ -60,7 +61,7 @@ final class SessionManager: ObservableObject {
                         print(details ?? "no details")
                         
                         DispatchQueue.main.async {
-                            self?.authState = .confirmCode(username: username)
+                            self?.authState = .confirmCode(username: username, email: email)
                         }
                     }
                 case .failure(let error):
