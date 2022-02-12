@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-friendsurround-dev-160438-authRole",
+      "UnauthRoleArn": "arn:aws:iam::296953251693:role/amplify-friendsurround-dev-160438-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::296953251693:role/amplify-friendsurround-dev-160438-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-friendsurround-dev-160438-deployment",
+      "UnauthRoleName": "amplify-friendsurround-dev-160438-unauthRole",
+      "StackName": "amplify-friendsurround-dev-160438",
+      "StackId": "arn:aws:cloudformation:us-east-1:296953251693:stack/amplify-friendsurround-dev-160438/565fb420-83b3-11ec-a30c-0a84db46e9eb",
+      "AmplifyAppId": "d234hg05oiov4g"
+    }
+  },
+  "auth": {
+    "friendsurrounda067a608": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-160438-deployment/amplify-cfn-templates/auth/friendsurrounda067a608-cloudformation-template.json",
+        "logicalId": "authfriendsurrounda067a608"
+      },
+      "lastPushTimeStamp": "2022-02-10T18:44:18.195Z",
+      "output": {
+        "UserPoolId": "us-east-1_VFZi008RP",
+        "AppClientIDWeb": "44b61nltj5rtlknbn220b6ouhk",
+        "AppClientID": "17b2ouai3153v6ek3ra0dafo2a",
+        "IdentityPoolId": "us-east-1:7f78b3bf-19e7-4129-9ae2-8c97aa3e6bca",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:296953251693:userpool/us-east-1_VFZi008RP",
+        "IdentityPoolName": "friendsurrounda067a608_identitypool_a067a608__dev",
+        "UserPoolName": "friendsurrounda067a608_userpool_a067a608"
+      },
+      "lastPushDirHash": "Q/tLc65mlbeqxTJYSU2IaStIe3Q="
+    }
+  }
+}
