@@ -62,7 +62,10 @@ struct ContactsApp {
             
             contacts.append(contact)
         }
+<<<<<<< HEAD
+=======
         print(contacts)
+>>>>>>> origin/Anita05
         return contacts
     }
     

@@ -7,7 +7,14 @@
 
 import SwiftUI
 
+<<<<<<< HEAD
+
 struct AddFriends: View {
+    
+    
+=======
+struct AddFriends: View {
+>>>>>>> origin/Anita05
     @ObservedObject var contactsApp: Contacts
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
@@ -19,6 +26,10 @@ struct AddFriends: View {
             .navigationTitle("Add Friends")
     }
     
+<<<<<<< HEAD
+    
+=======
+>>>>>>> origin/Anita05
     var mass_invite_options: some View {
         HStack {
             NavigationLink("FRIEND REQUEST ALL", destination: {
@@ -43,7 +54,13 @@ struct AddFriends: View {
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(Color(0xFFB186), lineWidth: 2))
                 .padding()
+<<<<<<< HEAD
+                
         }
+        
+=======
+        }
+>>>>>>> origin/Anita05
     }
     
     var contacts: some View {
@@ -85,6 +102,11 @@ struct AddFriends: View {
                                     .overlay(
                                             RoundedRectangle(cornerRadius: 5)
                                                 .stroke(Color(0xFFB186), lineWidth: 2))
+<<<<<<< HEAD
+                                
+                                
+=======
+>>>>>>> origin/Anita05
                             }
                             else {
                                 NavigationLink("FRIEND REQUEST", destination: {
@@ -97,11 +119,23 @@ struct AddFriends: View {
                                     .shadow(radius: 5.0, x: 10, y: 5)
                             }
                         }
+<<<<<<< HEAD
+                    
+                        
                     }
+                    
+=======
+                    }
+>>>>>>> origin/Anita05
                 }
             }
             .padding()
         }
+<<<<<<< HEAD
+        
+        
+=======
+>>>>>>> origin/Anita05
     }
 }
 

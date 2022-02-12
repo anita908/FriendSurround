@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-friendsurround-dev-160438-authRole",
+      "UnauthRoleArn": "arn:aws:iam::296953251693:role/amplify-friendsurround-dev-160438-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::296953251693:role/amplify-friendsurround-dev-160438-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-friendsurround-dev-160438-deployment",
+      "UnauthRoleName": "amplify-friendsurround-dev-160438-unauthRole",
+      "StackName": "amplify-friendsurround-dev-160438",
+      "StackId": "arn:aws:cloudformation:us-east-1:296953251693:stack/amplify-friendsurround-dev-160438/565fb420-83b3-11ec-a30c-0a84db46e9eb",
+      "AmplifyAppId": "d234hg05oiov4g"
+    },
+    "categories": {
+      "auth": {
+        "friendsurrounda067a608": {}
+      }
+    }
+  }
+}
