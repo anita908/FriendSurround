@@ -4,22 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GRDB.swift.xcscheme</key>
+		<key>SQLite (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>12</integer>
 		</dict>
-		<key>Pods-FriendSurroundApp.xcscheme</key>
+		<key>SQLite (Playground) 2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>13</integer>
+		</dict>
+		<key>SQLite (Playground).xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict/>
 </dict>
 </plist>
