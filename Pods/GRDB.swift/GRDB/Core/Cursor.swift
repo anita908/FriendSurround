@@ -21,9 +21,9 @@ extension RangeReplaceableCollection {
     /// - parameter cursor: The cursor whose elements feed the collection.
     public init<C: Cursor>(_ cursor: C) throws where C.Element == Element {
         self.init()
-        while let element = try cursor.next() {
-            append(element)
-        }
+        // Use `forEach` in order to deal with <https://github.com/groue/GRDB.swift/issues/1124>.
+        // See `Statement.forEachStep(_:)` for more information.
+        try cursor.forEach { append($0) }
     }
     
     /// Creates a collection containing the elements of a cursor.
@@ -38,9 +38,7 @@ extension RangeReplaceableCollection {
     public init<C: Cursor>(_ cursor: C, minimumCapacity: Int) throws where C.Element == Element {
         self.init()
         reserveCapacity(minimumCapacity)
-        while let element = try cursor.next() {
-            append(element)
-        }
+        try cursor.forEach { append($0) }
     }
 }
 
@@ -60,7 +58,7 @@ extension Dictionary {
     throws where Value == [C.Element]
     {
         self.init()
-        while let value = try cursor.next() {
+        try cursor.forEach { value in
             try self[keyForValue(value), default: []].append(value)
         }
     }
@@ -86,7 +84,7 @@ extension Dictionary {
     throws where Value == [C.Element]
     {
         self.init(minimumCapacity: minimumCapacity)
-        while let value = try cursor.next() {
+        try cursor.forEach { value in
             try self[keyForValue(value), default: []].append(value)
         }
     }
@@ -108,7 +106,7 @@ extension Dictionary {
     throws where C.Element == (Key, Value)
     {
         self.init()
-        while let (key, value) = try keysAndValues.next() {
+        try keysAndValues.forEach { key, value in
             if updateValue(value, forKey: key) != nil {
                 fatalError("Duplicate values for key: '\(String(describing: key))'")
             }
@@ -137,7 +135,7 @@ extension Dictionary {
     throws where C.Element == (Key, Value)
     {
         self.init(minimumCapacity: minimumCapacity)
-        while let (key, value) = try keysAndValues.next() {
+        try keysAndValues.forEach { key, value in
             if updateValue(value, forKey: key) != nil {
                 fatalError("Duplicate values for key: '\(String(describing: key))'")
             }
@@ -155,9 +153,7 @@ extension Set {
     /// - parameter cursor: A cursor of values to gather into a set.
     public init<C: Cursor>(_ cursor: C) throws where C.Element == Element {
         self.init()
-        while let element = try cursor.next() {
-            insert(element)
-        }
+        try cursor.forEach { insert($0) }
     }
     
     /// Creates a set containing the elements of a cursor.
@@ -172,9 +168,7 @@ extension Set {
     ///   storage buffer.
     public init<C: Cursor>(_ cursor: C, minimumCapacity: Int) throws where C.Element == Element {
         self.init(minimumCapacity: minimumCapacity)
-        while let element = try cursor.next() {
-            insert(element)
-        }
+        try cursor.forEach { insert($0) }
     }
 }
 
@@ -225,6 +219,9 @@ public protocol Cursor: AnyObject {
     /// Advances to the next element and returns it, or nil if no next element
     /// exists. Once nil has been returned, all subsequent calls return nil.
     func next() throws -> Element?
+    
+    /// Calls the given closure on each element in the cursor.
+    func forEach(_ body: (Element) throws -> Void) throws
 }
 
 extension Cursor {
@@ -654,12 +651,14 @@ extension Cursor where Element: StringProtocol {
 /// having the same Element type, hiding the specifics of the underlying
 /// cursor.
 public final class AnyCursor<Element>: Cursor {
-    private let element: () throws -> Element?
+    private let _next: () throws -> Element?
+    private let _forEach: ((Element) throws -> Void) throws -> Void
     
     /// Creates a cursor that wraps a base cursor but whose type depends only on
     /// the base cursor’s element type
     public init<C: Cursor>(_ base: C) where C.Element == Element {
-        element = base.next
+        _next = base.next
+        _forEach = base.forEach
     }
     
     /// Creates a cursor that wraps a base iterator but whose type depends only
@@ -676,12 +675,17 @@ public final class AnyCursor<Element>: Cursor {
     }
     
     /// Creates a cursor that wraps the given closure in its next() method
-    public init(_ body: @escaping () throws -> Element?) {
-        element = body
+    public init(_ next: @escaping () throws -> Element?) {
+        _next = next
+        _forEach = {
+            while let element = try next() {
+                try $0(element)
+            }
+        }
     }
     
     public func next() throws -> Element? {
-        try element()
+        try _next()
     }
 }
 
@@ -766,6 +770,13 @@ public final class EnumeratedCursor<Base: Cursor>: Cursor {
         defer { index += 1 }
         return (index, element)
     }
+    
+    public func forEach(_ body: ((Int, Base.Element)) throws -> Void) throws {
+        try base.forEach { element in
+            defer { index += 1 }
+            try body((index, element))
+        }
+    }
 }
 
 /// A cursor whose elements consist of the elements of some base cursor that
@@ -788,6 +799,14 @@ public final class FilterCursor<Base: Cursor>: Cursor {
             }
         }
         return nil
+    }
+    
+    public func forEach(_ body: (Base.Element) throws -> Void) throws {
+        try base.forEach { element in
+            if try isIncluded(element) {
+                try body(element)
+            }
+        }
     }
 }
 
@@ -836,6 +855,12 @@ public final class MapCursor<Base: Cursor, Element>: Cursor {
     public func next() throws -> Element? {
         guard let element = try base.next() else { return nil }
         return try transform(element)
+    }
+    
+    public func forEach(_ body: (Element) throws -> Void) throws {
+        try base.forEach { element in
+            try body(transform(element))
+        }
     }
 }
 
