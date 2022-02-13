@@ -8,7 +8,7 @@
 import SwiftUI
 import GRDB
 
-struct SetUpNameView: View {
+struct SignUpView: View {
     @EnvironmentObject var friendViewModel: FriendViewModel
     
     var phoneNumber: String
@@ -118,6 +118,6 @@ struct SetUpNameView: View {
 
 struct SetUpNameView_Previews: PreviewProvider {
     static var previews: some View {
-        SetUpNameView(phoneNumber: "1231231234")
+        SignUpView(phoneNumber: "1231231234")
     }
 }
