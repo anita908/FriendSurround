@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */; };
+		650D51937CEF4E5CC520CB32 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */; };
 		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
 		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
 		E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F4279775F6008C3D9A /* MyAccountView.swift */; };
@@ -38,9 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
-		35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
-		CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
 		E33334F2279764A7008C3D9A /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
 		E33334F4279775F6008C3D9A /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
@@ -75,18 +75,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9248F44994E6D84491AFB164 /* Pods_FriendSurroundApp.framework in Frameworks */,
 				E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */,
+				650D51937CEF4E5CC520CB32 /* Pods_FriendSurroundApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E3132310454A7BD8ACB385FC /* Frameworks */ = {
+		25DADDF98D2DCD414BF03EF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE33E5A7373912CED04ED9E5 /* Pods_FriendSurroundApp.framework */,
+				5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,7 +97,7 @@
 				E348EB4727866774009CA251 /* FriendSurroundApp */,
 				E348EB4627866774009CA251 /* Products */,
 				E7BF667C7C23D952394AA9A6 /* Pods */,
-				E3132310454A7BD8ACB385FC /* Frameworks */,
+				25DADDF98D2DCD414BF03EF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,7 +181,7 @@
 		E39C8FA0278D594E00073C6B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E3CE77C8279110D100EEFA6E /* SetUp */,
+				E3CE77C8279110D100EEFA6E /* Authentication */,
 				E3D56C3227B2EC25005213B6 /* AddFriends.swift */,
 				E33CD134278D3AF800D6420A /* FriendListView.swift */,
 				E39C8F9C278D554E00073C6B /* FriendDetailView.swift */,
@@ -211,7 +211,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		E3CE77C8279110D100EEFA6E /* SetUp */ = {
+		E3CE77C8279110D100EEFA6E /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				E3CE77C62791038A00EEFA6E /* PhoneVerificationView.swift */,
@@ -219,14 +219,14 @@
 				E3CE77C92791110F00EEFA6E /* SetUpNameView.swift */,
 				E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */,
 			);
-			path = SetUp;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		E7BF667C7C23D952394AA9A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */,
-				1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */,
+				1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */,
+				3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -238,11 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E348EB5327866779009CA251 /* Build configuration list for PBXNativeTarget "FriendSurroundApp" */;
 			buildPhases = (
-				749D925F25A07C8EDD64C92C /* [CP] Check Pods Manifest.lock */,
+				FB290D185032A9B0F5238034 /* [CP] Check Pods Manifest.lock */,
 				E348EB4127866774009CA251 /* Sources */,
 				E348EB4227866774009CA251 /* Frameworks */,
 				E348EB4327866774009CA251 /* Resources */,
-				69053F6BE9119FD7F39C52A8 /* [CP] Embed Pods Frameworks */,
+				1F5E923359139DB840D226B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,7 +306,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69053F6BE9119FD7F39C52A8 /* [CP] Embed Pods Frameworks */ = {
+		1F5E923359139DB840D226B8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,7 +323,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		749D925F25A07C8EDD64C92C /* [CP] Check Pods Manifest.lock */ = {
+		FB290D185032A9B0F5238034 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -499,7 +499,7 @@
 		};
 		E348EB5427866779009CA251 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35F07D51C062DE78A10DC82D /* Pods-FriendSurroundApp.debug.xcconfig */;
+			baseConfigurationReference = 1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -530,7 +530,7 @@
 		};
 		E348EB5527866779009CA251 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AE6B08A210C443E66C7A678 /* Pods-FriendSurroundApp.release.xcconfig */;
+			baseConfigurationReference = 3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
