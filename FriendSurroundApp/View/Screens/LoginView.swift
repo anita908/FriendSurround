@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
+    
+    @EnvironmentObject var sessionManager: SessionManager
+    
+    @State private var username = ""
     @State private var password = ""
     
     var body: some View {
         NavigationView {
             VStack {
                 VStack {
+                    Button("Sign Out", action: sessionManager.signOut)
                     Text("FriendSurround")
                         .font(.largeTitle).foregroundColor(Color(0xFFB186))
                         .padding([.top, .bottom], 40)
@@ -23,11 +27,12 @@ struct LoginView: View {
                 Spacer()
                         
                 VStack(alignment: .leading, spacing: 15) {
-                    TextField("Email", text: self.$email)
+                    TextField("Username", text: self.$username)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(20)
                         .shadow(radius: 5, x: 10, y: 5)
+                        .autocapitalization(.none)
                     
                     SecureField("Password", text: self.$password)
                         .padding()
@@ -40,8 +45,10 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                NavigationLink("Sign In", destination: {
-                    MenuView()
+                Button("Sign In", action: {
+                    sessionManager.login(
+                        username: username,
+                        password: password)
                 })
                     .font(.headline)
                     .foregroundColor(.white)
@@ -55,9 +62,10 @@ struct LoginView: View {
                 
                 HStack(spacing: 0) {
                     Text("Don't have an account? ")
-                    Button(action: {}) {
+                    Button(action: {
+                        sessionManager.showSignUp()
+                    }) {
                         Text("Sign Up")
-                            .foregroundColor(.black)
                     }
                 }
             }
