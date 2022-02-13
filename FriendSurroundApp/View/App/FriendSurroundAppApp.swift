@@ -18,5 +18,7 @@ struct FriendSurroundAppApp: App {
         }
         
         //Authentication
+        
+        //Comment
     }
 }
