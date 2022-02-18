@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		2C33BF2A27B89E3C00DCF0AC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */; };
 		2C33BF2C27B8A06A00DCF0AC /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */; };
-		2C33BF2F27B8A7CD00DCF0AC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF2D27B8A7CD00DCF0AC /* amplifyconfiguration.json */; };
-		2C33BF3027B8A7CD00DCF0AC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF2E27B8A7CD00DCF0AC /* awsconfiguration.json */; };
 		650D51937CEF4E5CC520CB32 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */; };
+		E3056BC327BF4ECC000B2CB4 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056BC227BF4ECC000B2CB4 /* ErrorHandling.swift */; };
+		E3056BC627BF4F61000B2CB4 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E3056BC427BF4F61000B2CB4 /* awsconfiguration.json */; };
+		E3056BC727BF4F61000B2CB4 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E3056BC527BF4F61000B2CB4 /* amplifyconfiguration.json */; };
 		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
 		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
 		E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F4279775F6008C3D9A /* MyAccountView.swift */; };
@@ -45,10 +46,11 @@
 		1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
-		2C33BF2D27B8A7CD00DCF0AC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = "../../FriendSurround copy/amplifyconfiguration.json"; sourceTree = "<group>"; };
-		2C33BF2E27B8A7CD00DCF0AC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = "../../FriendSurround copy/awsconfiguration.json"; sourceTree = "<group>"; };
 		3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
 		5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3056BC227BF4ECC000B2CB4 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		E3056BC427BF4F61000B2CB4 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		E3056BC527BF4F61000B2CB4 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
 		E33334F2279764A7008C3D9A /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
 		E33334F4279775F6008C3D9A /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
@@ -120,8 +122,8 @@
 		E348EB4727866774009CA251 /* FriendSurroundApp */ = {
 			isa = PBXGroup;
 			children = (
-				2C33BF2D27B8A7CD00DCF0AC /* amplifyconfiguration.json */,
-				2C33BF2E27B8A7CD00DCF0AC /* awsconfiguration.json */,
+				E3056BC527BF4F61000B2CB4 /* amplifyconfiguration.json */,
+				E3056BC427BF4F61000B2CB4 /* awsconfiguration.json */,
 				E37780EF2787A80C0018A1C5 /* Model */,
 				E37780F02787A8150018A1C5 /* Resources */,
 				E39C8F99278D539800073C6B /* Utility */,
@@ -185,6 +187,7 @@
 				E358A9FE27A9E6D8006C6184 /* ImagePicker.swift */,
 				E3D56C2C27B2EB38005213B6 /* String+Digits.swift */,
 				E3D56C2A27B2EB29005213B6 /* SwiftUI+HexColors.swift */,
+				E3056BC227BF4ECC000B2CB4 /* ErrorHandling.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -309,11 +312,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C33BF3027B8A7CD00DCF0AC /* awsconfiguration.json in Resources */,
 				E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */,
+				E3056BC627BF4F61000B2CB4 /* awsconfiguration.json in Resources */,
+				E3056BC727BF4F61000B2CB4 /* amplifyconfiguration.json in Resources */,
 				E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */,
 				E348EB4D27866779009CA251 /* Assets.xcassets in Resources */,
-				2C33BF2F27B8A7CD00DCF0AC /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +390,7 @@
 				E3D56C2B27B2EB29005213B6 /* SwiftUI+HexColors.swift in Sources */,
 				E3D56C2D27B2EB38005213B6 /* String+Digits.swift in Sources */,
 				E33CD12B278D36D700D6420A /* User.swift in Sources */,
+				E3056BC327BF4ECC000B2CB4 /* ErrorHandling.swift in Sources */,
 				E33CD12D278D37B000D6420A /* FriendList.swift in Sources */,
 				E3D56C3127B2EC1A005213B6 /* ContactsViewModel.swift in Sources */,
 				E39C8F9D278D554F00073C6B /* FriendDetailView.swift in Sources */,
