@@ -6,5 +6,6 @@ target 'FriendSurroundApp' do
   pod 'GRDB.swift'  
   pod 'Amplify'
   pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
+  pod 'AmplifyPlugins/AWSAPIPlugin'
 
 end
