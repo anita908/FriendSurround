@@ -18,7 +18,7 @@ struct FriendSurroundAppApp: App {
     init(){
         configureAmplify()
         sessionManager.getCurrentAuthUser()
-        testLambda()
+        testPost()
     }
     
     var body: some Scene {
@@ -56,10 +56,23 @@ struct FriendSurroundAppApp: App {
         }
     }
     
-    func testLambda() {
-        let message = #"{"message": "running test"}"#
-        let request = RESTRequest(path: "/friend", body: message.data(using: .utf8))
+    func testPost() {
+        let message = #"{"message": "[test1, test2]"}"#
+        let request = RESTRequest(path: "/friend/test", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
+            switch result {
+            case .success(let data):
+                let str = String(decoding: data, as: UTF8.self)
+                print("Success \(str)")
+            case .failure(let apiError):
+                print("Failed", apiError)
+            }
+        }
+    }
+    
+    func testGet() {
+        let request = RESTRequest(path: "/friend")
+        Amplify.API.get(request: request) { result in
             switch result {
             case .success(let data):
                 let str = String(decoding: data, as: UTF8.self)
