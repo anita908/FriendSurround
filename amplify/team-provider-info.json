@@ -21,6 +21,10 @@
         "testLambda": {
           "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
           "s3Key": "amplify-builds/testLambda-784838774a7045774870-build.zip"
+        },
+        "pythontest": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/pythontest-4b375436336f6e363635-build.zip"
         }
       }
     }
