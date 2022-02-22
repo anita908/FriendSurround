@@ -1,5 +1,5 @@
-import Dispatch
 import Foundation
+import Dispatch
 #if os(iOS)
 import UIKit
 #endif
@@ -160,11 +160,6 @@ public final class DatabasePool: DatabaseWriter {
     }
 }
 
-#if swift(>=5.5) && canImport(_Concurrency)
-// @unchecked because of databaseSnapshotCount and readerPool
-extension DatabasePool: @unchecked Sendable { }
-#endif
-
 extension DatabasePool {
     
     // MARK: - Memory management
@@ -188,20 +183,15 @@ extension DatabasePool {
     /// as much memory as possible.
     private func setupMemoryManagement() {
         let center = NotificationCenter.default
-        
-        // Use raw notification names because of
-        // FB9801372 (UIApplication.didReceiveMemoryWarningNotification should not be declared @MainActor)
-        // TODO: Reuse UIApplication.didReceiveMemoryWarningNotification when possible.
-        // TODO: Reuse UIApplication.didEnterBackgroundNotification when possible.
         center.addObserver(
             self,
             selector: #selector(DatabasePool.applicationDidReceiveMemoryWarning(_:)),
-            name: NSNotification.Name(rawValue: "UIApplicationDidReceiveMemoryWarningNotification"),
+            name: UIApplication.didReceiveMemoryWarningNotification,
             object: nil)
         center.addObserver(
             self,
             selector: #selector(DatabasePool.applicationDidEnterBackground(_:)),
-            name: NSNotification.Name(rawValue: "UIApplicationDidEnterBackgroundNotification"),
+            name: UIApplication.didEnterBackgroundNotification,
             object: nil)
     }
     
@@ -313,7 +303,6 @@ extension DatabasePool: DatabaseReader {
     
     // MARK: - Reading from Database
     
-    @_disfavoredOverload // SR-15150 Async overloading in protocol implementation fails
     public func read<T>(_ value: (Database) throws -> T) throws -> T {
         GRDBPrecondition(currentReader == nil, "Database methods are not reentrant.")
         guard let readerPool = readerPool else {
@@ -336,7 +325,7 @@ extension DatabasePool: DatabaseReader {
             defaultLabel: "GRDB.DatabasePool",
             purpose: "asyncRead")
         configuration
-            .makeReaderDispatchQueue(label: label)
+            .makeDispatchQueue(label: label)
             .async {
                 do {
                     guard let readerPool = self.readerPool else {
@@ -374,7 +363,7 @@ extension DatabasePool: DatabaseReader {
             defaultLabel: "GRDB.DatabasePool",
             purpose: "asyncRead")
         configuration
-            .makeReaderDispatchQueue(label: label)
+            .makeDispatchQueue(label: label)
             .async { [weak self] in
                 guard let self = self else {
                     value(nil)
@@ -414,7 +403,6 @@ extension DatabasePool: DatabaseReader {
             }
     }
     
-    @_disfavoredOverload // SR-15150 Async overloading in protocol implementation fails
     public func unsafeRead<T>(_ value: (Database) throws -> T) throws -> T {
         GRDBPrecondition(currentReader == nil, "Database methods are not reentrant.")
         guard let readerPool = readerPool else {
@@ -426,41 +414,6 @@ extension DatabasePool: DatabaseReader {
                 return try value(db)
             }
         }
-    }
-    
-    public func asyncUnsafeRead(_ value: @escaping (Result<Database, Error>) -> Void) {
-        // First async jump in order to grab a reader connection.
-        // Honor configuration dispatching (qos/targetQueue).
-        let label = configuration.identifier(
-            defaultLabel: "GRDB.DatabasePool",
-            purpose: "asyncUnsafeRead")
-        configuration
-            .makeReaderDispatchQueue(label: label)
-            .async {
-                do {
-                    guard let readerPool = self.readerPool else {
-                        throw DatabaseError(resultCode: .SQLITE_MISUSE, message: "Connection is closed")
-                    }
-                    let (reader, releaseReader) = try readerPool.get()
-                    
-                    // Second async jump because sync could deadlock if
-                    // configuration has a serial targetQueue.
-                    reader.async { db in
-                        defer {
-                            releaseReader()
-                        }
-                        do {
-                            // The block isolation comes from the DEFERRED transaction.
-                            try db.clearSchemaCacheIfNeeded()
-                            value(.success(db))
-                        } catch {
-                            value(.failure(error))
-                        }
-                    }
-                } catch {
-                    value(.failure(error))
-                }
-            }
     }
     
     public func unsafeReentrantRead<T>(_ value: (Database) throws -> T) throws -> T {
@@ -675,12 +628,10 @@ extension DatabasePool: DatabaseReader {
     
     // MARK: - Writing in Database
     
-    @_disfavoredOverload // SR-15150 Async overloading in protocol implementation fails
     public func writeWithoutTransaction<T>(_ updates: (Database) throws -> T) rethrows -> T {
         try writer.sync(updates)
     }
     
-    @_disfavoredOverload // SR-15150 Async overloading in protocol implementation fails
     public func barrierWriteWithoutTransaction<T>(_ updates: (Database) throws -> T) rethrows -> T {
         // TODO: throw instead of crashing when the database is closed
         try readerPool!.barrier {
@@ -802,7 +753,7 @@ extension DatabasePool: DatabaseReader {
             observation: observation,
             writer: self,
             scheduler: scheduler,
-            reduceQueue: configuration.makeReaderDispatchQueue(label: reduceQueueLabel),
+            reduceQueue: configuration.makeDispatchQueue(label: reduceQueueLabel),
             onChange: onChange)
         
         // Starting a concurrent observation means that we'll fetch the initial
@@ -857,7 +808,7 @@ extension DatabasePool: DatabaseReader {
                 defaultLabel: "GRDB.DatabasePool",
                 purpose: "ValueObservation")
             configuration
-                .makeReaderDispatchQueue(label: label)
+                .makeDispatchQueue(label: label)
                 .async { [weak self] in
                     guard let self = self else { return }
                     if observer.isCompleted { return }
