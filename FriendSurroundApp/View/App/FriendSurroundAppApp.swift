@@ -57,8 +57,8 @@ struct FriendSurroundAppApp: App {
     }
     
     func testLambda() {
-        let message = #"{"message": "running test"}"#
-        let request = RESTRequest(path: "/test", body: message.data(using: .utf8))
+        let message = #"{"username": "nesdom13"}"#
+        let request = RESTRequest(path: "/location", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
             switch result {
             case .success(let data):
