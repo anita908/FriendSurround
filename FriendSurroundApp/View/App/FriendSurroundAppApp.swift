@@ -18,6 +18,7 @@ struct FriendSurroundAppApp: App {
     init(){
         configureAmplify()
         sessionManager.getCurrentAuthUser()
+        testLambda()
     }
     
     var body: some Scene {
@@ -44,14 +45,28 @@ struct FriendSurroundAppApp: App {
         do {
             // Authentication
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
+            try Amplify.add(plugin: AWSAPIPlugin())
             
             try Amplify.configure()
             
             print("Configured Amplify Successfully!")
         } catch {
             print("Failed to configure Amplify 😢")
-            SignUpView()
-                .environmentObject(sessionManager)
+            sessionManager.authState = .signUp
+        }
+    }
+    
+    func testLambda() {
+        let message = #"{"username": "nesdom13"}"#
+        let request = RESTRequest(path: "/location", body: message.data(using: .utf8))
+        Amplify.API.post(request: request) { result in
+            switch result {
+            case .success(let data):
+                let str = String(decoding: data, as: UTF8.self)
+                print("Success \(str)")
+            case .failure(let apiError):
+                print("Failed", apiError)
+            }
         }
     }
 }
