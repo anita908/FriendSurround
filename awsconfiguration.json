@@ -7,15 +7,15 @@
     "CredentialsProvider": {
         "CognitoIdentity": {
             "Default": {
-                "PoolId": "us-east-1:7f78b3bf-19e7-4129-9ae2-8c97aa3e6bca",
+                "PoolId": "us-east-1:a266e8f0-4102-4dd7-866a-a14e3e33fcb9",
                 "Region": "us-east-1"
             }
         }
     },
     "CognitoUserPool": {
         "Default": {
-            "PoolId": "us-east-1_VFZi008RP",
-            "AppClientId": "17b2ouai3153v6ek3ra0dafo2a",
+            "PoolId": "us-east-1_kzZchmQcg",
+            "AppClientId": "5n2aksemigptf6t8l4qkrlr8hk",
             "Region": "us-east-1"
         }
     },

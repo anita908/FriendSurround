@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GRDB
+import iPhoneNumberField
 
 struct SignUpView: View {
     @EnvironmentObject var friendViewModel: FriendViewModel
@@ -22,12 +23,11 @@ struct SignUpView: View {
     @State private var handleNext = false
     @State private var isShowPhotoLibrary = false
     @State private var image = UIImage()
+    @State var error: String = ""
+    @State var isEditing: Bool = false
     
     var body: some View {
-        
         VStack {
-            Spacer()
-            
             HStack {
                 VStack {
                     Image(uiImage: self.image)
@@ -51,6 +51,7 @@ struct SignUpView: View {
                 .sheet(isPresented: $isShowPhotoLibrary) {
                     ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
                 }
+                
                
                 VStack {
                     TextField("First name", text: $firstName)
@@ -65,12 +66,19 @@ struct SignUpView: View {
                     TextField("Email", text: $email)
                         .padding()
                         .autocapitalization(.none)
-                    TextField("Phone", text: $phone)
-                        .padding()
+//                    TextField("Phone", text: $phone)
+//                        .padding()
+                    iPhoneNumberField(text: $phone, isEditing: $isEditing)
+                        .flagHidden(false)
+                        .flagSelectable(true)
+                        .maximumDigits(10)
+                        .clearButtonMode(.whileEditing)
+                        .onClear { _ in isEditing.toggle() }
+                        .prefixHidden(false)
+                        .flagSelectable(false)
                 }
             }
             .padding()
-            .padding(.top, -200)
             
             Button(action: {
                 showTermsAndPrivacyPolicy = true
@@ -105,14 +113,7 @@ struct SignUpView: View {
                 }
                 
                 Button("Sign Up", action: {
-                    sessionManager.signUp(
-                        username: username,
-                        phoneNumber: phone,
-                        email: email,
-                        password: password,
-                        firstname: firstName,
-                        lastname: lastName)
-    //                    MenuView().environmentObject(FriendViewModel())
+                    sigupCheck()
                 })
                     .font(.headline)
                     .foregroundColor(.white)
@@ -121,13 +122,49 @@ struct SignUpView: View {
                     .background(Color.orange)
                     .cornerRadius(15.0)
                     .shadow(radius: 5.0, x: 10, y: 5)
+//                    .disabled(firstName.isEmpty || lastName.isEmpty || email.isEmpty || phone.isEmpty )
             }
             .padding([.vertical], 10)
-            Text("\(sessionManager.errorMessage)")
-                .foregroundColor(Color.red)
+            if sessionManager.errorMessage != "" {
+                Text("\(sessionManager.errorMessage)")
+                    .foregroundColor(Color.red)
+                    .padding()
+            } else if error != "" {
+                Text("\(error)")
+                    .foregroundColor(Color.red)
+                    .padding()
+            }
         }
     }
     
+    private func sigupCheck() {
+        if firstName == "" {
+            error = "Please enter your first name"
+        } else if lastName == "" {
+            error = "Please enter your last name"
+        } else if email == "" || !sessionManager.isEmailValid(email) {
+            error = "Please enter a valid email"
+        }else if phone == "" {
+            error = "Please enter a valid phone number"
+        } else {
+            error = ""
+        }
+        print("+1" + phone
+                .components(separatedBy:CharacterSet.decimalDigits.inverted)
+                .joined())
+        
+        if error == "" {
+            sessionManager.signUp(
+                username: username,
+                phoneNumber: "+1" + phone
+                    .components(separatedBy:CharacterSet.decimalDigits.inverted)
+                    .joined(),
+                email: email,
+                password: password,
+                firstname: firstName,
+                lastname: lastName)
+        }
+    }
 }
 
 struct SetUpNameView_Previews: PreviewProvider {

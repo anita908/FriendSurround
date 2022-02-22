@@ -152,15 +152,42 @@
         }
       }
     },
-    "authfriendsurrounda067a608": {
+    "APIGatewayAuthStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-160438-deployment/amplify-cfn-templates/auth/friendsurrounda067a608-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
         "Parameters": {
-          "identityPoolName": "friendsurrounda067a608_identitypool_a067a608",
-          "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "frienda067a608",
-          "userPoolName": "friendsurrounda067a608_userpool_a067a608",
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "env": "dev",
+          "apifriendsurround1": {
+            "Fn::GetAtt": [
+              "apiapifriendsurround1",
+              "Outputs.ApiId"
+            ]
+          },
+          "pythonapi": {
+            "Fn::GetAtt": [
+              "apipythonapi",
+              "Outputs.ApiId"
+            ]
+          }
+        }
+      }
+    },
+    "authfriendsurroundab99421c": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/auth/friendsurroundab99421c-cloudformation-template.json",
+        "Parameters": {
+          "identityPoolName": "friendsurroundab99421c_identitypool_ab99421c",
+          "allowUnauthenticatedIdentities": true,
+          "resourceNameTruncated": "friendab99421c",
+          "userPoolName": "friendsurroundab99421c_userpool_ab99421c",
           "autoVerifiedAttributes": "email",
           "mfaConfiguration": "OFF",
           "mfaTypes": "SMS Text Message",
@@ -177,10 +204,10 @@
           "userpoolClientRefreshTokenValidity": 30,
           "userpoolClientWriteAttributes": "email",
           "userpoolClientReadAttributes": "email",
-          "userpoolClientLambdaRole": "frienda067a608_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "friendab99421c_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "a067a608",
-          "resourceName": "friendsurrounda067a608",
+          "sharedId": "ab99421c",
+          "resourceName": "friendsurroundab99421c",
           "authSelections": "identityPoolAndUserPool",
           "useDefault": "default",
           "userPoolGroupList": "",
@@ -205,11 +232,75 @@
         }
       }
     },
+    "functiontestLambda": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/testLambda-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/testLambda-784838774a7045774870-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "functionpythontest": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/pythontest-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/pythontest-4b375436336f6e363635-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "apiapifriendsurround1": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/api/apifriendsurround1-cloudformation-template.json",
+        "Parameters": {
+          "functiontestLambdaName": {
+            "Fn::GetAtt": [
+              "functiontestLambda",
+              "Outputs.Name"
+            ]
+          },
+          "functiontestLambdaArn": {
+            "Fn::GetAtt": [
+              "functiontestLambda",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "dev"
+        }
+      }
+    },
+    "apipythonapi": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/api/pythonapi-cloudformation-template.json",
+        "Parameters": {
+          "functionpythontestName": {
+            "Fn::GetAtt": [
+              "functionpythontest",
+              "Outputs.Name"
+            ]
+          },
+          "functionpythontestArn": {
+            "Fn::GetAtt": [
+              "functionpythontest",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "dev"
+        }
+      }
+    },
     "UpdateRolesWithIDPFunction": {
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authfriendsurrounda067a608"
+        "authfriendsurroundab99421c"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -304,7 +395,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authfriendsurrounda067a608",
+            "authfriendsurroundab99421c",
             "Outputs.IdentityPoolId"
           ]
         },
