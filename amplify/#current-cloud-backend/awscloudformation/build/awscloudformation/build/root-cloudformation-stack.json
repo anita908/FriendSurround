@@ -254,6 +254,17 @@
         }
       }
     },
+    "functionupdateLocationAmplify": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/updateLocationAmplify-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/updateLocationAmplify-68444135584c586a6865-build.zip",
+          "env": "dev"
+        }
+      }
+    },
     "apiapifriendsurround1": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
