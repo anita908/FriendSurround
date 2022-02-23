@@ -20,7 +20,6 @@ class Contacts: ObservableObject {
     //MARK: Accessing the model
     
     var contacts: Array<ContactsApp.Contact>{
-        print(contactsApp.contacts)
         return contactsApp.contacts
     }
     
