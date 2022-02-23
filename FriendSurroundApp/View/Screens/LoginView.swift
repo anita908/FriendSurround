@@ -57,6 +57,12 @@ struct LoginView: View {
                     .background(Color(0xFFB186))
                     .cornerRadius(15.0)
                     .shadow(radius: 5.0, x: 10, y: 5)
+                
+                if sessionManager.signinErrorMessage != "" {
+                    Text("\(sessionManager.signinErrorMessage)")
+                        .foregroundColor(Color.red)
+                        .padding()
+                }
 
                 Spacer()
                 

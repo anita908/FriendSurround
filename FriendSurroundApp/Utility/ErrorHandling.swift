@@ -20,10 +20,13 @@ class HandlingErrors {
             return "Password must contain a upper case letter, a lower case letter, a number and a special character";
             
         case "Make sure that the parameters passed are valid":
-            return "Please enter a valid phone number";
+            return "Password must contain a upper case letter, a lower case letter, a number and a special character";
             
         case "Invoke the api with a different username":
             return "This username already exist";
+            
+        case "Check whether the given values are correct and the user is authorized to perform the operation.":
+            return "Incorrect username or password";
             
           default:
             return "An error has occurred";
