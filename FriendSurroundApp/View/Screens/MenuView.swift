@@ -16,6 +16,7 @@ struct MenuView: View {
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     var body: some View {
+        NavigationView{
             Form {
                 Section {
                     List {
@@ -102,6 +103,7 @@ struct MenuView: View {
             }
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
+        }
     }
 }
 

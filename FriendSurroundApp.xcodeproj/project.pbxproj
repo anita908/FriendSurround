@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0459E38D731151633B1B7DC6 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDC728858B27B04F0F727AA /* Pods_FriendSurroundApp.framework */; };
+		27250C204CE73E5919B24D1A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DA23FE419DF2BA21B0B4803 /* awsconfiguration.json */; };
+		2C06F03A27C7158900540D98 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03927C7158900540D98 /* LocationService.swift */; };
 		2C33BF2A27B89E3C00DCF0AC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */; };
 		2C33BF2C27B8A06A00DCF0AC /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */; };
-		650D51937CEF4E5CC520CB32 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */; };
+		2C33BF4A27BF3C5D00DCF0AC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF4827BF3C5D00DCF0AC /* amplifyconfiguration.json */; };
+		2C33BF4B27BF3C5D00DCF0AC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF4927BF3C5D00DCF0AC /* awsconfiguration.json */; };
+		2CA03F0B27C5EC1B003A4CF8 /* ApiGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA03F0A27C5EC1B003A4CF8 /* ApiGateway.swift */; };
+		2CA03F0F27C70C82003A4CF8 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA03F0E27C70C7F003A4CF8 /* amplifyconfiguration.json */; };
 		E3056BC327BF4ECC000B2CB4 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056BC227BF4ECC000B2CB4 /* ErrorHandling.swift */; };
-		E3056BC627BF4F61000B2CB4 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E3056BC427BF4F61000B2CB4 /* awsconfiguration.json */; };
-		E3056BC727BF4F61000B2CB4 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E3056BC527BF4F61000B2CB4 /* amplifyconfiguration.json */; };
 		E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */; };
 		E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F2279764A7008C3D9A /* InviteFriendView.swift */; };
 		E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33334F4279775F6008C3D9A /* MyAccountView.swift */; };
@@ -43,14 +47,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
+		04E69DDED331B3AA703B2702 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		2C06F03927C7158900540D98 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
-		3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
-		5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C33BF4427BF357400DCF0AC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		2C33BF4527BF357400DCF0AC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		2C33BF4827BF3C5D00DCF0AC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		2C33BF4927BF3C5D00DCF0AC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		2CA03F0A27C5EC1B003A4CF8 /* ApiGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGateway.swift; sourceTree = "<group>"; };
+		2CA03F0E27C70C7F003A4CF8 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		60116B349FEF2BC2DF58EA4D /* Pods-FriendSurroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.release.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		6DA23FE419DF2BA21B0B4803 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		91702E64C3ABF137F5F058E4 /* Pods-FriendSurroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendSurroundApp.debug.xcconfig"; path = "Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E3056BC227BF4ECC000B2CB4 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
-		E3056BC427BF4F61000B2CB4 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
-		E3056BC527BF4F61000B2CB4 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 		E33334EE27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showTermsAndPrivacyPolicyView.swift; sourceTree = "<group>"; };
 		E33334F2279764A7008C3D9A /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
 		E33334F4279775F6008C3D9A /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
@@ -78,6 +88,7 @@
 		E3D56C2E27B2EC09005213B6 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		E3D56C3227B2EC25005213B6 /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
+		EDDC728858B27B04F0F727AA /* Pods_FriendSurroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendSurroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,17 +97,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CE77C52791009600EEFA6E /* iPhoneNumberField in Frameworks */,
-				650D51937CEF4E5CC520CB32 /* Pods_FriendSurroundApp.framework in Frameworks */,
+				0459E38D731151633B1B7DC6 /* Pods_FriendSurroundApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		25DADDF98D2DCD414BF03EF8 /* Frameworks */ = {
+		84EB979A941B1F519C79D28E /* AmplifyConfig */ = {
 			isa = PBXGroup;
 			children = (
-				5DCCECDEFAE3CA72116116CF /* Pods_FriendSurroundApp.framework */,
+				6DA23FE419DF2BA21B0B4803 /* awsconfiguration.json */,
+				04E69DDED331B3AA703B2702 /* amplifyconfiguration.json */,
+				2C33BF4527BF357400DCF0AC /* awsconfiguration.json */,
+				2C33BF4427BF357400DCF0AC /* amplifyconfiguration.json */,
+				2C33BF4827BF3C5D00DCF0AC /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
+		8D836549849F29ECF48C22A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDDC728858B27B04F0F727AA /* Pods_FriendSurroundApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,7 +130,8 @@
 				E348EB4727866774009CA251 /* FriendSurroundApp */,
 				E348EB4627866774009CA251 /* Products */,
 				E7BF667C7C23D952394AA9A6 /* Pods */,
-				25DADDF98D2DCD414BF03EF8 /* Frameworks */,
+				84EB979A941B1F519C79D28E /* AmplifyConfig */,
+				8D836549849F29ECF48C22A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,8 +146,8 @@
 		E348EB4727866774009CA251 /* FriendSurroundApp */ = {
 			isa = PBXGroup;
 			children = (
-				E3056BC527BF4F61000B2CB4 /* amplifyconfiguration.json */,
-				E3056BC427BF4F61000B2CB4 /* awsconfiguration.json */,
+				2CA03F0E27C70C7F003A4CF8 /* amplifyconfiguration.json */,
+				2C33BF4927BF3C5D00DCF0AC /* awsconfiguration.json */,
 				E37780EF2787A80C0018A1C5 /* Model */,
 				E37780F02787A8150018A1C5 /* Resources */,
 				E39C8F99278D539800073C6B /* Utility */,
@@ -176,6 +200,8 @@
 				E3D56C3027B2EC1A005213B6 /* ContactsViewModel.swift */,
 				E33CD130278D398E00D6420A /* FriendViewModel.swift */,
 				2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */,
+				2CA03F0A27C5EC1B003A4CF8 /* ApiGateway.swift */,
+				2C06F03927C7158900540D98 /* LocationService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -240,8 +266,8 @@
 		E7BF667C7C23D952394AA9A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */,
-				3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */,
+				91702E64C3ABF137F5F058E4 /* Pods-FriendSurroundApp.debug.xcconfig */,
+				60116B349FEF2BC2DF58EA4D /* Pods-FriendSurroundApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -253,11 +279,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E348EB5327866779009CA251 /* Build configuration list for PBXNativeTarget "FriendSurroundApp" */;
 			buildPhases = (
-				FB290D185032A9B0F5238034 /* [CP] Check Pods Manifest.lock */,
+				F8289D871F109F7BECEB802F /* [CP] Check Pods Manifest.lock */,
 				E348EB4127866774009CA251 /* Sources */,
 				E348EB4227866774009CA251 /* Frameworks */,
 				E348EB4327866774009CA251 /* Resources */,
-				1F5E923359139DB840D226B8 /* [CP] Embed Pods Frameworks */,
+				99AE3F46352402170C59D390 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,18 +338,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C33BF4B27BF3C5D00DCF0AC /* awsconfiguration.json in Resources */,
 				E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */,
-				E3056BC627BF4F61000B2CB4 /* awsconfiguration.json in Resources */,
-				E3056BC727BF4F61000B2CB4 /* amplifyconfiguration.json in Resources */,
 				E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */,
+				2CA03F0F27C70C82003A4CF8 /* amplifyconfiguration.json in Resources */,
 				E348EB4D27866779009CA251 /* Assets.xcassets in Resources */,
+				2C33BF4A27BF3C5D00DCF0AC /* amplifyconfiguration.json in Resources */,
+				27250C204CE73E5919B24D1A /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F5E923359139DB840D226B8 /* [CP] Embed Pods Frameworks */ = {
+		99AE3F46352402170C59D390 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -331,16 +359,20 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FriendSurroundApp/Pods-FriendSurroundApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB290D185032A9B0F5238034 /* [CP] Check Pods Manifest.lock */ = {
+		F8289D871F109F7BECEB802F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,6 +405,7 @@
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
 				E3D56C3327B2EC25005213B6 /* AddFriends.swift in Sources */,
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
+				2CA03F0B27C5EC1B003A4CF8 /* ApiGateway.swift in Sources */,
 				E358A9FF27A9E6D8006C6184 /* ImagePicker.swift in Sources */,
 				E33334F3279764A7008C3D9A /* InviteFriendView.swift in Sources */,
 				E3CE77CA2791110F00EEFA6E /* SignUp.swift in Sources */,
@@ -382,6 +415,7 @@
 				2C33BF2C27B8A06A00DCF0AC /* ConfirmationView.swift in Sources */,
 				E3CE77BB2790EAA100EEFA6E /* WhoIsCloseView.swift in Sources */,
 				E348EB4927866774009CA251 /* FriendSurroundAppApp.swift in Sources */,
+				2C06F03A27C7158900540D98 /* LocationService.swift in Sources */,
 				E3CE77BD2790EBBD00EEFA6E /* MenuView.swift in Sources */,
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
 				2C33BF2A27B89E3C00DCF0AC /* SessionManager.swift in Sources */,
@@ -519,7 +553,7 @@
 		};
 		E348EB5427866779009CA251 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B604BF16A600C6F68FFBCC3 /* Pods-FriendSurroundApp.debug.xcconfig */;
+			baseConfigurationReference = 91702E64C3ABF137F5F058E4 /* Pods-FriendSurroundApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -534,7 +568,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,7 +584,7 @@
 		};
 		E348EB5527866779009CA251 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E083ADF770EB46ACB361410 /* Pods-FriendSurroundApp.release.xcconfig */;
+			baseConfigurationReference = 60116B349FEF2BC2DF58EA4D /* Pods-FriendSurroundApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -565,7 +599,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

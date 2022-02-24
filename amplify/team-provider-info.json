@@ -1,0 +1,60 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-friendsurround-dev-153621-authRole",
+      "UnauthRoleArn": "arn:aws:iam::296953251693:role/amplify-friendsurround-dev-153621-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::296953251693:role/amplify-friendsurround-dev-153621-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+      "UnauthRoleName": "amplify-friendsurround-dev-153621-unauthRole",
+      "StackName": "amplify-friendsurround-dev-153621",
+      "StackId": "arn:aws:cloudformation:us-east-1:296953251693:stack/amplify-friendsurround-dev-153621/134234b0-9042-11ec-8579-0ae46adad299",
+      "AmplifyAppId": "d2hrod0xcx6dy1",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "friendsurroundab99421c": {},
+        "true": {}
+      },
+      "function": {
+        "testLambda": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/testLambda-784838774a7045774870-build.zip"
+        },
+        "pythontest": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/pythontest-4b375436336f6e363635-build.zip"
+        },
+        "updateLocationAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/updateLocationAmplify-68444135584c586a6865-build.zip"
+        },
+        "acceptFriendRequestAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/acceptFriendRequestAmplify-65477743726659672b61-build.zip"
+        },
+        "sendFriendRequestAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/sendFriendRequestAmplify-786b6154657453384c75-build.zip"
+        },
+        "removeFriendAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/removeFriendAmplify-4c7451726a6d42724e57-build.zip"
+        },
+        "unblockUserAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/unblockUserAmplify-305368362f6345436549-build.zip"
+        },
+        "updateUserDetailsAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/updateUserDetailsAmplify-6d555552302f54596858-build.zip"
+        },
+        "blockUserAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/blockUserAmplify-6a462f35564f65737539-build.zip"
+        }
+      }
+    }
+  }
+}
