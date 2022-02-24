@@ -58,16 +58,9 @@ struct SignUpView: View {
                         .padding()
                     TextField("Last name", text: $lastName)
                         .padding()
-                    TextField("Username", text: $username)
-                        .padding()
-                        .autocapitalization(.none)
-                    SecureField("Password", text: $password)
-                        .padding()
                     TextField("Email", text: $email)
                         .padding()
                         .autocapitalization(.none)
-//                    TextField("Phone", text: $phone)
-//                        .padding()
                     iPhoneNumberField(text: $phone, isEditing: $isEditing)
                         .flagHidden(false)
                         .flagSelectable(true)
@@ -76,6 +69,11 @@ struct SignUpView: View {
                         .onClear { _ in isEditing.toggle() }
                         .prefixHidden(false)
                         .flagSelectable(false)
+                    TextField("Username", text: $username)
+                        .padding()
+                        .autocapitalization(.none)
+                    SecureField("Password", text: $password)
+                        .padding()
                 }
             }
             .padding()
@@ -125,8 +123,8 @@ struct SignUpView: View {
 //                    .disabled(firstName.isEmpty || lastName.isEmpty || email.isEmpty || phone.isEmpty )
             }
             .padding([.vertical], 10)
-            if sessionManager.errorMessage != "" {
-                Text("\(sessionManager.errorMessage)")
+            if sessionManager.signupErrorMessage != "" {
+                Text("\(sessionManager.signupErrorMessage)")
                     .foregroundColor(Color.red)
                     .padding()
             } else if error != "" {
@@ -138,20 +136,24 @@ struct SignUpView: View {
     }
     
     private func sigupCheck() {
+        let trimPhone = phone
+            .components(separatedBy:CharacterSet.decimalDigits.inverted)
+            .joined()
+        
+        
         if firstName == "" {
             error = "Please enter your first name"
         } else if lastName == "" {
             error = "Please enter your last name"
         } else if email == "" || !sessionManager.isEmailValid(email) {
             error = "Please enter a valid email"
-        }else if phone == "" {
+        } else if phone == "" || trimPhone.count != 10{
             error = "Please enter a valid phone number"
         } else {
             error = ""
         }
-        print("+1" + phone
-                .components(separatedBy:CharacterSet.decimalDigits.inverted)
-                .joined())
+        
+        print(trimPhone.count)
         
         if error == "" {
             sessionManager.signUp(

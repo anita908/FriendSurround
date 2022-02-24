@@ -18,7 +18,8 @@ enum AuthState {
 final class SessionManager: ObservableObject {
     @Published var authState: AuthState = .login
     
-    @Published var errorMessage: String = ""
+    @Published var signinErrorMessage: String = ""
+    @Published var signupErrorMessage: String = ""
     //What state is the user in?
     func getCurrentAuthUser(){
         print("checking for user...")
@@ -66,7 +67,7 @@ final class SessionManager: ObservableObject {
                     }
                 case .failure(let error):
                     print("Sign up error", error)
-                    self?.errorMessage = HandlingErrors.show(error.recoverySuggestion)
+                    self?.signupErrorMessage = HandlingErrors.show(error.recoverySuggestion)
                 }
             }
     }
@@ -110,6 +111,7 @@ final class SessionManager: ObservableObject {
                 
             case .failure(let error):
                 print("Login error:", error)
+                self?.signinErrorMessage = HandlingErrors.show(error.recoverySuggestion)
             }
                 
         }
