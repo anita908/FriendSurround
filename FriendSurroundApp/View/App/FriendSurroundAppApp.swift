@@ -19,19 +19,7 @@ struct FriendSurroundAppApp: App {
     init(){
         configureAmplify()
         sessionManager.getCurrentAuthUser()
-        
-        //we get the data once the API is successfully called and the completion handler gives us the data.
-        testLambda(completionHandler: { (json) -> Void in
-            // try to read out a string array
-           if let friends = json["friends"] as? [[String:Any]] {
-               for friend in friends {
-                   print(friend["username"] as? String ?? "")
-               }
-           }
-           else {
-               print("Couldn't parse the JSON file. Check the data type")
-           }
-        })
+        initializeUserData()
     }
     
     var body: some Scene {
@@ -68,10 +56,9 @@ struct FriendSurroundAppApp: App {
             sessionManager.authState = .signUp
         }
     }
-    //This example Lambda is set up to return the data in a json format. Since we're using async calls we need use a completion handler
-    //to access the data only once it's been pulled from the backend.
-    func testLambda(completionHandler: @escaping ([String:Any]) -> ()) {
-        let message = #"{"username": "nesdom13"}"#
+
+    func initializeUserData() {
+        let message = #"{"username": "nesdom13", "newLocation": "10,4"}"#
         let request = RESTRequest(path: "/location", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
             switch result {
@@ -82,7 +69,20 @@ struct FriendSurroundAppApp: App {
                 //Here's an example of how we can parse the data into a json format and work with the attributes how we'd like.
                 // make sure the JSON is in the format we expect
                 if let json = data.toJSON() {
-                    completionHandler(json)
+                    if let userData = json["userData"] as? [String:Any] {
+                        if let friends = userData["friends"] as? [[String:Any]] {
+                            for friend in friends {
+                                
+                                print(friend["username"] as? String ?? "")
+                            }
+                        }
+                        else {
+                            print("Couldn't parse the JSON file. Check the data type")
+                        }
+                    }
+                    else {
+                        print("Couldn't parse the JSON file. Check the data type")
+                    }
                 }
                 
                 

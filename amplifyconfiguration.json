@@ -2,16 +2,16 @@
     "UserAgent": "aws-amplify-cli/2.0",
     "Version": "1.0",
     "api": {
-        "plugins": {
-            "awsAPIPlugin": {
-                "pythonapi": {
-                    "endpointType": "REST",
-                    "endpoint": "https://21gsu6gwoi.execute-api.us-east-1.amazonaws.com/dev",
-                    "region": "us-east-1",
-                    "authorizationType": "AWS_IAM"
+            "plugins": {
+                "awsAPIPlugin": {
+                    "pythonapi": {
+                        "endpointType": "REST",
+                        "endpoint": "https://21gsu6gwoi.execute-api.us-east-1.amazonaws.com/dev",
+                        "region": "us-east-1",
+                        "authorizationType": "AWS_IAM"
+                    }
                 }
             }
-        }
     },
     "auth": {
         "plugins": {

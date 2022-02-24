@@ -41,7 +41,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/auth/friendsurroundab99421c-cloudformation-template.json",
         "logicalId": "authfriendsurroundab99421c"
       },
-      "lastPushTimeStamp": "2022-02-21T17:33:38.823Z",
+      "lastPushTimeStamp": "2022-02-24T00:40:03.926Z",
       "output": {
         "UserPoolId": "us-east-1_kzZchmQcg",
         "AppClientIDWeb": "2isth3q5h43mdp2m4itlak2se5",
@@ -71,7 +71,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/testLambda-cloudformation-template.json",
         "logicalId": "functiontestLambda"
       },
-      "lastPushTimeStamp": "2022-02-21T17:33:38.824Z",
+      "lastPushTimeStamp": "2022-02-24T00:40:03.929Z",
       "output": {
         "Region": "us-east-1",
         "Arn": "arn:aws:lambda:us-east-1:296953251693:function:testLambda-dev",
@@ -96,7 +96,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/pythontest-cloudformation-template.json",
         "logicalId": "functionpythontest"
       },
-      "lastPushTimeStamp": "2022-02-21T17:33:38.826Z",
+      "lastPushTimeStamp": "2022-02-24T00:40:03.931Z",
       "output": {
         "Region": "us-east-1",
         "Arn": "arn:aws:lambda:us-east-1:296953251693:function:pythontest-dev",
@@ -104,6 +104,181 @@
         "LambdaExecutionRole": "friendsurroundLambdaRole744f46cb-dev"
       },
       "lastPushDirHash": "BcO7Bb53U/PQbSisgyvxXAXnCx0="
+    },
+    "updateLocationAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-21T21:52:45.496Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-21T21:52:47.513Z",
+      "distZipFilename": "updateLocationAmplify-68444135584c586a6865-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/updateLocationAmplify-68444135584c586a6865-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/updateLocationAmplify-cloudformation-template.json",
+        "logicalId": "functionupdateLocationAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.935Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:updateLocationAmplify-dev",
+        "Name": "updateLocationAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRole8a1f3d22-dev"
+      },
+      "lastPushDirHash": "RBSd+7zOCY0UJu16+23UaUO55n4="
+    },
+    "acceptFriendRequestAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-22T23:01:07.585Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-22T23:01:08.305Z",
+      "distZipFilename": "acceptFriendRequestAmplify-65477743726659672b61-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/acceptFriendRequestAmplify-65477743726659672b61-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/acceptFriendRequestAmplify-cloudformation-template.json",
+        "logicalId": "functionacceptFriendRequestAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.937Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:acceptFriendRequestAmplify-dev",
+        "Name": "acceptFriendRequestAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRolecd110345-dev"
+      },
+      "lastPushDirHash": "kBEUDCk5oEjxG3h64PYHLRLA+H0="
+    },
+    "sendFriendRequestAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-22T23:14:40.607Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-22T23:14:41.303Z",
+      "distZipFilename": "sendFriendRequestAmplify-786b6154657453384c75-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/sendFriendRequestAmplify-786b6154657453384c75-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/sendFriendRequestAmplify-cloudformation-template.json",
+        "logicalId": "functionsendFriendRequestAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.938Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:sendFriendRequestAmplify-dev",
+        "Name": "sendFriendRequestAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRole50f89770-dev"
+      },
+      "lastPushDirHash": "ZhhDLRPJFWsoWkEliHdp9T6YXsU="
+    },
+    "removeFriendAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-23T04:25:36.067Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-23T04:25:37.482Z",
+      "distZipFilename": "removeFriendAmplify-4c7451726a6d42724e57-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/removeFriendAmplify-4c7451726a6d42724e57-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/removeFriendAmplify-cloudformation-template.json",
+        "logicalId": "functionremoveFriendAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.940Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:removeFriendAmplify-dev",
+        "Name": "removeFriendAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRole705f9008-dev"
+      },
+      "lastPushDirHash": "5csi4TqEYgRp2DFWgnz3T+K5wXc="
+    },
+    "unblockUserAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-23T04:25:36.071Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-23T04:25:37.586Z",
+      "distZipFilename": "unblockUserAmplify-305368362f6345436549-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/unblockUserAmplify-305368362f6345436549-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/unblockUserAmplify-cloudformation-template.json",
+        "logicalId": "functionunblockUserAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.941Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:unblockUserAmplify-dev",
+        "Name": "unblockUserAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRole63b82d38-dev"
+      },
+      "lastPushDirHash": "9lwgsyLd21TYozkd6JJpJuy4eU0="
+    },
+    "updateUserDetailsAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-23T04:25:36.070Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-23T04:25:37.558Z",
+      "distZipFilename": "updateUserDetailsAmplify-6d555552302f54596858-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/updateUserDetailsAmplify-6d555552302f54596858-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/updateUserDetailsAmplify-cloudformation-template.json",
+        "logicalId": "functionupdateUserDetailsAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.943Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:updateUserDetailsAmplify-dev",
+        "Name": "updateUserDetailsAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRole3c5da428-dev"
+      },
+      "lastPushDirHash": "F4Jo0WTC0QnYt/ZhnjUCK6hkXeA="
+    },
+    "blockUserAmplify": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-23T04:25:36.072Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-23T04:25:37.553Z",
+      "distZipFilename": "blockUserAmplify-6a462f35564f65737539-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+        "s3Key": "amplify-builds/blockUserAmplify-6a462f35564f65737539-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/function/blockUserAmplify-cloudformation-template.json",
+        "logicalId": "functionblockUserAmplify"
+      },
+      "lastPushTimeStamp": "2022-02-24T00:40:03.945Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:296953251693:function:blockUserAmplify-dev",
+        "Name": "blockUserAmplify-dev",
+        "LambdaExecutionRole": "friendsurroundLambdaRole37c5ba3a-dev"
+      },
+      "lastPushDirHash": "/+VWsMDK1++DGscfpK3Nr70U3Wo="
     }
   },
   "api": {
@@ -124,7 +299,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/api/apifriendsurround1-cloudformation-template.json",
         "logicalId": "apiapifriendsurround1"
       },
-      "lastPushTimeStamp": "2022-02-21T17:33:38.827Z",
+      "lastPushTimeStamp": "2022-02-24T00:40:03.946Z",
       "output": {
         "ApiName": "apifriendsurround1",
         "RootUrl": "https://3p3rz3cpu9.execute-api.us-east-1.amazonaws.com/dev",
@@ -149,7 +324,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-friendsurround-dev-153621-deployment/amplify-cfn-templates/api/pythonapi-cloudformation-template.json",
         "logicalId": "apipythonapi"
       },
-      "lastPushTimeStamp": "2022-02-21T17:33:38.828Z",
+      "lastPushTimeStamp": "2022-02-24T00:40:03.948Z",
       "output": {
         "ApiName": "pythonapi",
         "RootUrl": "https://21gsu6gwoi.execute-api.us-east-1.amazonaws.com/dev",

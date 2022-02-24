@@ -25,6 +25,34 @@
         "pythontest": {
           "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
           "s3Key": "amplify-builds/pythontest-4b375436336f6e363635-build.zip"
+        },
+        "updateLocationAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/updateLocationAmplify-68444135584c586a6865-build.zip"
+        },
+        "acceptFriendRequestAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/acceptFriendRequestAmplify-65477743726659672b61-build.zip"
+        },
+        "sendFriendRequestAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/sendFriendRequestAmplify-786b6154657453384c75-build.zip"
+        },
+        "removeFriendAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/removeFriendAmplify-4c7451726a6d42724e57-build.zip"
+        },
+        "unblockUserAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/unblockUserAmplify-305368362f6345436549-build.zip"
+        },
+        "updateUserDetailsAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/updateUserDetailsAmplify-6d555552302f54596858-build.zip"
+        },
+        "blockUserAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/blockUserAmplify-6a462f35564f65737539-build.zip"
         }
       }
     }
