@@ -6,14 +6,21 @@
 //
 
 import Foundation
+import CoreLocation
 
-struct User: Identifiable, Codable {
-    var id = UUID()
+struct User: Codable {
+    var username: String
     var firstName: String
     var lastName: String
     var phone :String
-    var connection: String
     var email: String
-    var type: Int
-    var isFollow: Bool
+    var userLocation: String
+    var pendingFriendRequestsIn: Array<[String:String]>
+    var pendingFriendRequestsOut: Array<[String:String]>
+    var friends: Array<[String:String]>
+    var createdDate: String
+    var deletedDate: String
+    var deleted: Bool
+    var blockedPeople: Array<[String:String]>
 }
+
