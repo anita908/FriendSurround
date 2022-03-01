@@ -9,33 +9,33 @@ import SwiftUI
 
 struct WhoIsCloseView: View {
     @EnvironmentObject var friendViewModel: FriendViewModel
+    @ObservedObject var userDataManager = UserDataManager()
     
     var body: some View {
         Form {
             Section {
                 List {
-                    ForEach(friendViewModel.users) { user in
-                        if user.type == 1 {
-                            NavigationLink(
-                                destination:
-                                    FriendDetailView(user:user)
-                            ) {
-                                HStack {
-                                    Image(systemName: "person")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                    Spacer()
-                                    VStack {
-                                        Text("\(user.firstName) \(user.lastName)")
-                                            .layoutPriority(1)
-                                        Text("From \(user.connection)")
-                                            .layoutPriority(1)
-                                    }
-                                    Spacer()
+                    ForEach(userDataManager.userData.nearbyFriends, id: \.self) { user in
+                        NavigationLink(
+                            destination:
+//                                FriendDetailView(user:user)
+                                    EmptyView()
+                        ) {
+                            HStack {
+                                Image(systemName: "person")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                Spacer()
+                                VStack {
+                                    Text("\(user["firstName"] ?? "") \(user["lastName"] ?? "")")
+                                        .layoutPriority(1)
+                                    Text("Phone \(user["phone"] ?? "")")
+                                        .layoutPriority(1)
                                 }
+                                Spacer()
                             }
-                            .padding()
                         }
+                        .padding()
                     }
                 }
             }

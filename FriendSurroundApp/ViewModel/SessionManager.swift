@@ -19,12 +19,16 @@ final class SessionManager: ObservableObject {
     @Published var authState: AuthState = .login
     
     @Published var errorMessage: String = ""
+    
+    var locationService = LocationService.shared
     //What state is the user in?
     func getCurrentAuthUser(){
         print("checking for user...")
         //If we get a user, then we know they are logged in
         if let user = Amplify.Auth.getCurrentUser() {
             authState = .session(user: user)
+            locationService.currentUser = user.username
+            locationService.requestLocationUpdates()
         }
         //otherwise send them to login page
         else {

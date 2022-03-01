@@ -10,6 +10,8 @@
 		0459E38D731151633B1B7DC6 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDC728858B27B04F0F727AA /* Pods_FriendSurroundApp.framework */; };
 		27250C204CE73E5919B24D1A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DA23FE419DF2BA21B0B4803 /* awsconfiguration.json */; };
 		2C06F03A27C7158900540D98 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03927C7158900540D98 /* LocationService.swift */; };
+		2C06F03C27C7165C00540D98 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03B27C7165C00540D98 /* UserData.swift */; };
+		2C06F03F27C74B3600540D98 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03E27C74B3600540D98 /* UserDataManager.swift */; };
 		2C33BF2A27B89E3C00DCF0AC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */; };
 		2C33BF2C27B8A06A00DCF0AC /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */; };
 		2C33BF4A27BF3C5D00DCF0AC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF4827BF3C5D00DCF0AC /* amplifyconfiguration.json */; };
@@ -49,6 +51,9 @@
 /* Begin PBXFileReference section */
 		04E69DDED331B3AA703B2702 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		2C06F03927C7158900540D98 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2C06F03B27C7165C00540D98 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		2C06F03D27C731D400540D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2C06F03E27C74B3600540D98 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		2C33BF4427BF357400DCF0AC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
@@ -146,6 +151,7 @@
 		E348EB4727866774009CA251 /* FriendSurroundApp */ = {
 			isa = PBXGroup;
 			children = (
+				2C06F03D27C731D400540D98 /* Info.plist */,
 				2CA03F0E27C70C7F003A4CF8 /* amplifyconfiguration.json */,
 				2C33BF4927BF3C5D00DCF0AC /* awsconfiguration.json */,
 				E37780EF2787A80C0018A1C5 /* Model */,
@@ -172,6 +178,7 @@
 				E3D56C2E27B2EC09005213B6 /* Contacts.swift */,
 				E33CD12C278D37B000D6420A /* FriendList.swift */,
 				E33CD12A278D36D600D6420A /* User.swift */,
+				2C06F03B27C7165C00540D98 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 				2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */,
 				2CA03F0A27C5EC1B003A4CF8 /* ApiGateway.swift */,
 				2C06F03927C7158900540D98 /* LocationService.swift */,
+				2C06F03E27C74B3600540D98 /* UserDataManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 			files = (
 				E348EB4B27866774009CA251 /* LoginView.swift in Sources */,
 				E3CE77C72791038A00EEFA6E /* PhoneVerificationView.swift in Sources */,
+				2C06F03F27C74B3600540D98 /* UserDataManager.swift in Sources */,
 				E3D56C3327B2EC25005213B6 /* AddFriends.swift in Sources */,
 				E33334EF27974B3F008C3D9A /* showTermsAndPrivacyPolicyView.swift in Sources */,
 				2CA03F0B27C5EC1B003A4CF8 /* ApiGateway.swift in Sources */,
@@ -420,6 +429,7 @@
 				E39C8F9F278D593C00073C6B /* EditableText.swift in Sources */,
 				2C33BF2A27B89E3C00DCF0AC /* SessionManager.swift in Sources */,
 				E3CE77C22790FEFC00EEFA6E /* SetUpPhoneNumberView.swift in Sources */,
+				2C06F03C27C7165C00540D98 /* UserData.swift in Sources */,
 				E33334F5279775F7008C3D9A /* MyAccountView.swift in Sources */,
 				E3D56C2B27B2EB29005213B6 /* SwiftUI+HexColors.swift in Sources */,
 				E3D56C2D27B2EB38005213B6 /* String+Digits.swift in Sources */,
@@ -560,9 +570,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FriendSurroundApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 4X22A5QVJR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FriendSurroundApp/Info.plist;
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow contact access";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app uses your location to determine how close your friends are.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app uses your location to determine how close your friends are.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to determine how close your friends are.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -591,9 +606,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FriendSurroundApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 4X22A5QVJR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FriendSurroundApp/Info.plist;
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow contact access";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app uses your location to determine how close your friends are.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app uses your location to determine how close your friends are.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to determine how close your friends are.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
