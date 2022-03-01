@@ -10,9 +10,11 @@ import SwiftUI
 struct MenuView: View {
     
     let user: AuthUser
-    @EnvironmentObject var sessionManager: SessionManager
     
+    @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var friendViewModel: FriendViewModel
+    
+    //Accessiblity Settings
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     var body: some View {

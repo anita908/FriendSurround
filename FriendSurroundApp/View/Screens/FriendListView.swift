@@ -10,6 +10,7 @@ import SwiftUI
 struct FriendListView: View {
     
     @EnvironmentObject var friendViewModel: FriendViewModel
+    @ObservedObject var userDataManager = UserDataManager()
     
     var body: some View {
         Form {
@@ -43,6 +44,10 @@ struct FriendListView: View {
                     }
                 }
             }
+        }
+        .onAppear(){
+            print(userDataManager.userData)
+            print(userDataManager.userData.nearbyFriends)
         }
         .navigationBarTitle("Friend List", displayMode: .inline)
         .toolbar {

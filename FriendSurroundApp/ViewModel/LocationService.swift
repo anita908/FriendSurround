@@ -11,6 +11,10 @@ import CoreLocation
 class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     @Published var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
+    var currentUser: String = ""
+    
+    var apiGateway = ApiGateway()
 
     private override init() {
         super.init()
@@ -59,10 +63,12 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        print(location)
+//        print(location)
         if location.speed < 0.85 {
             print(location)
+            print(currentUser)
             currentLocation = location.coordinate
+            apiGateway.updateLocation(for: currentUser, at: "\(location.coordinate.latitude),\(location.coordinate.longitude)")
         }
     }
     
