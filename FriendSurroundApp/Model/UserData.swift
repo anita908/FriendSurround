@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import Amplify
 import UserNotifications
+import SwiftUI
 
 class UserData: Identifiable {
     var username: String = ""
@@ -24,6 +25,7 @@ class UserData: Identifiable {
     var deletedDate: String = ""
     var deleted: Bool = false
     var blockedPeople: Array<[String:String]> = []
+    var delegate = NotificationDelelegate()
     
     var nearbyFriends: Array<[String:String]> {
         var closeFriends: Array<[String:String]> = []
@@ -38,12 +40,14 @@ class UserData: Identifiable {
                 }
             }
         }
-        print(closeFriends.count)
+        
          if closeFriends.count == 1 {
              scheduleNotification(closeFriends[0]["firstName"]!, 1)
+             UNUserNotificationCenter.current().delegate = delegate
          }
          if closeFriends.count > 1 {
              scheduleNotification("", closeFriends.count)
+             UNUserNotificationCenter.current().delegate = delegate
          }
         
         return closeFriends
@@ -64,23 +68,31 @@ class UserData: Identifiable {
         }
     }
     
-    func requestNotificationPermission() {
+    func requestNotificationPermission() -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
-                print("All set!")
+                print("All set")
             } else if let error = error {
                 print(error.localizedDescription)
             }
         }
+        return true
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+             willPresent notification: UNNotification,
+             withCompletionHandler completionHandler:
+                @escaping (UNNotificationPresentationOptions) -> Void) {
+       completionHandler(UNNotificationPresentationOptions(rawValue: 0))
     }
     
     func scheduleNotification(_ name: String, _ number: Int) {
-        requestNotificationPermission()
         let notificationID: String = UUID().uuidString
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
         let content = UNMutableNotificationContent()
         content.title = "Friend Surround"
+        
         if number == 1 {
             content.subtitle = "\(name) is close!"
         } else {
@@ -89,10 +101,17 @@ class UserData: Identifiable {
         
         content.sound = UNNotificationSound.default
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
 
         let request = UNNotificationRequest(identifier: notificationID, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request)
+    }
+}
+
+class NotificationDelelegate: NSObject,ObservableObject,UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.badge,.banner,.sound])
     }
 }
