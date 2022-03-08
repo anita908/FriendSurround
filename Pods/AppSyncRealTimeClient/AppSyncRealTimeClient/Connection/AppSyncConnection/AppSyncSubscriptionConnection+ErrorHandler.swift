@@ -32,7 +32,6 @@ extension AppSyncSubscriptionConnection {
             let connectionError = error as? ConnectionProviderError
         else {
             subscriptionItem.subscriptionEventHandler(.failed(error), subscriptionItem)
-            connectionProvider?.removeListener(identifier: subscriptionItem.identifier)
             return
         }
 
@@ -44,7 +43,6 @@ extension AppSyncSubscriptionConnection {
             }
         } else {
             subscriptionItem.subscriptionEventHandler(.failed(error), subscriptionItem)
-            connectionProvider?.removeListener(identifier: subscriptionItem.identifier)
         }
     }
 

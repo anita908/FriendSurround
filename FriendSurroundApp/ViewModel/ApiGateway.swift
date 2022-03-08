@@ -46,14 +46,8 @@ final class ApiGateway: ObservableObject {
         Amplify.API.post(request: request) { result in
             switch result {
             case .success(let data):
-//                let str = String(decoding: data, as: UTF8.self)
-//                print("Success \(str)")
-                
-                //Here's an example of how we can parse the data into a json format and work with the attributes how we'd like.
-                // make sure the JSON is in the format we expect
                 if let json = data.toJSON() {
                     if let newUserData = json["userData"] as? [String:Any] {
-//                            let user = UserData(
                         self.userData.username = newUserData["username"] as? String ?? ""
                         self.userData.firstName = newUserData["firstName"] as? String ?? ""
                         self.userData.lastName = newUserData["lastName"] as? String ?? ""
@@ -67,7 +61,7 @@ final class ApiGateway: ObservableObject {
                         self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
                         self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
-//                            )
+
                         print(UserData.shared.username)
                         }
                         else {
@@ -86,19 +80,16 @@ final class ApiGateway: ObservableObject {
     }
 
     //Assuming the data will come in like so: {"phones": "[8019998888,8013338888,8673330000]"}
-    func comparePhoneContactsToUsers() {
-        let message = #"{"phones": "[8019998888,8013338888,8673330000]"}"#
-        let request = RESTRequest(path: "/phoneContacts", body: message.data(using: .utf8))
+    func comparePhoneContactsToUsers(for phoneList: Array<String>, completionHandler: @escaping ([[String:String]]) -> ()) {
+        let message = #"{ "phoneList": ["18018679309","(999) 888 7777","801-555-3333","+1 (666) 7779999","8013801913"]}"#
+        let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
             switch result {
             case .success(let data):
-                
                 if let json = data.toJSON() {
                     // try to read out a string array
-                    if let friends = json["friends"] as? [[String:Any]] {
-                        for friend in friends {
-                            print(friend["username"] as? String ?? "")
-                        }
+                    if let contactsInDatabase = json["contacts"] as? [[String:String]] {
+                        completionHandler(contactsInDatabase)
                     }
                     else {
                         print("Couldn't parse the JSON file. Check the data type")

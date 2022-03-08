@@ -13,4 +13,12 @@ extension String {
         return components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined()
     }
+
+    var phoneFormat: String {
+        let areaCode = self.prefix(3)
+        let prefix = self.index(self.startIndex, offsetBy: 3) ..< self.index(self.startIndex, offsetBy: 6)
+        let lineNumber = self.index(self.startIndex, offsetBy: 6) ..< self.index(self.startIndex, offsetBy: 10)
+
+        return "(\(areaCode)) \(self[prefix])-\(self[lineNumber])"
+    }
 }

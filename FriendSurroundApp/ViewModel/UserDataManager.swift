@@ -12,7 +12,6 @@ final class UserDataManager: ObservableObject {
     
     init(){
         userData = UserData.shared
-        print(userData.nearbyFriends)
     }
     
 }

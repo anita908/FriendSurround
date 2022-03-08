@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddFriends: View {
-    @ObservedObject var contactsApp: Contacts
+    @ObservedObject var contactsApp = Contacts()
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     @ViewBuilder
@@ -49,7 +49,7 @@ struct AddFriends: View {
     var contacts: some View {
         ScrollView(.vertical){
             LazyVStack(alignment: .leading){
-                ForEach(contactsApp.contacts, id: \.self) { contact in
+                ForEach(contactsApp.newContacts.sorted{$0.appUser && !$1.appUser}, id: \.self) { contact in
                     HStack {
                         if contact.profileImage != nil {
                             Image(uiImage: UIImage(data: contact.profileImage!)!)
@@ -71,9 +71,7 @@ struct AddFriends: View {
 
                         Spacer()
                         VStack(alignment: .trailing){
-                            
-                            //Change these if statements when we can distinguish whether user is on the app or not.
-                            if contact.profileImage != nil {
+                            if contact.appUser == false {
                                 NavigationLink("INVITE TO APP", destination: {
                                 })
                                     .font(.system(size: 10 * scale, weight: .semibold))

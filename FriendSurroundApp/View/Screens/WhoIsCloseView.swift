@@ -29,7 +29,7 @@ struct WhoIsCloseView: View {
                                 VStack {
                                     Text("\(user["firstName"] ?? "") \(user["lastName"] ?? "")")
                                         .layoutPriority(1)
-                                    Text("Phone \(user["phone"] ?? "")")
+                                    Text("Phone \(user["phone"]?.phoneFormat ?? "")")
                                         .layoutPriority(1)
                                 }
                                 Spacer()

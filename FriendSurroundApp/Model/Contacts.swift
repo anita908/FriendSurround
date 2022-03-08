@@ -44,7 +44,7 @@ struct ContactsApp {
     private func convertCNContactData (_ cnContacts: [CNContact]) -> [Contact] {
         
         var contacts: [Contact] = []
-        var contact = Contact(fullName: "", phoneNumber: "")
+        var contact = Contact()
         
         for cnContact in cnContacts {
             contact.fullName = cnContact.givenName + " " + cnContact.middleName + " " + cnContact.familyName
@@ -54,9 +54,11 @@ struct ContactsApp {
             
             // If we have a mobile phone number, use that by default. Otherwise, use whichever number is on top of the list.
             if let phone = cnContact.phoneNumbers.first(where: {$0.label == "$!<Mobile>!$_"}){
+                contact.phoneNumberDigits = String(phone.value.stringValue.digits.suffix(10))
                 contact.phoneNumber = phone.value.stringValue
             }
             else {
+                contact.phoneNumberDigits = String(cnContact.phoneNumbers[0].value.stringValue.digits.suffix(10))
                 contact.phoneNumber = cnContact.phoneNumbers[0].value.stringValue
             }
             
@@ -70,11 +72,15 @@ struct ContactsApp {
         
         fileprivate(set) var id = UUID()
         
-        fileprivate(set) var fullName: String
+        fileprivate(set) var fullName: String = ""
         
-        fileprivate(set) var phoneNumber: String
+        fileprivate(set) var phoneNumber: String = ""
+        
+        fileprivate(set) var phoneNumberDigits: String = ""
         
         fileprivate(set) var profileImage: Data?
+        
+        var appUser: Bool = false
         
     }
     

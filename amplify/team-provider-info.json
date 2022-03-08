@@ -53,6 +53,10 @@
         "blockUserAmplify": {
           "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
           "s3Key": "amplify-builds/blockUserAmplify-6a462f35564f65737539-build.zip"
+        },
+        "checkNumbersAmplify": {
+          "deploymentBucketName": "amplify-friendsurround-dev-153621-deployment",
+          "s3Key": "amplify-builds/checkNumbersAmplify-552b71487a72624d4167-build.zip"
         }
       }
     }
