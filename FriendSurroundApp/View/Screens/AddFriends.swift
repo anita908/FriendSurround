@@ -15,6 +15,7 @@ struct AddFriends: View {
     var body: some View {
         mass_invite_options
         contacts
+            .onAppear(perform: contactsApp.refreshModel)
         Spacer()
             .navigationTitle("Add Friends")
     }

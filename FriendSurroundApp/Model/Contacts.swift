@@ -7,15 +7,43 @@
 
 import Foundation
 import Contacts
+import Amplify
 
 struct ContactsApp {
-
-    private(set) var contacts: Array<Contact>
+    
+    var contacts: Array<Contact>
+//    var apiGateway = ApiGateway()
+    
+    static let shared = ContactsApp.init()
     
     init(){
         contacts = Array<Contact>()
         let cnContacts = getCNContacts()
         contacts = convertCNContactData(cnContacts)
+    }
+    
+    
+    struct Contact: Hashable {
+        
+        fileprivate(set) var id = UUID()
+        
+        fileprivate(set) var fullName: String = ""
+        
+        fileprivate(set) var phoneNumber: String = ""
+        
+        fileprivate(set) var phoneNumberDigits: String = ""
+        
+        fileprivate(set) var profileImage: Data?
+        
+        var appUser: Bool = false
+        
+    }
+    
+    
+    mutating func updateContacts() {
+        self.contacts = Array<Contact>()
+        let cnContacts = getCNContacts()
+        self.contacts = convertCNContactData(cnContacts)
     }
     
     private func getCNContacts () -> [CNContact] {
@@ -45,9 +73,11 @@ struct ContactsApp {
         
         var contacts: [Contact] = []
         var contact = Contact()
+        var phoneList: [String] = []
         
         for cnContact in cnContacts {
             contact.fullName = cnContact.givenName + " " + cnContact.middleName + " " + cnContact.familyName
+            
             if cnContact.imageDataAvailable {
                 contact.profileImage = cnContact.imageData
             }
@@ -62,27 +92,45 @@ struct ContactsApp {
                 contact.phoneNumber = cnContact.phoneNumbers[0].value.stringValue
             }
             
+            
+            phoneList.append(contact.phoneNumberDigits)
             contacts.append(contact)
         }
+        
+//        apiGateway.comparePhoneContactsToUsers(for: phoneList)
+        
         return contacts
     }
-    
-    
-    struct Contact: Hashable {
-        
-        fileprivate(set) var id = UUID()
-        
-        fileprivate(set) var fullName: String = ""
-        
-        fileprivate(set) var phoneNumber: String = ""
-        
-        fileprivate(set) var phoneNumberDigits: String = ""
-        
-        fileprivate(set) var profileImage: Data?
-        
-        var appUser: Bool = false
-        
-    }
-    
+
+//    mutating func comparePhoneContactsToUsers(for phoneList: Array<String>) {
+//        let message = #"{ "phoneList": ["18018679309","(999) 888 7777","801-555-3333","+1 (666) 7779999","8013801913"]}"#
+//        let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
+//        Amplify.API.post(request: request) { result in
+//            switch result {
+//            case .success(let data):
+//                if let json = data.toJSON() {
+//                    // try to read out a string array
+//                    if let contactsInDatabase = json["contacts"] as? [[String:String]] {
+//                        if contactsInDatabase != [] {
+//                            for index in 0..<contacts.count {
+//                                for contactInDatabase in contactsInDatabase {
+//                                    if contacts[index].phoneNumberDigits == contactInDatabase["phone"] {
+//                                        contacts[index].appUser = true
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                    else {
+//                        print("Couldn't parse the JSON file. Check the data type")
+//                    }
+//                }
+//
+//            case .failure(let apiError):
+//                print("Failed", apiError)
+//            }
+//        }
+//
+//    }
     
 }

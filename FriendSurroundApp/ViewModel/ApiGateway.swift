@@ -11,6 +11,7 @@ import Amplify
 final class ApiGateway: ObservableObject {
     
     var userData = UserData.shared
+    var contactsApp = ContactsApp.shared
 
     func examplePostRequest() {
         let message = #"{"username": "nesdom13"}"#
@@ -61,8 +62,6 @@ final class ApiGateway: ObservableObject {
                         self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
                         self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
-
-                        print(UserData.shared.username)
                         }
                         else {
                             print("Couldn't parse the JSON file. Check the data type")
@@ -78,29 +77,51 @@ final class ApiGateway: ObservableObject {
             }
                 
     }
-
-    //Assuming the data will come in like so: {"phones": "[8019998888,8013338888,8673330000]"}
-    func comparePhoneContactsToUsers(for phoneList: Array<String>, completionHandler: @escaping ([[String:String]]) -> ()) {
-        let message = #"{ "phoneList": ["18018679309","(999) 888 7777","801-555-3333","+1 (666) 7779999","8013801913"]}"#
+    
+    func createPhoneList(from contacts: Array<ContactsApp.Contact>) -> [String] {
+        var phoneList: [String] = []
+        for contact in contacts {
+            phoneList.append(contact.phoneNumberDigits)
+        }
+        return phoneList
+    }
+    
+   //Assuming the data will come in like so: {"phones": "[8019998888,8013338888,8673330000]"}
+    func findAppUsers(for contacts: Array<ContactsApp.Contact>) {
+        let phoneList = createPhoneList(from: contacts)
+        
+        let message = #"{ "phoneList": \#(phoneList)}"#
         let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
+        let contacts = contactsApp.contacts
+        
         Amplify.API.post(request: request) { result in
             switch result {
             case .success(let data):
                 if let json = data.toJSON() {
                     // try to read out a string array
                     if let contactsInDatabase = json["contacts"] as? [[String:String]] {
-                        completionHandler(contactsInDatabase)
+                        if contactsInDatabase != [] {
+                            for index in 0..<contacts.count {
+                                for contactInDatabase in contactsInDatabase {
+                                    if contacts[index].phoneNumberDigits == contactInDatabase["phone"] {
+                                        self.contactsApp.contacts[index].appUser = true
+                                    }
+                                }
+                            }
+                            
+                        }
                     }
                     else {
                         print("Couldn't parse the JSON file. Check the data type")
                     }
                 }
-                
+
             case .failure(let apiError):
                 print("Failed", apiError)
             }
         }
-        
+
     }
+
     
 }
