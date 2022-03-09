@@ -115,7 +115,10 @@ final class SessionManager: ObservableObject {
                 
             case .failure(let error):
                 print("Login error:", error)
-                self?.signinErrorMessage = HandlingErrors.show(error.recoverySuggestion)
+                DispatchQueue.main.async {
+                    self?.signinErrorMessage = HandlingErrors.show(error.recoverySuggestion)
+                }
+                
             }
                 
         }
