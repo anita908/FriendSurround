@@ -8,11 +8,11 @@
 import Foundation
 import Contacts
 import Amplify
+import AmplifyPlugins
 
-struct ContactsApp {
+class ContactsApp {
     
     var contacts: Array<Contact>
-//    var apiGateway = ApiGateway()
     
     static let shared = ContactsApp.init()
     
@@ -22,28 +22,58 @@ struct ContactsApp {
         contacts = convertCNContactData(cnContacts)
     }
     
-    
+    enum FriendshipStatus: String {
+        case requestReceived
+        case requestSent
+        case notFriends
+        case notAnAppUser
+        case friends
+        
+        private var sortOrder: Int {
+            switch self {
+                case .requestReceived:
+                    return 0
+                case .requestSent:
+                    return 1
+                case .notFriends:
+                    return 2
+                case .notAnAppUser:
+                    return 3
+                case .friends:
+                    return 4
+            }
+        }
+        
+        static func <(lhs: FriendshipStatus, rhs: FriendshipStatus) -> Bool {
+               return lhs.sortOrder < rhs.sortOrder
+            }
+    }
+
     struct Contact: Hashable {
         
         fileprivate(set) var id = UUID()
         
         fileprivate(set) var fullName: String = ""
         
-        fileprivate(set) var phoneNumber: String = ""
+        fileprivate(set) var phoneNumber: String? = ""
         
-        fileprivate(set) var phoneNumberDigits: String = ""
+        fileprivate(set) var phoneNumberDigits: String? = ""
         
-        fileprivate(set) var profileImage: Data?
+        fileprivate(set) var profileImage: Data? = nil
         
-        var appUser: Bool = false
+        var username: String? = ""
+        
+        var friendshipStatus: FriendshipStatus = .notAnAppUser
         
     }
+
     
     
-    mutating func updateContacts() {
+    func updateContacts() {
         self.contacts = Array<Contact>()
         let cnContacts = getCNContacts()
         self.contacts = convertCNContactData(cnContacts)
+        print(contacts)
     }
     
     private func getCNContacts () -> [CNContact] {
@@ -73,7 +103,6 @@ struct ContactsApp {
         
         var contacts: [Contact] = []
         var contact = Contact()
-        var phoneList: [String] = []
         
         for cnContact in cnContacts {
             contact.fullName = cnContact.givenName + " " + cnContact.middleName + " " + cnContact.familyName
@@ -81,56 +110,30 @@ struct ContactsApp {
             if cnContact.imageDataAvailable {
                 contact.profileImage = cnContact.imageData
             }
+            else {
+                contact.profileImage = nil
+            }
             
-            // If we have a mobile phone number, use that by default. Otherwise, use whichever number is on top of the list.
-            if let phone = cnContact.phoneNumbers.first(where: {$0.label == "$!<Mobile>!$_"}){
-                contact.phoneNumberDigits = String(phone.value.stringValue.digits.suffix(10))
-                contact.phoneNumber = phone.value.stringValue
+            if cnContact.phoneNumbers.isEmpty != true {
+                // If we have a mobile phone number, use that by default. Otherwise, use whichever number is on top of the list.
+                if let phone = cnContact.phoneNumbers.first(where: {$0.label == "_$!<Mobile>!$_"}){
+                    contact.phoneNumberDigits = String(phone.value.stringValue.digits.suffix(10))
+                    contact.phoneNumber = phone.value.stringValue
+                }
+                else {
+                    contact.phoneNumberDigits = String(cnContact.phoneNumbers[0].value.stringValue.digits.suffix(10))
+                    contact.phoneNumber = cnContact.phoneNumbers[0].value.stringValue
+                }
             }
             else {
-                contact.phoneNumberDigits = String(cnContact.phoneNumbers[0].value.stringValue.digits.suffix(10))
-                contact.phoneNumber = cnContact.phoneNumbers[0].value.stringValue
+                contact.phoneNumberDigits = "0000000000"
+                contact.phoneNumber = ""
             }
-            
-            
-            phoneList.append(contact.phoneNumberDigits)
+
             contacts.append(contact)
         }
-        
-//        apiGateway.comparePhoneContactsToUsers(for: phoneList)
-        
+
         return contacts
     }
-
-//    mutating func comparePhoneContactsToUsers(for phoneList: Array<String>) {
-//        let message = #"{ "phoneList": ["18018679309","(999) 888 7777","801-555-3333","+1 (666) 7779999","8013801913"]}"#
-//        let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
-//        Amplify.API.post(request: request) { result in
-//            switch result {
-//            case .success(let data):
-//                if let json = data.toJSON() {
-//                    // try to read out a string array
-//                    if let contactsInDatabase = json["contacts"] as? [[String:String]] {
-//                        if contactsInDatabase != [] {
-//                            for index in 0..<contacts.count {
-//                                for contactInDatabase in contactsInDatabase {
-//                                    if contacts[index].phoneNumberDigits == contactInDatabase["phone"] {
-//                                        contacts[index].appUser = true
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                    else {
-//                        print("Couldn't parse the JSON file. Check the data type")
-//                    }
-//                }
-//
-//            case .failure(let apiError):
-//                print("Failed", apiError)
-//            }
-//        }
-//
-//    }
     
 }

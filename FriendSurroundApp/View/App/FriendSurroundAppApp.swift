@@ -15,6 +15,7 @@ struct FriendSurroundAppApp: App {
     
     @ObservedObject var sessionManager = SessionManager()
     @ObservedObject var friendViewModel = FriendViewModel()
+    @ObservedObject var contactsManager = ContactsManager()
     
     
     init(){
@@ -38,6 +39,7 @@ struct FriendSurroundAppApp: App {
                 MenuView(user: user)
                     .environmentObject(sessionManager)
                     .environmentObject(friendViewModel)
+                    .environmentObject(contactsManager)
             }
         }
     }
@@ -61,8 +63,6 @@ struct FriendSurroundAppApp: App {
 
 extension Data {
     func toJSON() -> [String:Any]? {
-//        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
-//        return try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
         return try? JSONSerialization.jsonObject(with: self, options: []) as? [String: Any]
     }
 }

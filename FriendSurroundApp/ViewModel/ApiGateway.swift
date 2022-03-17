@@ -40,7 +40,7 @@ final class ApiGateway: ObservableObject {
         }
     }
 
-    func updateLocation(for username: String, at newLocation: String) {
+    func updateLocation(for username: String, at newLocation: String, completionHandler: @escaping () -> ()) {
         let message = #"{"username": "\#(username)", "newLocation": "\#(newLocation)"}"#
         print(message)
         let request = RESTRequest(path: "/location", body: message.data(using: .utf8))
@@ -62,6 +62,7 @@ final class ApiGateway: ObservableObject {
                         self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
                         self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
+                        completionHandler()
                         }
                         else {
                             print("Couldn't parse the JSON file. Check the data type")
@@ -81,13 +82,39 @@ final class ApiGateway: ObservableObject {
     func createPhoneList(from contacts: Array<ContactsApp.Contact>) -> [String] {
         var phoneList: [String] = []
         for contact in contacts {
-            phoneList.append(contact.phoneNumberDigits)
+            phoneList.append(contact.phoneNumberDigits ?? "")
         }
         return phoneList
     }
     
-   //Assuming the data will come in like so: {"phones": "[8019998888,8013338888,8673330000]"}
-    func findAppUsers(for contacts: Array<ContactsApp.Contact>) {
+    func updateFriendshipStatus(for contact: ContactsApp.Contact, with index: Int){
+        for friend in userData.friends{
+            if let friendUsername = friend["username"]{
+                if contact.username == friendUsername {
+                    self.contactsApp.contacts[index].friendshipStatus = .friends
+                    return
+                }
+            }
+        }
+        
+        for requestInUsername in userData.pendingFriendRequestsIn{
+            if contact.username == requestInUsername {
+                self.contactsApp.contacts[index].friendshipStatus = .requestReceived
+                return
+            }
+        }
+        
+        for requestOutUsername in userData.pendingFriendRequestsOut {
+            if contact.username == requestOutUsername {
+                self.contactsApp.contacts[index].friendshipStatus = .requestSent
+                return
+            }
+        }
+        
+        self.contactsApp.contacts[index].friendshipStatus = .notFriends
+    }
+    
+    func findAppUsers(for contacts: Array<ContactsApp.Contact>, completionHandler: @escaping () -> ()) {
         let phoneList = createPhoneList(from: contacts)
         
         let message = #"{ "phoneList": \#(phoneList)}"#
@@ -104,10 +131,14 @@ final class ApiGateway: ObservableObject {
                             for index in 0..<contacts.count {
                                 for contactInDatabase in contactsInDatabase {
                                     if contacts[index].phoneNumberDigits == contactInDatabase["phone"] {
-                                        self.contactsApp.contacts[index].appUser = true
+                                        self.contactsApp.contacts[index].username = contactInDatabase["username"]
+                                        self.updateFriendshipStatus(for: self.contactsApp.contacts[index], with: index)
+                                        
+                                        
                                     }
                                 }
                             }
+                            completionHandler()
                             
                         }
                     }
@@ -121,6 +152,37 @@ final class ApiGateway: ObservableObject {
             }
         }
 
+    }
+    
+    func sendFriendRequest(from username: String, to friendUsername: String, completionHandler: @escaping () -> ()){
+        let message = #"{"username": "\#(username)", "friendUsername": "\#(friendUsername)"}"#
+        let request = RESTRequest(path: "/sendfriendrequest", body: message.data(using: .utf8))
+        Amplify.API.post(request: request) { result in
+            switch result {
+            case .success(let data):
+                let str = String(decoding: data, as: UTF8.self)
+                print("Success \(str)")
+                completionHandler()
+            case .failure(let apiError):
+                print("Failed", apiError)
+            
+                
+            }
+        }
+    }
+    
+    func acceptFriendRequest(from username: String, to friendUsername: String){
+        let message = #"{"username": "mickey", "friendUsername": "chris"}"#
+        let request = RESTRequest(path: "/acceptfriendrequest", body: message.data(using: .utf8))
+        Amplify.API.post(request: request) { result in
+            switch result {
+            case .success(let data):
+                let str = String(decoding: data, as: UTF8.self)
+                print("Success \(str)")
+            case .failure(let apiError):
+                print("Failed", apiError)
+            }
+        }
     }
 
     

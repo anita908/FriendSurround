@@ -13,6 +13,7 @@ struct MenuView: View {
     
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var friendViewModel: FriendViewModel
+    @EnvironmentObject var contactsManager: ContactsManager
     
     //Accessiblity Settings
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
@@ -63,7 +64,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: AddFriends(contactsApp: Contacts()))
+                            NavigationLink(destination: AddFriends())
                             {
                                 EmptyView()
                             }

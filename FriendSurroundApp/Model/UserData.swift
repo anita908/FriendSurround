@@ -54,12 +54,16 @@ class UserData: Identifiable {
     
     
     func convertLocation(from locationString: String) -> CLLocation? {
-        if locationString != "" {
-            let coordinates = locationString.components(separatedBy: ",")
+        let pattern = "(^[0-9.-]+,[0-9.-]+$)"
+        if (locationString.range(of: pattern, options:.regularExpression) != nil) {
+            
+            let locationNoSpaces = String(locationString.filter { !" \n\t\r".contains($0) })
+            let coordinates = locationNoSpaces.components(separatedBy: ",")
             let updatedUserLocation = CLLocation(latitude: Double(coordinates[0])!, longitude: Double(coordinates[1])!)
             return updatedUserLocation
         }
         else {
+            print("Location Data is not formatted correctly")
             return nil
         }
     }

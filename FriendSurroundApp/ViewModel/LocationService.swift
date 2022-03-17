@@ -68,7 +68,10 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
             print(location)
             print(currentUser)
             currentLocation = location.coordinate
-            apiGateway.updateLocation(for: currentUser, at: "\(location.coordinate.latitude),\(location.coordinate.longitude)")
+            apiGateway.updateLocation(for: currentUser, at: "\(location.coordinate.latitude),\(location.coordinate.longitude)", completionHandler: {
+                
+            })
+            
         }
     }
     

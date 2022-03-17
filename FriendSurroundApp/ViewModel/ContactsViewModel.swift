@@ -11,73 +11,64 @@ import SwiftUI
 import zlib
 import Amplify
 
-class Contacts: ObservableObject {
-    
-    @Published var contactsApp: ContactsApp
+class ContactsManager: ObservableObject {
 
-    init(){
-        contactsApp = ContactsApp.shared
-        findAppUsers(for: contactsApp.contacts)
-    }
+    var apiGateway = ApiGateway()
+    var locationService = LocationService.shared
     
     //MARK: Accessing the model
     
-    var newContacts: Array<ContactsApp.Contact> = [ContactsApp().contacts[0]]
-    
-    func refreshModel(){
-        contactsApp.updateContacts()
-        findAppUsers(for: contactsApp.contacts)
+    var contacts: [ContactsApp.Contact] {
+        ContactsApp.shared.contacts
     }
     
-    func createPhoneList(from contacts: Array<ContactsApp.Contact>) -> [String] {
-        var phoneList: [String] = []
-        for contact in contacts {
-            phoneList.append(contact.phoneNumberDigits)
-        }
-        return phoneList
-    }
-    
-    //I want to put this into the APIGateway ViewModel and update the shared Contacts list, but this was the only way I could get it to work.
-    func findAppUsers(for contacts: Array<ContactsApp.Contact>) {
-        let phoneList = createPhoneList(from: contacts)
-        
-        let message = #"{ "phoneList": \#(phoneList)}"#
-        let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
-        var contacts = ContactsApp().contacts
-        
-        Amplify.API.post(request: request) { result in
-            switch result {
-            case .success(let data):
-                if let json = data.toJSON() {
-                    // try to read out a string array
-                    if let contactsInDatabase = json["contacts"] as? [[String:String]] {
-                        if contactsInDatabase != [] {
-                            for index in 0..<contacts.count {
-                                for contactInDatabase in contactsInDatabase {
-                                    if contacts[index].phoneNumberDigits == contactInDatabase["phone"] {
-                                        contacts[index].appUser = true
-                                    }
-                                }
-                            }
-                            print("new contacts!")
-                            print(contacts)
-                            self.newContacts = contacts
-                            DispatchQueue.main.async {
-                                self.objectWillChange.send()
-                            }
-                            
-                        }
-                    }
-                    else {
-                        print("Couldn't parse the JSON file. Check the data type")
-                    }
-                }
+    func updateContacts(){
 
-            case .failure(let apiError):
-                print("Failed", apiError)
+        //Get most recent contacts
+        let currentLocation = self.locationService.currentLocation
+        ContactsApp.shared.updateContacts()
+        
+        DispatchQueue.main.async {
+            self.objectWillChange.send()
+        }
+        
+        //Get most recent user data
+        self.apiGateway.updateLocation(for: self.locationService.currentUser, at: "\(currentLocation.latitude),\(currentLocation.longitude)", completionHandler: {
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+            //Get most friendship status of each contact
+            self.apiGateway.findAppUsers(for: ContactsApp.shared.contacts, completionHandler: {
+                DispatchQueue.main.async {
+                    self.objectWillChange.send()
+                }
+                
+            })
+        })
+        
+    }
+    
+    func sendFriendRequest(from username: String, to friendUsername: String){
+        
+        apiGateway.sendFriendRequest(from: username, to: friendUsername, completionHandler: {
+            self.updateContacts()
+        })
+        
+
+    }
+    
+    func massFriendRequst(from username: String, for contacts: Array<ContactsApp.Contact>){
+        for contact in contacts {
+            if contact.friendshipStatus == .notFriends{
+                print("not friends")
+                sendFriendRequest(from: username, to: contact.username ?? "")
             }
         }
-
+    }
+    
+    func acceptFriendRequest(from username: String, to friendUsername: String){
+        apiGateway.acceptFriendRequest(from: username, to: friendUsername)
+        objectWillChange.send()
     }
     
     
