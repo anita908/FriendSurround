@@ -10,6 +10,8 @@ import SwiftUI
 struct AddFriends: View {
     @ObservedObject var contactsApp = Contacts()
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
+    @State private var showMessageModel = false
+    @State private var invitePhoneNumber = "801850245"
     
     @ViewBuilder
     var body: some View {
@@ -17,6 +19,12 @@ struct AddFriends: View {
         contacts
         Spacer()
             .navigationTitle("Add Friends")
+            .sheet(isPresented: $showMessageModel) {
+                MessageComponentView(recicipents: [invitePhoneNumber], body: "INSTALL THIS APP") {
+                    messageSent in
+                    showMessageModel = false
+                }
+            }
     }
     
     var mass_invite_options: some View {
@@ -72,8 +80,10 @@ struct AddFriends: View {
                         Spacer()
                         VStack(alignment: .trailing){
                             if contact.appUser == false {
-                                NavigationLink("INVITE TO APP", destination: {
-                                })
+                                Button("Invite to app") {
+                                    showMessageModel = true
+                                    invitePhoneNumber = contact.phoneNumberDigits
+                                }
                                     .font(.system(size: 10 * scale, weight: .semibold))
                                     .foregroundColor(.black)
                                     .frame(width: 85 * scale, height: 30 * scale)

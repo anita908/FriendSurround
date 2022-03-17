@@ -39,8 +39,6 @@ class Contacts: ObservableObject {
                         }
                     }
                 }
-                print("new contacts!")
-                print(contacts)
                 self.newContacts = contacts
             }
             

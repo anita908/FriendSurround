@@ -41,7 +41,6 @@ final class ApiGateway: ObservableObject {
 
     func updateLocation(for username: String, at newLocation: String) {
         let message = #"{"username": "\#(username)", "newLocation": "\#(newLocation)"}"#
-        print(message)
         let request = RESTRequest(path: "/location", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
             switch result {
@@ -62,7 +61,9 @@ final class ApiGateway: ObservableObject {
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
                         self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
 
-                        print(UserData.shared.username)
+                        print("All friends !!!!!!")
+                        print(UserData.shared.friends)
+                        
                         }
                         else {
                             print("Couldn't parse the JSON file. Check the data type")

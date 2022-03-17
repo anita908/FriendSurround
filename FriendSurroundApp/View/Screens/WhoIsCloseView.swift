@@ -18,8 +18,7 @@ struct WhoIsCloseView: View {
                     ForEach(userDataManager.userData.nearbyFriends, id: \.self) { user in
                         NavigationLink(
                             destination:
-//                                FriendDetailView(user:user)
-                                    EmptyView()
+                                FriendDetailView(user: user).environmentObject(FriendViewModel())
                         ) {
                             HStack {
                                 Image(systemName: "person")
