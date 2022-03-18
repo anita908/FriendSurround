@@ -8,10 +8,9 @@
 import Foundation
 
 final class UserDataManager: ObservableObject {
-    @Published var userData: UserData
     
-    init(){
-        userData = UserData.shared
+    var userData: UserData {
+        UserData.shared
     }
     
 }

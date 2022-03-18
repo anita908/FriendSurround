@@ -22,14 +22,21 @@ struct WhoIsCloseView: View {
                                     EmptyView()
                         ) {
                             HStack {
-                                Image(systemName: "person")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
+                                if user.profileImage != nil {
+                                    Image(uiImage: UIImage(data: user.profileImage!)!)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                }
+                                else {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                }
                                 Spacer()
                                 VStack {
-                                    Text("\(user["firstName"] ?? "") \(user["lastName"] ?? "")")
+                                    Text("\(user.firstName) \(user.lastName)")
                                         .layoutPriority(1)
-                                    Text("Phone \(user["phone"]?.phoneFormat ?? "")")
+                                    Text("Phone \(user.phone.phoneFormat)")
                                         .layoutPriority(1)
                                 }
                                 Spacer()

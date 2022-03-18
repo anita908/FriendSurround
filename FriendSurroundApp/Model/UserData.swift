@@ -19,18 +19,19 @@ class UserData: Identifiable {
     var userLocation: String = ""
     var pendingFriendRequestsIn: Array<String> = []
     var pendingFriendRequestsOut: Array<String> = []
-    var friends: Array<[String:String]> = []
+    var friends: [Friend] = []
     var createdDate: String = ""
     var deletedDate: String = ""
     var deleted: Bool = false
     var blockedPeople: Array<[String:String]> = []
+    var profileImage: Data? = nil
     
-    var nearbyFriends: Array<[String:String]> {
-        var closeFriends: Array<[String:String]> = []
+    var nearbyFriends: [Friend] {
+        var closeFriends: [Friend] = []
         if let loc = convertLocation(from: userLocation) {
             for friend in self.friends {
                 
-                if let friendLoc = convertLocation(from: friend["userLocation"] ?? "") {
+                if let friendLoc = convertLocation(from: friend.userLocation ) {
                     let distance = loc.distance(from: friendLoc)
                     if distance < 100 {
                         closeFriends.append(friend)
@@ -38,9 +39,8 @@ class UserData: Identifiable {
                 }
             }
         }
-        print(closeFriends.count)
          if closeFriends.count == 1 {
-             scheduleNotification(closeFriends[0]["firstName"]!, 1)
+             scheduleNotification(closeFriends[0].firstName, 1)
          }
          if closeFriends.count > 1 {
              scheduleNotification("", closeFriends.count)
@@ -49,9 +49,28 @@ class UserData: Identifiable {
         return closeFriends
     }
     
+    struct Friend: Hashable {
+        
+        var id = UUID()
+        
+        var username: String? = ""
+        
+        var firstName: String = ""
+        
+        var lastName: String = ""
+        
+        var userLocation: String = ""
+        
+        var email: String = ""
+        
+        var phone: String = ""
+        
+        var profileImage: Data? = nil
+        
+    }
+    
     static let shared = UserData()
     init() {}
-    
     
     func convertLocation(from locationString: String) -> CLLocation? {
         let pattern = "(^[0-9.-]+,[0-9.-]+$)"

@@ -57,7 +57,8 @@ final class ApiGateway: ObservableObject {
                         self.userData.userLocation = newUserData["userLocation"] as? String ?? ""
                         self.userData.pendingFriendRequestsIn = newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""]
                         self.userData.pendingFriendRequestsOut = newUserData["pendingFriendRequestsOut"] as? Array<String> ?? [""]
-                        self.userData.friends = newUserData["friends"] as? Array<[String:String]> ?? [["":""]]
+                        self.userData.friends = self.loadFriendsArray(from: newUserData["friends"] as? Array<[String:String]> ?? [["":""]])
+                        self.userData.profileImage = self.addProfilePictureToUser(with: newUserData["phone"] as? String ?? "")
                         self.userData.createdDate = newUserData["createdDate"] as? String ?? ""
                         self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
@@ -79,6 +80,31 @@ final class ApiGateway: ObservableObject {
                 
     }
     
+    func loadFriendsArray(from friends: Array<[String:String]>) -> [UserData.Friend]{
+        var friendsArray: [UserData.Friend] = []
+        for friend in friends {
+            var newFriend = UserData.Friend()
+            newFriend.username = friend["username"] ?? ""
+            newFriend.firstName = friend["firstName"] ?? ""
+            newFriend.lastName = friend["lastName"] ?? ""
+            newFriend.userLocation = friend["userLocation"] ?? ""
+            newFriend.email = friend["email"] ?? ""
+            newFriend.phone = friend["phone"] ?? ""
+            newFriend.profileImage = addProfilePictureToUser(with: friend["phone"] ?? "")
+            
+            friendsArray.append(newFriend)
+        }
+        return friendsArray
+    }
+    
+    func addProfilePictureToUser(with phone: String) -> Data?{
+        for contact in contactsApp.contacts {
+            if contact.phoneNumberDigits == phone {
+                return contact.profileImage
+            }
+        }
+        return nil
+    }
     
     func createPhoneList(from contacts: Array<ContactsApp.Contact>) -> [String] {
         var phoneList: [String] = []
@@ -90,7 +116,7 @@ final class ApiGateway: ObservableObject {
     
     func updateFriendshipStatus(for contact: ContactsApp.Contact, with index: Int){
         for friend in userData.friends{
-            if let friendUsername = friend["username"]{
+            if let friendUsername = friend.username{
                 if contact.username == friendUsername {
                     self.contactsApp.contacts[index].friendshipStatus = .friends
                     return
