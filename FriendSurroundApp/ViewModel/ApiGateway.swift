@@ -199,7 +199,7 @@ final class ApiGateway: ObservableObject {
     }
     
     func acceptFriendRequest(from username: String, to friendUsername: String){
-        let message = #"{"username": "mickey", "friendUsername": "chris"}"#
+        let message = #"{"username": "\#(username)", "friendUsername": "\#(friendUsername)"}"#
         let request = RESTRequest(path: "/acceptfriendrequest", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
             switch result {
