@@ -79,6 +79,7 @@ final class ApiGateway: ObservableObject {
                 
     }
     
+    
     func createPhoneList(from contacts: Array<ContactsApp.Contact>) -> [String] {
         var phoneList: [String] = []
         for contact in contacts {

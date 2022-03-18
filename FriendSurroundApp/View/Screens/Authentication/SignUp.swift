@@ -56,11 +56,14 @@ struct SignUpView: View {
                 VStack {
                     TextField("First name", text: $firstName)
                         .padding()
+                        .disableAutocorrection(true)
                     TextField("Last name", text: $lastName)
                         .padding()
+                        .disableAutocorrection(true)
                     TextField("Email", text: $email)
                         .padding()
                         .autocapitalization(.none)
+                        .disableAutocorrection(true)
                     iPhoneNumberField(text: $phone, isEditing: $isEditing)
                         .flagHidden(false)
                         .flagSelectable(true)
@@ -72,6 +75,7 @@ struct SignUpView: View {
                     TextField("Username", text: $username)
                         .padding()
                         .autocapitalization(.none)
+                        .disableAutocorrection(true)
                     SecureField("Password", text: $password)
                         .padding()
                 }

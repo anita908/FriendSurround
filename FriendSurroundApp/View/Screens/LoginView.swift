@@ -33,6 +33,7 @@ struct LoginView: View {
                         .cornerRadius(20)
                         .shadow(radius: 5, x: 10, y: 5)
                         .autocapitalization(.none)
+                        .disableAutocorrection(true)
                     
                     SecureField("Password", text: self.$password)
                         .padding()
