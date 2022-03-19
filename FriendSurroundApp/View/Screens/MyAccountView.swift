@@ -15,7 +15,7 @@ struct MyAccountView: View {
 
     var body: some View {
         if handleDeleteAccount == true {
-            SetUpPhoneNumberView()
+//            SetUpPhoneNumberView()
         } else {
             NavigationView {
                 ForEach(friendViewModel.users) { user in

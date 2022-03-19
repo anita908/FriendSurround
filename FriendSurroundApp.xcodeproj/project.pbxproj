@@ -7,17 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27250C204CE73E5919B24D1A /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DA23FE419DF2BA21B0B4803 /* awsconfiguration.json */; };
 		2C06F03A27C7158900540D98 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03927C7158900540D98 /* LocationService.swift */; };
 		2C06F03C27C7165C00540D98 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03B27C7165C00540D98 /* UserData.swift */; };
 		2C06F03F27C74B3600540D98 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F03E27C74B3600540D98 /* UserDataManager.swift */; };
 		2C33BF2A27B89E3C00DCF0AC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2927B89E3C00DCF0AC /* SessionManager.swift */; };
 		2C33BF2C27B8A06A00DCF0AC /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33BF2B27B8A06A00DCF0AC /* ConfirmationView.swift */; };
-		2C33BF4A27BF3C5D00DCF0AC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF4827BF3C5D00DCF0AC /* amplifyconfiguration.json */; };
 		2C33BF4B27BF3C5D00DCF0AC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C33BF4927BF3C5D00DCF0AC /* awsconfiguration.json */; };
 		2C8E76C027E26F4300B0AE39 /* AddFriendsNewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8E76BF27E26F4300B0AE39 /* AddFriendsNewLayout.swift */; };
 		2CA03F0B27C5EC1B003A4CF8 /* ApiGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA03F0A27C5EC1B003A4CF8 /* ApiGateway.swift */; };
-		2CA03F0F27C70C82003A4CF8 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA03F0E27C70C7F003A4CF8 /* amplifyconfiguration.json */; };
 		2CBB0B8127D1A1E30063467C /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CBB0B8027D1A1E30063467C /* amplifyconfiguration.json */; };
 		9C5F060946545A36F6A39AB0 /* Pods_FriendSurroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DC2287724BF36A521D26A8 /* Pods_FriendSurroundApp.framework */; };
 		E3056BC327BF4ECC000B2CB4 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3056BC227BF4ECC000B2CB4 /* ErrorHandling.swift */; };
@@ -356,10 +353,7 @@
 				E348EB5027866779009CA251 /* Preview Assets.xcassets in Resources */,
 				E39C8F9B278D53D000073C6B /* amongUsPink.png in Resources */,
 				2CBB0B8127D1A1E30063467C /* amplifyconfiguration.json in Resources */,
-				2CA03F0F27C70C82003A4CF8 /* amplifyconfiguration.json in Resources */,
 				E348EB4D27866779009CA251 /* Assets.xcassets in Resources */,
-				2C33BF4A27BF3C5D00DCF0AC /* amplifyconfiguration.json in Resources */,
-				27250C204CE73E5919B24D1A /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

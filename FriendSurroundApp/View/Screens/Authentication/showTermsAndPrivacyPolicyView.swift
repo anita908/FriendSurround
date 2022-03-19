@@ -9,9 +9,9 @@ import SwiftUI
 
 struct showTermsAndPrivacyPolicyView: View {
     var onDismiss: () -> ()
-    
+
     var body: some View {
-        
+
         NavigationView {
             VStack {
                 Text("Our terms blablabla")

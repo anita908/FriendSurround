@@ -24,7 +24,6 @@ struct AddFriendsNewLayout: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         contacts
             .onAppear(perform: contactsManager.updateContacts)
-            
 
         Spacer()
             .navigationTitle("Add Friends")

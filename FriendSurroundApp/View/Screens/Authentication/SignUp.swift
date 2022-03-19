@@ -17,6 +17,7 @@ struct SignUpView: View {
     @State var lastName: String = ""
     @State var username: String = ""
     @State var password: String = ""
+    @State var passwordCheck: String = ""
     @State var email: String = ""
     @State var phone: String = ""
     @State private var showTermsAndPrivacyPolicy = false
@@ -78,6 +79,8 @@ struct SignUpView: View {
                         .disableAutocorrection(true)
                     SecureField("Password", text: $password)
                         .padding()
+                    SecureField("Re-enter Password", text: $passwordCheck)
+                        .padding()
                 }
             }
             .padding()
@@ -98,11 +101,11 @@ struct SignUpView: View {
                     .fixedSize(horizontal: false, vertical: true)
             })
             .padding([.vertical], 10)
-            .sheet(isPresented: $showTermsAndPrivacyPolicy) {
-                showTermsAndPrivacyPolicyView(onDismiss: {
-                    showTermsAndPrivacyPolicy = false
-                })
-            }
+//            .sheet(isPresented: $showTermsAndPrivacyPolicy) {
+//                showTermsAndPrivacyPolicyView(onDismiss: {
+//                    showTermsAndPrivacyPolicy = false
+//                })
+//            }
             
             Spacer()
             
@@ -153,7 +156,10 @@ struct SignUpView: View {
             error = "Please enter a valid email"
         } else if phone == "" || trimPhone.count != 10{
             error = "Please enter a valid phone number"
-        } else {
+        } else if password != passwordCheck {
+            error = "Passwords don't match"
+        }
+        else {
             error = ""
         }
         

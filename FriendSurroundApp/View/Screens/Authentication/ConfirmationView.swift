@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ConfirmationView: View {
-    
+
     @State var verificationCode: String = ""
-    
+
     @EnvironmentObject var sessionManager: SessionManager
-    
+
     var username: String
     var email: String
     var body: some View {
@@ -38,8 +38,8 @@ struct ConfirmationView: View {
                     .background(Color.orange)
                     .cornerRadius(15.0)
                     .shadow(radius: 5.0, x: 10, y: 5)
-                
-                
+
+
 
             }
             Spacer()
