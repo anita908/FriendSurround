@@ -60,9 +60,6 @@ final class ApiGateway: ObservableObject {
                         self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
                         self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
-
-                        print("All friends !!!!!!")
-                        print(UserData.shared.friends)
                         
                         }
                         else {
@@ -96,12 +93,52 @@ final class ApiGateway: ObservableObject {
                         print("Couldn't parse the JSON file. Check the data type")
                     }
                 }
+            case .failure(let apiError):
+                print("Failed", apiError)
+            }
+        }
+    }
+    func updatePersonalDetail(_ phone: String, _ firstName: String, _ lastName: String, _ email: String) {
+        print("updatePersonalDetail")
+        var inputPhone = phone
+        var inputFirstName = firstName
+        var inputLastName = lastName
+        var inputEmail = email
+        
+        if phone == "" {
+            inputPhone = userData.phone
+        }
+        if firstName == "" {
+            inputFirstName = userData.firstName
+        }
+        if lastName == "" {
+            inputLastName = userData.lastName
+        }
+        if email == "" {
+            inputEmail = userData.email
+        }
+   
+        
+        print(inputPhone)
+        print(inputFirstName)
+        print(inputLastName)
+        print(inputEmail)
+        
+        let message = #"{"username": "mickey","firstName": "\#(inputFirstName)","lastName": "\#(inputLastName)","email": "\#(inputEmail)","phone": "\#(inputPhone)"}"#
+        let request = RESTRequest(path: "/updateuserdetails", body: message.data(using: .utf8))
+        Amplify.API.post(request: request) { result in
+            switch result {
+            case .success(let data):
+                let str = String(decoding: data, as: UTF8.self)
+                print("Success \(str)")
+                self.userData.phone = phone
+                self.userData.firstName = firstName
+                self.userData.lastName = lastName
+                self.userData.email = email
                 
             case .failure(let apiError):
                 print("Failed", apiError)
             }
         }
-        
     }
-    
 }

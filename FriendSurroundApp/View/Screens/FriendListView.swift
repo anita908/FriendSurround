@@ -44,10 +44,8 @@ struct FriendListView: View {
             }
         }
         .onAppear(){
-            print("All data")
-            print(userDataManager.userData.username)
-            print(userDataManager.userData.friends)
-//            print(userDataManager.userData.nearbyFriends)
+            print("nearbyFriends")
+            print(userDataManager.userData.nearbyFriends)
         }
         .navigationBarTitle("Friend List", displayMode: .inline)
         .toolbar {
