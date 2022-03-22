@@ -84,7 +84,7 @@ struct MenuView: View {
                 Section {
                     List {
                         ZStack {
-                            NavigationLink(destination: MyAccountView().environmentObject(FriendViewModel()))
+                            NavigationLink(destination: MyAccountView().environmentObject(ApiGateway()))
                             {
                                 EmptyView()
                             }

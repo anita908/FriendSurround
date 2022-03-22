@@ -117,11 +117,9 @@ final class ApiGateway: ObservableObject {
     
     func updateFriendshipStatus(for contact: ContactsApp.Contact, with index: Int){
         for friend in userData.friends{
-            if let friendUsername = friend.username{
-                if contact.username == friendUsername {
-                    self.contactsApp.contacts[index].friendshipStatus = .friends
-                    return
-                }
+            if contact.username == friend.username {
+                self.contactsApp.contacts[index].friendshipStatus = .friends
+                return
             }
         }
         
@@ -212,6 +210,48 @@ final class ApiGateway: ObservableObject {
             }
         }
     }
-
     
+    func updatePersonalDetail(_ username: String, _ phone: String, _ firstName: String, _ lastName: String, _ email: String) {
+        print("updatePersonalDetail")
+        var inputPhone = phone
+        var inputFirstName = firstName
+        var inputLastName = lastName
+        var inputEmail = email
+
+        if phone == "" {
+            inputPhone = userData.phone
+        }
+        if firstName == "" {
+            inputFirstName = userData.firstName
+        }
+        if lastName == "" {
+            inputLastName = userData.lastName
+        }
+        if email == "" {
+            inputEmail = userData.email
+        }
+
+
+//        print(inputPhone)
+//        print(inputFirstName)
+//        print(inputLastName)
+//        print(inputEmail)
+
+        let message = #"{"username": "\#(username)","firstName": "\#(inputFirstName)","lastName": "\#(inputLastName)","email": "\#(inputEmail)","phone": "\#(inputPhone)"}"#
+        let request = RESTRequest(path: "/updateuserdetails", body: message.data(using: .utf8))
+        Amplify.API.post(request: request) { result in
+            switch result {
+            case .success(let data):
+                let str = String(decoding: data, as: UTF8.self)
+                print("Success \(str)")
+                self.userData.phone = phone
+                self.userData.firstName = firstName
+                self.userData.lastName = lastName
+                self.userData.email = email
+
+            case .failure(let apiError):
+                print("Failed", apiError)
+            }
+        }
+    }
 }

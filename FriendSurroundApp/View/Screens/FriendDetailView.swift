@@ -9,10 +9,13 @@ import SwiftUI
 
 struct FriendDetailView: View {
     
-    var user: User
+    var user: UserData.Friend
     
     @EnvironmentObject var friendViewModel: FriendViewModel
     @State private var editMode: EditMode = .inactive
+    @State private var showMessageModel = false
+    @State private var showPhoneModel = false
+    @State private var invitePhoneNumber = ""
     
     var body: some View {
         NavigationView {
@@ -36,74 +39,75 @@ struct FriendDetailView: View {
                                 Text("\(user.firstName) \(user.lastName)")
                                     .multilineTextAlignment(.trailing)
                             }
-                            
                             HStack {
-                                Text("How you know them: ")
+                                Text("Phone")
                                     .layoutPriority(1)
                                 Spacer()
-                                EditableText(
-                                    text: "\(user.connection)",
-                                    isEditing: editMode.isEditing,
-                                    textAlignment: .trailing
-                                ) { updatedText in
-                                    friendViewModel.updateConnection(connection: updatedText, for: user)
-                                }
+                                Text(user.phone.phoneFormat)
+                                    .multilineTextAlignment(.trailing)
+                            }
+                            HStack {
+                                Text("username")
+                                    .layoutPriority(1)
+                                Spacer()
+                                Text(user.username)
+                                    .multilineTextAlignment(.trailing)
+                            }
+                            HStack {
+                                Text("email")
+                                    .layoutPriority(1)
+                                Spacer()
+                                Text(user.email)
+                                    .multilineTextAlignment(.trailing)
                             }
                         }
                     }
                 }
+               
+                VStack{
+                    Button("Call") {
+                        let phone = "tel://"
+                        let phoneNumberformatted = phone + "\(user.phone.phoneFormat)"
+                        guard let url = URL(string: phoneNumberformatted) else { return }
+                        UIApplication.shared.open(url)
+                       }
+                        .font(.system(size: 35, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 70)
+                        .background(Color(0xFFB186))
+                        .cornerRadius(15.0)
+                        .shadow(radius: 5.0, x: 10, y: 5)
+                        .padding()
+                    
+                    Button("Text") {
+                        showMessageModel = true
+                        invitePhoneNumber = "\(user.phone.phoneFormat)"
+                    }
+                        .font(.system(size: 35, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 70)
+                        .background(Color(0xFFB186))
+                        .cornerRadius(15.0)
+                        .shadow(radius: 5.0, x: 10, y: 5)
+                        .padding()
+                }
+                .padding([.vertical], 10)
                 
-                if editMode.isEditing {
-                    Button(action: {
-                        friendViewModel.updateFollow(isFollow: !user.isFollow, for: user)
-                    }) {
-                        if user.isFollow {
-                            Text("UNFOLLOW")
-                                .font(.headline)
-                                .padding()
-                        } else {
-                            Text("FOLLOW")
-                                .font(.headline)
-                        }
-                    }
-                    .font(.system(size: 35, weight: .semibold))
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 70)
-                    .background(Color(0xFFB186))
-                    .cornerRadius(15.0)
-                    .shadow(radius: 5.0, x: 10, y: 5)
-                    .padding()
-                } else {
-                    VStack{
-                        NavigationLink("CALL", destination: {
-                        })
-                            .font(.system(size: 35, weight: .semibold))
-                            .foregroundColor(.white)
-                            .frame(width: 300, height: 70)
-                            .background(Color(0xFFB186))
-                            .cornerRadius(15.0)
-                            .shadow(radius: 5.0, x: 10, y: 5)
-                            .padding()
-                        
-                        NavigationLink("TEXT", destination: {
-                        })
-                            .font(.system(size: 35, weight: .semibold))
-                            .foregroundColor(.white)
-                            .frame(width: 300, height: 70)
-                            .background(Color(0xFFB186))
-                            .cornerRadius(15.0)
-                            .shadow(radius: 5.0, x: 10, y: 5)
-                            .padding()
-                    }
-                    .padding([.vertical], 10)
+            }
+            .sheet(isPresented: $showPhoneModel) {
+                MessageComponentView(recicipents: [invitePhoneNumber], body: "") {
+                    messageSent in
+                    showPhoneModel = false
+                }
+            }
+            .sheet(isPresented: $showMessageModel) {
+                MessageComponentView(recicipents: [invitePhoneNumber], body: "") {
+                    messageSent in
+                    showMessageModel = false
                 }
             }
         }
         .navigationBarTitle(Text("\(user.firstName) \(user.lastName)"), displayMode: .inline)
-        .navigationBarItems(
-            trailing: EditButton()
-        )
-        .environment(\.editMode, $editMode)
     }
 }
 

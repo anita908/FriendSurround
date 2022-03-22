@@ -13,6 +13,9 @@ struct AddFriends: View {
     
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
+    @State private var showMessageModel = false
+    @State private var invitePhoneNumber = "801850245"
+    
     var locationService = LocationService.shared
     var apiGateway = ApiGateway()
     
@@ -21,10 +24,14 @@ struct AddFriends: View {
         mass_invite_options
         contacts
             .onAppear(perform: contactsManager.updateContacts)
-        
-            
         Spacer()
             .navigationTitle("Add Friends")
+            .sheet(isPresented: $showMessageModel) {
+                MessageComponentView(recicipents: [invitePhoneNumber], body: "INSTALL THIS APP") {
+                    messageSent in
+                    showMessageModel = false
+                }
+            }
     }
     
     var mass_invite_options: some View {
@@ -82,7 +89,7 @@ struct AddFriends: View {
                             Spacer()
                             VStack(alignment: .trailing){
                                 if contact.friendshipStatus == .notAnAppUser {
-                                    inviteToAppButton
+                                    inviteToAppButton(contact.phoneNumberDigits!)
                                 }
                                 else if contact.friendshipStatus == .notFriends {
                                     friendRequestButton(locationService.currentUser, contact.username ?? "")
@@ -98,9 +105,12 @@ struct AddFriends: View {
         }
     }
     
-    var inviteToAppButton: some View{
-        NavigationLink("INVITE TO APP", destination: {
-        })
+    @ViewBuilder
+    func inviteToAppButton(_ phoneNumber: String) -> some View {
+        Button("Invite to app") {
+            showMessageModel = true
+            invitePhoneNumber = phoneNumber
+        }
             .font(.system(size: 10 * scale, weight: .semibold))
             .foregroundColor(.black)
             .frame(width: 85 * scale, height: 30 * scale)
@@ -111,6 +121,20 @@ struct AddFriends: View {
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(Color(0xFFB186), lineWidth: 2))
     }
+    
+//    var inviteToAppButton: some View{
+//        NavigationLink("INVITE TO APP", destination: {
+//        })
+//            .font(.system(size: 10 * scale, weight: .semibold))
+//            .foregroundColor(.black)
+//            .frame(width: 85 * scale, height: 30 * scale)
+//            .background(Color.white)
+//            .cornerRadius(5.0)
+//            .shadow(radius: 5.0, x: 10, y: 5)
+//            .overlay(
+//                    RoundedRectangle(cornerRadius: 5)
+//                        .stroke(Color(0xFFB186), lineWidth: 2))
+//    }
     
     var requestSentText: some View{
         Text("REQUEST SENT")

@@ -8,113 +8,124 @@
 import SwiftUI
 
 struct MyAccountView: View {
+    @EnvironmentObject var apiGateway: ApiGateway
+    @EnvironmentObject var sessionManager: SessionManager
     
-    @EnvironmentObject var friendViewModel: FriendViewModel
+    @ObservedObject var userDataManager = UserDataManager()
+    
     @State private var editMode: EditMode = .inactive
     @State private var handleDeleteAccount: Bool = false
-
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
+    @State private var phone: String = ""
+    @State private var email: String = ""
+    @State private var message: String = ""
+    
     var body: some View {
         if handleDeleteAccount == true {
-//            SetUpPhoneNumberView()
+            SetUpPhoneNumberView()
         } else {
             NavigationView {
-                ForEach(friendViewModel.users) { user in
-                    if user.type == 0 {
-                        VStack {
-                            Form {
+                VStack {
+                    Form {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "person")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .padding()
+                            Spacer()
+                        }
+                        
+                        Section {
+                            List {
                                 HStack {
+                                    Text("Phone")
                                     Spacer()
-                                    Image(systemName: "person")
-                                        .resizable()
-                                        .frame(width: 100, height: 100, alignment: .center)
-                                        .padding()
+                                    EditableText(
+                                        text: "\(userDataManager.userData.phone)",
+                                        isEditing: editMode.isEditing,
+                                        textAlignment: .trailing
+                                    ) { updatedText in
+                                        phone = updatedText
+                                        print("Phone: \(updatedText)")
+                                    }
+                                }
+                                HStack {
+                                    Text("First Name")
                                     Spacer()
+                                    EditableText(
+                                        text: "\(userDataManager.userData.firstName)",
+                                        isEditing: editMode.isEditing,
+                                        textAlignment: .trailing
+                                    ) { updatedText in
+                                        print("FNAME: \(updatedText)")
+                                        firstName = updatedText
+                                    }
                                 }
                                 
-                                Section {
-                                    List {
-                                        HStack {
-                                            Text("Phone")
-                                            Spacer()
-                                            EditableText(
-                                                text: "\(user.email)",
-                                                isEditing: editMode.isEditing,
-                                                textAlignment: .trailing
-                                            ) { updatedText in
-                                                friendViewModel.updateMyPhone(phone: updatedText, for: user)
-                                            }
-                                        }
-                                        HStack {
-                                            Text("First Name")
-                                            Spacer()
-                                            EditableText(
-                                                text: "\(user.firstName)",
-                                                isEditing: editMode.isEditing,
-                                                textAlignment: .trailing
-                                            ) { updatedText in
-                                                friendViewModel.updateMyFirstName(firstName: updatedText, for: user)
-                                            }
-                                        }
-                                        
-                                        HStack {
-                                            Text("Last Name")
-                                            Spacer()
-                                            EditableText(
-                                                text: "\(user.lastName)",
-                                                isEditing: editMode.isEditing,
-                                                textAlignment: .trailing
-                                            ) { updatedText in
-                                                friendViewModel.updateMyLastName(lastName: updatedText, for: user)
-                                            }
-                                        }
-                                        HStack {
-                                            Text("Email")
-                                            Spacer()
-                                            EditableText(
-                                                text: "\(user.phone)",
-                                                isEditing: editMode.isEditing,
-                                                textAlignment: .trailing
-                                            ) { updatedText in
-                                                friendViewModel.updateMyEmail(email: updatedText, for: user)
-                                            }
-                                        }
+                                HStack {
+                                    Text("Last Name")
+                                    Spacer()
+                                    EditableText(
+                                        text: "\(userDataManager.userData.lastName)",
+                                        isEditing: editMode.isEditing,
+                                        textAlignment: .trailing
+                                    ) { updatedText in
+                                        lastName = updatedText
+                                        print("LNAME: \(updatedText)")
+                                    }
+                                }
+                                HStack {
+                                    Text("Email")
+                                    Spacer()
+                                    EditableText(
+                                        text: "\(userDataManager.userData.email)",
+                                        isEditing: editMode.isEditing,
+                                        textAlignment: .trailing
+                                    ) { updatedText in
+                                        print("Email: \(updatedText)")
+                                        email = updatedText
                                     }
                                 }
                             }
-                            
-                            VStack{
-                                Button(action: {
-                                    deleteAccount()
-                                }, label: {
-                                    (Text("Delete Account"))
-                                        .font(.system(size: 25, weight: .semibold))
-                                        .foregroundColor(.white)
-                                        .frame(width: 300, height: 70)
-                                        .background(Color(0xFFB186))
-                                        .cornerRadius(15.0)
-                                        .shadow(radius: 5.0, x: 10, y: 5)
-                                        .padding()
-                                        
-                                })
-                                HStack {
-                                    Image(systemName: "person.crop.circle.badge.xmark")
-                                        .resizable()
-                                        .frame(width: 40, height: 40, alignment: .center)
-                                        .padding()
-                                    NavigationLink("STEALTH MODE", destination: {
-                                    })
-                                }
+                        }
+                    }
+                    
+                    Text(message)
+                        .foregroundColor(.red)
+                    
+                    VStack{
+                        Button(action: {
+                            deleteAccount()
+                        }, label: {
+                            (Text("Delete Account"))
                                 .font(.system(size: 25, weight: .semibold))
                                 .foregroundColor(.white)
                                 .frame(width: 300, height: 70)
-                                .background(Color.gray)
+                                .background(Color(0xFFB186))
                                 .cornerRadius(15.0)
                                 .shadow(radius: 5.0, x: 10, y: 5)
                                 .padding()
-                            }
-                            .padding([.vertical], 10)
+                                
+                        })
+                        HStack {
+                            Image(systemName: "person.crop.circle.badge.xmark")
+                                .resizable()
+                                .frame(width: 40, height: 40, alignment: .center)
+                                .padding()
+                            NavigationLink("STEALTH MODE", destination: {
+                            })
                         }
-                     }
+                        .font(.system(size: 25, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 70)
+                        .background(Color.gray)
+                        .cornerRadius(15.0)
+                        .shadow(radius: 5.0, x: 10, y: 5)
+                        .padding()
+                    }
+                    .padding([.vertical], 10)
                 }
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
@@ -125,11 +136,30 @@ struct MyAccountView: View {
                 trailing: EditButton()
             )
             .environment(\.editMode, $editMode)
+            .onChange(of: $editMode.wrappedValue, perform: { value in
+              if value.isEditing {
+                 // Entering edit mode (e.g. 'Edit' tapped)
+              } else {
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                      if phone.count != 10 && phone != "" {
+                          message = "please enter a valid phone number"
+                      } else if !sessionManager.isEmailValid(email) && email != "" {
+                          message = "please enter a valid email"
+                      } else {
+                          message = ""
+                      }
+                      
+                      if message == "" {
+                          apiGateway.updatePersonalDetail(userDataManager.userData.username, phone, firstName, lastName, email)
+                      }
+                      message = "successfully update!"
+                  }
+              }
+            })
         }
     }
     
     private func deleteAccount(){
-        friendViewModel.deleteAccount()
         handleDeleteAccount = true
     }
 }

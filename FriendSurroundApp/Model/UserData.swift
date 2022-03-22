@@ -73,7 +73,7 @@ class UserData: Identifiable {
         
         var id = UUID()
         
-        var username: String? = ""
+        var username: String = ""
         
         var firstName: String = ""
         
