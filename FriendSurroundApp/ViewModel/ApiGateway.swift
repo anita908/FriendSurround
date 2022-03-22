@@ -63,6 +63,7 @@ final class ApiGateway: ObservableObject {
                         self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         self.userData.deleted = newUserData["deleted"] as? Bool ?? false
                         self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
+                        print(self.userData.nearbyFriends)
                         completionHandler()
                         }
                         else {

@@ -25,26 +25,46 @@ class UserData: Identifiable {
     var deleted: Bool = false
     var blockedPeople: Array<[String:String]> = []
     var profileImage: Data? = nil
+    var delegate = NotificationDelelegate()
+    private var previousNearbyFriends: [Friend] = []
     
     var nearbyFriends: [Friend] {
+        print("previous nearby frirn")
+        print(previousNearbyFriends)
+        var newCloseFriends: [Friend] = []
         var closeFriends: [Friend] = []
         if let loc = convertLocation(from: userLocation) {
             for friend in self.friends {
                 
                 if let friendLoc = convertLocation(from: friend.userLocation ) {
                     let distance = loc.distance(from: friendLoc)
-                    if distance < 100 {
+                    print(distance)
+                    if distance < 50 {
                         closeFriends.append(friend)
                     }
                 }
             }
         }
-         if closeFriends.count == 1 {
-             scheduleNotification(closeFriends[0].firstName, 1)
-         }
-         if closeFriends.count > 1 {
-             scheduleNotification("", closeFriends.count)
-         }
+        for friend in closeFriends {
+            if !previousNearbyFriends.contains(where: { $0.username == friend.username}){
+                print("appended")
+                newCloseFriends.append(friend)
+            }
+        }
+//        print("")
+//        print("close")
+//        print(closeFriends)
+//        print("new close")
+//        print(newCloseFriends)
+        if newCloseFriends.count == 1 {
+            scheduleNotification(newCloseFriends[0].firstName, 1)
+            UNUserNotificationCenter.current().delegate = delegate
+        }
+        if newCloseFriends.count > 1 {
+            scheduleNotification("", closeFriends.count)
+            UNUserNotificationCenter.current().delegate = delegate
+        }
+        previousNearbyFriends = closeFriends
         
         return closeFriends
     }
@@ -107,7 +127,7 @@ class UserData: Identifiable {
         if number == 1 {
             content.subtitle = "\(name) is close!"
         } else {
-            content.subtitle = "You have \(number) friends nearby!"
+            content.subtitle = "You have \(number) new friends nearby!"
         }
         
         content.sound = UNNotificationSound.default
@@ -117,5 +137,13 @@ class UserData: Identifiable {
         let request = UNNotificationRequest(identifier: notificationID, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request)
+    }
+    
+}
+
+class NotificationDelelegate: NSObject,ObservableObject,UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.badge,.banner,.sound])
     }
 }

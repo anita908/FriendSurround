@@ -73,7 +73,6 @@ class ContactsApp {
         self.contacts = Array<Contact>()
         let cnContacts = getCNContacts()
         self.contacts = convertCNContactData(cnContacts)
-        print(contacts)
     }
     
     private func getCNContacts () -> [CNContact] {
