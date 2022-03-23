@@ -38,7 +38,7 @@ class UserData: Identifiable {
                 
                 if let friendLoc = convertLocation(from: friend.userLocation ) {
                     let distance = loc.distance(from: friendLoc)
-                    print(distance)
+                    print("\(friend.firstName) is \(distance)  8 8vmeters away")
                     if distance < 50 {
                         closeFriends.append(friend)
                     }
