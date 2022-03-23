@@ -22,9 +22,19 @@ struct FriendListView: View {
                                 FriendDetailView(user: friend).environmentObject(FriendViewModel())
                         ) {
                             HStack {
-                                Image(systemName: "person")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
+//                                Image(systemName: "person")
+//                                    .resizable()
+//                                    .frame(width: 50, height: 50)
+                                if friend.profileImage != nil {
+                                    Image(uiImage: UIImage(data: friend.profileImage!)!)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                }
+                                else {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                }
                                 Spacer()
                                 VStack {
                                     Text("\(friend.firstName) \(friend.lastName)")

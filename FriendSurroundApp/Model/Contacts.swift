@@ -18,8 +18,8 @@ class ContactsApp {
     
     init(){
         contacts = Array<Contact>()
-        let cnContacts = getCNContacts()
-        contacts = convertCNContactData(cnContacts)
+//        let cnContacts = getCNContacts()
+//        contacts = convertCNContactData(cnContacts)
     }
     
     enum FriendshipStatus: String {

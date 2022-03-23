@@ -9,9 +9,6 @@ import Foundation
 import Amplify
 
 final class ApiGateway: ObservableObject {
-    
-    var userData = UserData.shared
-    var contactsApp = ContactsApp.shared
 
     func examplePostRequest() {
         let message = #"{"username": "nesdom13"}"#
@@ -49,21 +46,20 @@ final class ApiGateway: ObservableObject {
             case .success(let data):
                 if let json = data.toJSON() {
                     if let newUserData = json["userData"] as? [String:Any] {
-                        self.userData.username = newUserData["username"] as? String ?? ""
-                        self.userData.firstName = newUserData["firstName"] as? String ?? ""
-                        self.userData.lastName = newUserData["lastName"] as? String ?? ""
-                        self.userData.phone = newUserData["phone"] as? String ?? ""
-                        self.userData.email = newUserData["email"] as? String ?? ""
-                        self.userData.userLocation = newUserData["userLocation"] as? String ?? ""
-                        self.userData.pendingFriendRequestsIn = newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""]
-                        self.userData.pendingFriendRequestsOut = newUserData["pendingFriendRequestsOut"] as? Array<String> ?? [""]
-                        self.userData.friends = self.loadFriendsArray(from: newUserData["friends"] as? Array<[String:String]> ?? [["":""]])
-                        self.userData.profileImage = self.addProfilePictureToUser(with: newUserData["phone"] as? String ?? "")
-                        self.userData.createdDate = newUserData["createdDate"] as? String ?? ""
-                        self.userData.deletedDate = newUserData["deletedDate"] as? String ?? ""
-                        self.userData.deleted = newUserData["deleted"] as? Bool ?? false
-                        self.userData.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
-                        print(self.userData.nearbyFriends)
+                        UserData.shared.username = newUserData["username"] as? String ?? ""
+                        UserData.shared.firstName = newUserData["firstName"] as? String ?? ""
+                        UserData.shared.lastName = newUserData["lastName"] as? String ?? ""
+                        UserData.shared.phone = newUserData["phone"] as? String ?? ""
+                        UserData.shared.email = newUserData["email"] as? String ?? ""
+                        UserData.shared.userLocation = newUserData["userLocation"] as? String ?? ""
+                        UserData.shared.pendingFriendRequestsIn = newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""]
+                        UserData.shared.pendingFriendRequestsOut = newUserData["pendingFriendRequestsOut"] as? Array<String> ?? [""]
+                        UserData.shared.friends = self.loadFriendsArray(from: newUserData["friends"] as? Array<[String:String]> ?? [["":""]])
+                        UserData.shared.profileImage = self.addProfilePictureToUser(with: newUserData["phone"] as? String ?? "")
+                        UserData.shared.createdDate = newUserData["createdDate"] as? String ?? ""
+                        UserData.shared.deletedDate = newUserData["deletedDate"] as? String ?? ""
+                        UserData.shared.deleted = newUserData["deleted"] as? Bool ?? false
+                        UserData.shared.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
                         completionHandler()
                         }
                         else {
@@ -99,7 +95,8 @@ final class ApiGateway: ObservableObject {
     }
     
     func addProfilePictureToUser(with phone: String) -> Data?{
-        for contact in contactsApp.contacts {
+        ContactsApp.shared.updateContacts()
+        for contact in ContactsApp.shared.contacts {
             if contact.phoneNumberDigits == phone {
                 return contact.profileImage
             }
@@ -116,28 +113,28 @@ final class ApiGateway: ObservableObject {
     }
     
     func updateFriendshipStatus(for contact: ContactsApp.Contact, with index: Int){
-        for friend in userData.friends{
+        for friend in UserData.shared.friends{
             if contact.username == friend.username {
-                self.contactsApp.contacts[index].friendshipStatus = .friends
+                ContactsApp.shared.contacts[index].friendshipStatus = .friends
                 return
             }
         }
         
-        for requestInUsername in userData.pendingFriendRequestsIn{
+        for requestInUsername in UserData.shared.pendingFriendRequestsIn{
             if contact.username == requestInUsername {
-                self.contactsApp.contacts[index].friendshipStatus = .requestReceived
+                ContactsApp.shared.contacts[index].friendshipStatus = .requestReceived
                 return
             }
         }
         
-        for requestOutUsername in userData.pendingFriendRequestsOut {
+        for requestOutUsername in UserData.shared.pendingFriendRequestsOut {
             if contact.username == requestOutUsername {
-                self.contactsApp.contacts[index].friendshipStatus = .requestSent
+                ContactsApp.shared.contacts[index].friendshipStatus = .requestSent
                 return
             }
         }
         
-        self.contactsApp.contacts[index].friendshipStatus = .notFriends
+        ContactsApp.shared.contacts[index].friendshipStatus = .notFriends
     }
     
     func findAppUsers(for contacts: Array<ContactsApp.Contact>, completionHandler: @escaping () -> ()) {
@@ -145,7 +142,7 @@ final class ApiGateway: ObservableObject {
         
         let message = #"{ "phoneList": \#(phoneList)}"#
         let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
-        let contacts = contactsApp.contacts
+        let contacts = ContactsApp.shared.contacts
         
         Amplify.API.post(request: request) { result in
             switch result {
@@ -157,8 +154,8 @@ final class ApiGateway: ObservableObject {
                             for index in 0..<contacts.count {
                                 for contactInDatabase in contactsInDatabase {
                                     if contacts[index].phoneNumberDigits == contactInDatabase["phone"] {
-                                        self.contactsApp.contacts[index].username = contactInDatabase["username"]
-                                        self.updateFriendshipStatus(for: self.contactsApp.contacts[index], with: index)
+                                        ContactsApp.shared.contacts[index].username = contactInDatabase["username"]
+                                        self.updateFriendshipStatus(for: ContactsApp.shared.contacts[index], with: index)
                                         
                                         
                                     }
@@ -219,16 +216,16 @@ final class ApiGateway: ObservableObject {
         var inputEmail = email
 
         if phone == "" {
-            inputPhone = userData.phone
+            inputPhone = UserData.shared.phone
         }
         if firstName == "" {
-            inputFirstName = userData.firstName
+            inputFirstName = UserData.shared.firstName
         }
         if lastName == "" {
-            inputLastName = userData.lastName
+            inputLastName = UserData.shared.lastName
         }
         if email == "" {
-            inputEmail = userData.email
+            inputEmail = UserData.shared.email
         }
 
 
@@ -244,10 +241,10 @@ final class ApiGateway: ObservableObject {
             case .success(let data):
                 let str = String(decoding: data, as: UTF8.self)
                 print("Success \(str)")
-                self.userData.phone = phone
-                self.userData.firstName = firstName
-                self.userData.lastName = lastName
-                self.userData.email = email
+                UserData.shared.phone = phone
+                UserData.shared.firstName = firstName
+                UserData.shared.lastName = lastName
+                UserData.shared.email = email
 
             case .failure(let apiError):
                 print("Failed", apiError)
