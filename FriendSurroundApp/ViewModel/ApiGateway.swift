@@ -55,11 +55,14 @@ final class ApiGateway: ObservableObject {
                         UserData.shared.pendingFriendRequestsIn = newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""]
                         UserData.shared.pendingFriendRequestsOut = newUserData["pendingFriendRequestsOut"] as? Array<String> ?? [""]
                         UserData.shared.friends = self.loadFriendsArray(from: newUserData["friends"] as? Array<[String:String]> ?? [["":""]])
+                        self.setPotentialFriends(requestsIn: newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""])
                         UserData.shared.profileImage = self.addProfilePictureToUser(with: newUserData["phone"] as? String ?? "")
                         UserData.shared.createdDate = newUserData["createdDate"] as? String ?? ""
                         UserData.shared.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         UserData.shared.deleted = newUserData["deleted"] as? Bool ?? false
                         UserData.shared.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
+                        print(UserData.shared.nearbyFriends)
+                        print(UserData.shared.potentialFriends)
                         completionHandler()
                         }
                         else {
@@ -75,6 +78,16 @@ final class ApiGateway: ObservableObject {
                 }
             }
                 
+    }
+    
+    func setPotentialFriends(requestsIn: Array<String>){
+        UserData.shared.potentialFriends = []
+        for username in requestsIn {
+            if !UserData.shared.potentialFriends.contains(where: {$0.username == username}){
+                UserData.shared.potentialFriends.append(UserData.PotentialFriend(username: username, friendshipStatus: .requestReceived))
+            }
+            
+        }
     }
     
     func loadFriendsArray(from friends: Array<[String:String]>) -> [UserData.Friend]{
@@ -194,7 +207,7 @@ final class ApiGateway: ObservableObject {
         }
     }
     
-    func acceptFriendRequest(from username: String, to friendUsername: String){
+    func acceptFriendRequest(from username: String, to friendUsername: String, completionHandler: @escaping () -> ()){
         let message = #"{"username": "\#(username)", "friendUsername": "\#(friendUsername)"}"#
         let request = RESTRequest(path: "/acceptfriendrequest", body: message.data(using: .utf8))
         Amplify.API.post(request: request) { result in
@@ -202,6 +215,7 @@ final class ApiGateway: ObservableObject {
             case .success(let data):
                 let str = String(decoding: data, as: UTF8.self)
                 print("Success \(str)")
+                completionHandler()
             case .failure(let apiError):
                 print("Failed", apiError)
             }

@@ -18,7 +18,7 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 VStack {
-                    Button("Sign Out", action: sessionManager.signOut)
+//                    Button("Sign Out", action: sessionManager.signOut)
                     Text("FriendSurround")
                         .font(.largeTitle).foregroundColor(Color(0xFFB186))
                         .padding([.top, .bottom], 40)

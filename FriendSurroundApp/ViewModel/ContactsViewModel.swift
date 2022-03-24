@@ -37,13 +37,16 @@ class ContactsManager: ObservableObject {
             DispatchQueue.main.async {
                 self.objectWillChange.send()
             }
-            //Get most friendship status of each contact
+            
+            //Get most recent friendship status of each contact
             self.apiGateway.findAppUsers(for: ContactsApp.shared.contacts, completionHandler: {
                 DispatchQueue.main.async {
                     self.objectWillChange.send()
                 }
                 
             })
+            
+            
         })
         
     }
@@ -67,9 +70,20 @@ class ContactsManager: ObservableObject {
     }
     
     func acceptFriendRequest(from username: String, to friendUsername: String){
-        apiGateway.acceptFriendRequest(from: username, to: friendUsername)
-        objectWillChange.send()
+        apiGateway.acceptFriendRequest(from: username, to: friendUsername, completionHandler: {
+            DispatchQueue.main.async {
+                self.updateContacts()
+            }
+        })
     }
     
+    func getFriend(from username: String) -> UserData.Friend{
+        for friend in UserData.shared.friends {
+            if friend.username == username {
+                return friend
+            }
+        }
+        return UserData.Friend()
+    }
     
 }

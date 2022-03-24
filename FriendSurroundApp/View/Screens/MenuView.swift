@@ -22,6 +22,14 @@ struct MenuView: View {
         NavigationView{
             Form {
                 Section {
+                    Text("FriendSurround")
+                        .font(.largeTitle)
+                        .foregroundColor(Color(0xFFB186))
+                        .listRowBackground(Color.clear)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+                
+                Section {
                     List {
                         ZStack {
                             NavigationLink(destination: WhoIsCloseView().environmentObject(FriendViewModel()))
@@ -39,6 +47,7 @@ struct MenuView: View {
                         .padding()
                     }
                 }
+                .listRowBackground(Color(0xFFB186))
                 .padding()
                 
                 Section {
@@ -59,6 +68,7 @@ struct MenuView: View {
                         .padding()
                     }
                 }
+                .listRowBackground(Color(0xFFB186))
                 .padding()
                 
                 Section {
@@ -79,6 +89,7 @@ struct MenuView: View {
                         .padding()
                     }
                 }
+                .listRowBackground(Color(0xFFB186))
                 .padding()
                 
                 Section {
@@ -100,10 +111,12 @@ struct MenuView: View {
                     }
                     
                 }
+                .listRowBackground(Color(0xFFB186))
                 .padding()
             
                 Button("Sign Out", action: sessionManager.signOut)
             }
+            .background(Color.white)
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
         }

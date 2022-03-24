@@ -30,10 +30,18 @@ struct MyAccountView: View {
                     Form {
                         HStack {
                             Spacer()
-                            Image(systemName: "person")
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .center)
-                                .padding()
+                            if userDataManager.userData.profileImage != nil {
+                                Image(uiImage: UIImage(data: userDataManager.userData.profileImage!)!)
+                                    .resizable()
+                                    .frame(width: 100, height: 100, alignment: .center)
+                                    .padding()
+                            }
+                            else {
+                                Image(systemName: "person.crop.circle.fill")
+                                    .resizable()
+                                    .frame(width: 100, height: 100, alignment: .center)
+                                    .padding()
+                            }
                             Spacer()
                         }
                         

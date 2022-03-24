@@ -23,10 +23,18 @@ struct FriendDetailView: View {
                 Form {
                     HStack {
                         Spacer()
-                        Image(systemName: "person")
-                            .resizable()
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .padding()
+                        if user.profileImage != nil {
+                            Image(uiImage: UIImage(data: user.profileImage!)!)
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .padding()
+                        }
+                        else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .padding()
+                        }
                         Spacer()
                     }
                     

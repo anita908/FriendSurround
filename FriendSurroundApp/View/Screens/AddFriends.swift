@@ -65,7 +65,22 @@ struct AddFriends: View {
     var contacts: some View {
             ScrollView(.vertical){
                 LazyVStack(alignment: .leading){
-    //                acceptRequestButton("mickey", "chris")
+                    ForEach(UserData.shared.potentialFriends) { user in
+                        HStack {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .frame(width: 50 * scale, height: 50 * scale)
+                                .accessibility(hidden: true)
+                            Text(user.username)
+                            Spacer()
+                            VStack(alignment: .trailing){
+                                if user.friendshipStatus == .requestReceived {
+                                    acceptRequestButton(locationService.currentUser, user.username)
+                                }
+                            }
+                        }
+                        
+                    }
                     ForEach(contactsManager.contacts.sorted{$0.friendshipStatus < $1.friendshipStatus}, id: \.self) { contact in
                         HStack {
                             if contact.profileImage != nil {
@@ -96,6 +111,12 @@ struct AddFriends: View {
                                 }
                                 else if contact.friendshipStatus == .requestSent {
                                     requestSentText
+                                }
+                                else if contact.friendshipStatus == .requestReceived {
+                                    acceptRequestButton(locationService.currentUser, contact.username ?? "")
+                                }
+                                else if contact.friendshipStatus == .friends {
+                                    viewProfile(contact.username ?? "")
                                 }
                             }
                         }
@@ -136,6 +157,23 @@ struct AddFriends: View {
 //                        .stroke(Color(0xFFB186), lineWidth: 2))
 //    }
     
+    @ViewBuilder
+    func viewProfile(_ username: String) -> some View {
+        let friend = contactsManager.getFriend(from: username)
+        
+        NavigationLink("View Profile", destination: {
+            FriendDetailView(user: friend).environmentObject(FriendViewModel())
+        })
+            .font(.system(size: 10 * scale, weight: .semibold))
+            .foregroundColor(.black)
+            .frame(width: 85 * scale, height: 30 * scale)
+            .background(Color(0xFFB186))
+            .cornerRadius(5.0)
+            .shadow(radius: 5.0, x: 10, y: 5)
+                
+    }
+    
+    
     var requestSentText: some View{
         Text("REQUEST SENT")
             .font(.system(size: 10 * scale, weight: .semibold))
@@ -173,8 +211,6 @@ struct AddFriends: View {
             .cornerRadius(5.0)
             .shadow(radius: 5.0, x: 10, y: 5)
     }
-    
-    
     
     
 }

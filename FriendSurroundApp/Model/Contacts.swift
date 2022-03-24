@@ -67,8 +67,6 @@ class ContactsApp {
         
     }
 
-    
-    
     func updateContacts() {
         self.contacts = Array<Contact>()
         let cnContacts = getCNContacts()

@@ -20,6 +20,7 @@ class UserData: Identifiable {
     var pendingFriendRequestsIn: Array<String> = []
     var pendingFriendRequestsOut: Array<String> = []
     var friends: [Friend] = []
+    var potentialFriends: [PotentialFriend] = []
     var createdDate: String = ""
     var deletedDate: String = ""
     var deleted: Bool = false
@@ -38,8 +39,8 @@ class UserData: Identifiable {
                 
                 if let friendLoc = convertLocation(from: friend.userLocation ) {
                     let distance = loc.distance(from: friendLoc)
-                    print("\(friend.firstName) is \(distance)  8 8vmeters away")
-                    if distance < 50 {
+                    print("\(friend.firstName) is \(distance)  meters away")
+                    if distance < 10 {
                         closeFriends.append(friend)
                     }
                 }
@@ -69,7 +70,7 @@ class UserData: Identifiable {
         return closeFriends
     }
     
-    struct Friend: Hashable {
+    struct Friend: Hashable, Identifiable {
         
         var id = UUID()
         
@@ -87,6 +88,20 @@ class UserData: Identifiable {
         
         var profileImage: Data? = nil
         
+        var isContact: Bool = false
+    }
+    
+    struct PotentialFriend: Hashable, Identifiable {
+        var id = UUID()
+        
+        var username: String = ""
+        
+        var friendshipStatus: ContactsApp.FriendshipStatus = .notAnAppUser
+        
+        init(username: String, friendshipStatus: ContactsApp.FriendshipStatus){
+            self.username = username
+            self.friendshipStatus = friendshipStatus
+        }
     }
     
     static let shared = UserData()
