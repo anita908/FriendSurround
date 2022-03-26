@@ -113,8 +113,6 @@ struct MenuView: View {
                 }
                 .listRowBackground(Color(0xFFB186))
                 .padding()
-            
-                Button("Sign Out", action: sessionManager.signOut)
             }
             .background(Color.white)
             .navigationBarTitle("")

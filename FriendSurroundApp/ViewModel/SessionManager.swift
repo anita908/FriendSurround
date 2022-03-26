@@ -42,7 +42,10 @@ final class SessionManager: ObservableObject {
     }
     
     func showLogin(){
-        authState = .login
+        DispatchQueue.main.async {
+            self.authState = .login
+        }
+        
     }
     
     func signUp(username: String, phoneNumber: String, email: String, password: String, firstname: String, lastname: String){
@@ -71,7 +74,10 @@ final class SessionManager: ObservableObject {
                     }
                 case .failure(let error):
                     print("Sign up error", error)
-                    self?.signupErrorMessage = HandlingErrors.show(error.recoverySuggestion)
+                    DispatchQueue.main.async {
+                        self?.signupErrorMessage = HandlingErrors.show(error.recoverySuggestion)
+                    }
+                    
                 }
             }
     }

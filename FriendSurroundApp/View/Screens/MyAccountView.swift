@@ -14,7 +14,6 @@ struct MyAccountView: View {
     @ObservedObject var userDataManager = UserDataManager()
     
     @State private var editMode: EditMode = .inactive
-    @State private var handleDeleteAccount: Bool = false
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var phone: String = ""
@@ -22,153 +21,127 @@ struct MyAccountView: View {
     @State private var message: String = ""
     
     var body: some View {
-        if handleDeleteAccount == true {
-            SetUpPhoneNumberView()
-        } else {
-            NavigationView {
-                VStack {
-                    Form {
-                        HStack {
-                            Spacer()
-                            if userDataManager.userData.profileImage != nil {
-                                Image(uiImage: UIImage(data: userDataManager.userData.profileImage!)!)
-                                    .resizable()
-                                    .frame(width: 100, height: 100, alignment: .center)
-                                    .padding()
-                            }
-                            else {
-                                Image(systemName: "person.crop.circle.fill")
-                                    .resizable()
-                                    .frame(width: 100, height: 100, alignment: .center)
-                                    .padding()
-                            }
-                            Spacer()
-                        }
-                        
-                        Section {
-                            List {
-                                HStack {
-                                    Text("Phone")
-                                    Spacer()
-                                    EditableText(
-                                        text: "\(userDataManager.userData.phone)",
-                                        isEditing: editMode.isEditing,
-                                        textAlignment: .trailing
-                                    ) { updatedText in
-                                        phone = updatedText
-                                        print("Phone: \(updatedText)")
-                                    }
-                                }
-                                HStack {
-                                    Text("First Name")
-                                    Spacer()
-                                    EditableText(
-                                        text: "\(userDataManager.userData.firstName)",
-                                        isEditing: editMode.isEditing,
-                                        textAlignment: .trailing
-                                    ) { updatedText in
-                                        print("FNAME: \(updatedText)")
-                                        firstName = updatedText
-                                    }
-                                }
-                                
-                                HStack {
-                                    Text("Last Name")
-                                    Spacer()
-                                    EditableText(
-                                        text: "\(userDataManager.userData.lastName)",
-                                        isEditing: editMode.isEditing,
-                                        textAlignment: .trailing
-                                    ) { updatedText in
-                                        lastName = updatedText
-                                        print("LNAME: \(updatedText)")
-                                    }
-                                }
-                                HStack {
-                                    Text("Email")
-                                    Spacer()
-                                    EditableText(
-                                        text: "\(userDataManager.userData.email)",
-                                        isEditing: editMode.isEditing,
-                                        textAlignment: .trailing
-                                    ) { updatedText in
-                                        print("Email: \(updatedText)")
-                                        email = updatedText
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
-                    Text(message)
-                        .foregroundColor(.red)
-                    
-                    VStack{
-                        Button(action: {
-                            deleteAccount()
-                        }, label: {
-                            (Text("Delete Account"))
-                                .font(.system(size: 25, weight: .semibold))
-                                .foregroundColor(.white)
-                                .frame(width: 300, height: 70)
-                                .background(Color(0xFFB186))
-                                .cornerRadius(15.0)
-                                .shadow(radius: 5.0, x: 10, y: 5)
-                                .padding()
-                                
-                        })
-                        HStack {
-                            Image(systemName: "person.crop.circle.badge.xmark")
+        NavigationView {
+            VStack {
+                Form {
+                    HStack {
+                        Spacer()
+                        if userDataManager.userData.profileImage != nil {
+                            Image(uiImage: UIImage(data: userDataManager.userData.profileImage!)!)
                                 .resizable()
-                                .frame(width: 40, height: 40, alignment: .center)
+                                .frame(width: 100, height: 100, alignment: .center)
                                 .padding()
-                            NavigationLink("STEALTH MODE", destination: {
-                            })
                         }
-                        .font(.system(size: 25, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 300, height: 70)
-                        .background(Color.gray)
-                        .cornerRadius(15.0)
-                        .shadow(radius: 5.0, x: 10, y: 5)
-                        .padding()
+                        else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .padding()
+                        }
+                        Spacer()
                     }
-                    .padding([.vertical], 10)
+                    
+                    Section {
+                        List {
+                            HStack {
+                                Text("Phone")
+                                Spacer()
+                                EditableText(
+                                    text: "\(userDataManager.userData.phone)",
+                                    isEditing: editMode.isEditing,
+                                    textAlignment: .trailing
+                                ) { updatedText in
+                                    phone = updatedText
+                                    print("Phone: \(updatedText)")
+                                }
+                            }
+                            HStack {
+                                Text("First Name")
+                                Spacer()
+                                EditableText(
+                                    text: "\(userDataManager.userData.firstName)",
+                                    isEditing: editMode.isEditing,
+                                    textAlignment: .trailing
+                                ) { updatedText in
+                                    print("FNAME: \(updatedText)")
+                                    firstName = updatedText
+                                }
+                            }
+                            
+                            HStack {
+                                Text("Last Name")
+                                Spacer()
+                                EditableText(
+                                    text: "\(userDataManager.userData.lastName)",
+                                    isEditing: editMode.isEditing,
+                                    textAlignment: .trailing
+                                ) { updatedText in
+                                    lastName = updatedText
+                                    print("LNAME: \(updatedText)")
+                                }
+                            }
+                            HStack {
+                                Text("Email")
+                                Spacer()
+                                EditableText(
+                                    text: "\(userDataManager.userData.email)",
+                                    isEditing: editMode.isEditing,
+                                    textAlignment: .trailing
+                                ) { updatedText in
+                                    print("Email: \(updatedText)")
+                                    email = updatedText
+                                }
+                            }
+                        }
+                    }
                 }
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
+                
+                Text(message)
+                    .foregroundColor(.red)
+                
+                VStack{
+                    HStack {
+                        Button("SIGN OUT", action: sessionManager.signOut)
+                    }
+                    .font(.system(size: 25, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 70)
+                    .background(Color.red)
+                    .cornerRadius(15.0)
+                    .shadow(radius: 5.0, x: 10, y: 5)
+                    .padding()
+                }
+                .padding([.vertical], 10)
             }
-            .navigationBarTitle(Text("My Account"), displayMode: .inline)
-            .navigationBarItems(
-                trailing: EditButton()
-            )
-            .environment(\.editMode, $editMode)
-            .onChange(of: $editMode.wrappedValue, perform: { value in
-              if value.isEditing {
-                 // Entering edit mode (e.g. 'Edit' tapped)
-              } else {
-                  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                      if phone.count != 10 && phone != "" {
-                          message = "please enter a valid phone number"
-                      } else if !sessionManager.isEmailValid(email) && email != "" {
-                          message = "please enter a valid email"
-                      } else {
-                          message = ""
-                      }
-                      
-                      if message == "" {
-                          apiGateway.updatePersonalDetail(userDataManager.userData.username, phone, firstName, lastName, email)
-                      }
-                      message = "successfully update!"
-                  }
-              }
-            })
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
-    }
-    
-    private func deleteAccount(){
-        handleDeleteAccount = true
+        .navigationBarTitle(Text("My Account"), displayMode: .inline)
+//        .navigationBarItems(
+//            trailing: EditButton()
+//        )
+        .environment(\.editMode, $editMode)
+        .onChange(of: $editMode.wrappedValue, perform: { value in
+          if value.isEditing {
+             // Entering edit mode (e.g. 'Edit' tapped)
+          } else {
+              DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                  if phone.count != 10 && phone != "" {
+                      message = "please enter a valid phone number"
+                  } else if !sessionManager.isEmailValid(email) && email != "" {
+                      message = "please enter a valid email"
+                  } else {
+                      message = ""
+                  }
+                  
+                  if message == "" {
+                      apiGateway.updatePersonalDetail(userDataManager.userData.username, phone, firstName, lastName, email)
+                  }
+                  message = "successfully update!"
+              }
+          }
+        })
     }
 }
 

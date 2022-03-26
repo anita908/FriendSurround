@@ -19,8 +19,28 @@ class ContactsManager: ObservableObject {
     //MARK: Accessing the model
     
     var contacts: [ContactsApp.Contact] {
-        ContactsApp.shared.contacts
+        let sortedContacts = ContactsApp.shared.contacts.sorted{
+            if $0.friendshipStatus != $1.friendshipStatus { // first, compare by last names
+                    return $0.friendshipStatus < $1.friendshipStatus
+                }
+                /*  last names are the same, break ties by foo
+                else if $0.foo != $1.foo {
+                    return $0.foo < $1.foo
+                }
+                ... repeat for all other fields in the sorting
+                */
+                else { // All other fields are tied, break ties by last name
+                    return $0.fullName < $1.fullName
+                }
+            }
+        
+        return sortedContacts
     }
+    
+//    let sortedcontacts = contacts.sorted{ c1, c2 in
+//        return (c1.friendshipStatus < c2.friendshipStatus)
+//
+//    }
     
     func updateContacts(){
 
@@ -86,4 +106,24 @@ class ContactsManager: ObservableObject {
         return UserData.Friend()
     }
     
+}
+
+extension Sequence {
+  func sorted(
+    by firstPredicate: (Element, Element) -> Bool,
+    _ secondPredicate: (Element, Element) -> Bool,
+    _ otherPredicates: ((Element, Element) -> Bool)...
+  ) -> [Element] {
+    return sorted(by:) { lhs, rhs in
+      if firstPredicate(lhs, rhs) { return true }
+      if firstPredicate(rhs, lhs) { return false }
+      if secondPredicate(lhs, rhs) { return true }
+      if secondPredicate(rhs, lhs) { return false }
+      for predicate in otherPredicates {
+        if predicate(lhs, rhs) { return true }
+        if predicate(rhs, lhs) { return false }
+      }
+      return false
+    }
+  }
 }

@@ -67,7 +67,7 @@ struct SignUpView: View {
                         .disableAutocorrection(true)
                     iPhoneNumberField(text: $phone, isEditing: $isEditing)
                         .flagHidden(true)
-                        .flagSelectable(false)
+                        .flagSelectable(true)
                         .maximumDigits(10)
                         .clearButtonMode(.whileEditing)
                         .onClear { _ in isEditing.toggle() }
@@ -144,6 +144,7 @@ struct SignUpView: View {
     }
     
     private func sigupCheck() {
+        print(phone)
         let trimPhone = phone
             .components(separatedBy:CharacterSet.decimalDigits.inverted)
             .joined()

@@ -45,6 +45,14 @@ struct WhoIsCloseView: View {
                     }
                 }
             }
+            Section {
+                if userDataManager.userData.nearbyFriends.count == 0 {
+                    Text("No friends nearby")
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(Color.gray)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                }
+            }
         }
         .navigationBarTitle("Who's Close", displayMode: .inline)
     }

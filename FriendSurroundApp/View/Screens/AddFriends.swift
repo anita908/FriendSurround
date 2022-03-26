@@ -47,18 +47,18 @@ struct AddFriends: View {
                 .shadow(radius: 5.0, x: 10, y: 5)
                 .padding()
             Spacer()
-            NavigationLink("INVITE ALL CONTACTS", destination: {
-            })
-                .font(.system(size: 10 * scale, weight: .semibold))
-                .foregroundColor(.black)
-                .frame(width: 100 * scale, height: 30 * scale)
-                .background(Color.white)
-                .cornerRadius(5.0)
-                .shadow(radius: 5.0, x: 10, y: 5)
-                .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color(0xFFB186), lineWidth: 2))
-                .padding()
+//            NavigationLink("INVITE ALL CONTACTS", destination: {
+//            })
+//                .font(.system(size: 10 * scale, weight: .semibold))
+//                .foregroundColor(.black)
+//                .frame(width: 100 * scale, height: 30 * scale)
+//                .background(Color.white)
+//                .cornerRadius(5.0)
+//                .shadow(radius: 5.0, x: 10, y: 5)
+//                .overlay(
+//                        RoundedRectangle(cornerRadius: 5)
+//                            .stroke(Color(0xFFB186), lineWidth: 2))
+//                .padding()
         }
     }
     

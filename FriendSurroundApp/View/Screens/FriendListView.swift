@@ -52,6 +52,14 @@ struct FriendListView: View {
                     }
                 }
             }
+            Section {
+                if userDataManager.userData.friends.count == 0 {
+                    Text("No friends added")
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(Color.gray)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                }
+            }
         }
         .onAppear(){
             print(userDataManager.userData)
@@ -60,12 +68,13 @@ struct FriendListView: View {
         .navigationBarTitle("Friend List", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(
-                    destination:
-                        AddFriends()
-                ) {
-                    Text("Invite")
-                }
+                //Strange behavior when navigating from here. Needs fixed.
+//                NavigationLink(
+//                    destination:
+//                        AddFriends()
+//                ) {
+//                    Text("Invite")
+//                }
             }
         }
     }
