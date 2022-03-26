@@ -40,8 +40,8 @@ struct LoginView: View {
                         .background(Color.white)
                         .cornerRadius(20)
                         .shadow(radius: 5, x: 10, y: 5)
-                    Text("forgot password?")
-                        .padding(.trailing)
+//                    Text("forgot password?")
+//                        .padding(.trailing)
                 }.padding([.leading, .trailing], 27.5)
                 
                 Spacer()

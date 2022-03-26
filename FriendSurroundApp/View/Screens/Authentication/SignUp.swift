@@ -30,28 +30,28 @@ struct SignUpView: View {
     var body: some View {
         VStack {
             HStack {
-                VStack {
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 90, height: 90, alignment: .center)
-                        .edgesIgnoringSafeArea(.all)
-                    
-                    Button(action: {
-                        self.isShowPhotoLibrary = true
-                    }) {
-                        Text("Add Photo")
-                            .font(.headline)
-                            .padding()
-                    }
-                    .foregroundColor(.white)
-                    .background(Color(0xFFB186))
-                }
-                .border(Color.black)
-                .cornerRadius(5.0)
-                .sheet(isPresented: $isShowPhotoLibrary) {
-                    ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
-                }
+//                VStack {
+//                    Image(uiImage: self.image)
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 90, height: 90, alignment: .center)
+//                        .edgesIgnoringSafeArea(.all)
+//
+//                    Button(action: {
+//                        self.isShowPhotoLibrary = true
+//                    }) {
+//                        Text("Add Photo")
+//                            .font(.headline)
+//                            .padding()
+//                    }
+//                    .foregroundColor(.white)
+//                    .background(Color(0xFFB186))
+//                }
+//                .border(Color.black)
+//                .cornerRadius(5.0)
+//                .sheet(isPresented: $isShowPhotoLibrary) {
+//                    ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
+//                }
                 
                
                 VStack {
@@ -66,13 +66,14 @@ struct SignUpView: View {
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     iPhoneNumberField(text: $phone, isEditing: $isEditing)
-                        .flagHidden(false)
-                        .flagSelectable(true)
+                        .flagHidden(true)
+                        .flagSelectable(false)
                         .maximumDigits(10)
                         .clearButtonMode(.whileEditing)
                         .onClear { _ in isEditing.toggle() }
                         .prefixHidden(false)
                         .flagSelectable(false)
+                        .accessibility(label: Text("Phone Number"))
                     TextField("Username", text: $username)
                         .padding()
                         .autocapitalization(.none)
