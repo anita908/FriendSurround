@@ -75,7 +75,7 @@ struct FriendDetailView: View {
                 VStack{
                     Button("Call") {
                         let phone = "tel://"
-                        let phoneNumberformatted = phone + "\(user.phone.phoneFormat)"
+                        let phoneNumberformatted = phone + "\(user.phone)"
                         guard let url = URL(string: phoneNumberformatted) else { return }
                         UIApplication.shared.open(url)
                        }

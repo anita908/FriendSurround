@@ -14,7 +14,8 @@ struct AddFriends: View {
     @ScaledMetric(relativeTo: .largeTitle) var scale: CGFloat = 1.0
     
     @State private var showMessageModel = false
-    @State private var invitePhoneNumber = "801850245"
+    @State private var invitePhoneNumber = ""
+    @State private var searchText = ""
     
     var locationService = LocationService.shared
     var apiGateway = ApiGateway()
@@ -88,47 +89,53 @@ struct AddFriends: View {
                         }
                         
                     }
-                    ForEach(contactsManager.contacts.sorted{$0.friendshipStatus < $1.friendshipStatus}, id: \.self) { contact in
-                        HStack {
-                            if contact.profileImage != nil {
-                                Image(uiImage: UIImage(data: contact.profileImage!)!)
-                                                    .resizable()
-                                                    .frame(width: 50 * scale, height: 50 * scale)
-                                                    .accessibility(hidden: true)
-                            }
-                            else {
-                                Image(systemName: "person.crop.circle.fill")
-                                    .resizable()
-                                    .frame(width: 50 * scale, height: 50 * scale)
-                                    .accessibility(hidden: true)
-                            }
-                            VStack(alignment: .leading){
-                                Text(contact.fullName)
-                                Text(contact.phoneNumber ?? "")
-                            }
-                            .accessibilityElement(children: .combine)
+                    if searchResults.count == 0 {
+                        Text("No match")
+                          .frame(maxWidth: .infinity, alignment: .center)
+                    } else {
+                        ForEach(searchResults.sorted{$0.friendshipStatus < $1.friendshipStatus}, id: \.self) { contact in
+                            HStack {
+                                if contact.profileImage != nil {
+                                    Image(uiImage: UIImage(data: contact.profileImage!)!)
+                                                        .resizable()
+                                                        .frame(width: 50 * scale, height: 50 * scale)
+                                                        .accessibility(hidden: true)
+                                }
+                                else {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .resizable()
+                                        .frame(width: 50 * scale, height: 50 * scale)
+                                        .accessibility(hidden: true)
+                                }
+                                VStack(alignment: .leading){
+                                    Text(contact.fullName)
+                                    Text(contact.phoneNumber ?? "")
+                                }
+                                .accessibilityElement(children: .combine)
 
-                            Spacer()
-                            VStack(alignment: .trailing){
-                                if contact.friendshipStatus == .notAnAppUser {
-                                    inviteToAppButton(contact.phoneNumberDigits!)
-                                }
-                                else if contact.friendshipStatus == .notFriends {
-                                    friendRequestButton(locationService.currentUser, contact.username ?? "")
-                                }
-                                else if contact.friendshipStatus == .requestSent {
-                                    requestSentText
-                                }
-                                else if contact.friendshipStatus == .requestReceived {
-                                    acceptRequestButton(locationService.currentUser, contact.username ?? "")
-                                }
-                                else if contact.friendshipStatus == .friends {
-                                    viewProfile(contact.username ?? "")
+                                Spacer()
+                                VStack(alignment: .trailing){
+                                    if contact.friendshipStatus == .notAnAppUser {
+                                        inviteToAppButton(contact.phoneNumberDigits!)
+                                    }
+                                    else if contact.friendshipStatus == .notFriends {
+                                        friendRequestButton(locationService.currentUser, contact.username ?? "")
+                                    }
+                                    else if contact.friendshipStatus == .requestSent {
+                                        requestSentText
+                                    }
+                                    else if contact.friendshipStatus == .requestReceived {
+                                        acceptRequestButton(locationService.currentUser, contact.username ?? "")
+                                    }
+                                    else if contact.friendshipStatus == .friends {
+                                        viewProfile(contact.username ?? "")
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                .searchable(text: $searchText, prompt: "Search name")
                 .padding()
         }
     }
@@ -148,6 +155,14 @@ struct AddFriends: View {
             .overlay(
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(Color(0xFFB186), lineWidth: 2))
+    }
+    
+    var searchResults: [ContactsApp.Contact] {
+        if searchText.isEmpty {
+            return contactsManager.contacts
+        } else {
+            return contactsManager.contacts.filter { $0.fullName.localizedCaseInsensitiveContains(searchText) }
+        }
     }
     
 //    var inviteToAppButton: some View{
