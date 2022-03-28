@@ -19,7 +19,12 @@ class ContactsManager: ObservableObject {
     //MARK: Accessing the model
     
     var contacts: [ContactsApp.Contact] {
-        let sortedContacts = ContactsApp.shared.contacts.sorted{
+        
+        //Disclude the user from the list
+        let contactsWithoutUser = ContactsApp.shared.contacts.filter({$0.username != UserData.shared.username})
+        
+        let sortedContacts = contactsWithoutUser.sorted{
+            
             if $0.friendshipStatus != $1.friendshipStatus { // first, compare by last names
                     return $0.friendshipStatus < $1.friendshipStatus
                 }
@@ -36,11 +41,6 @@ class ContactsManager: ObservableObject {
         
         return sortedContacts
     }
-    
-//    let sortedcontacts = contacts.sorted{ c1, c2 in
-//        return (c1.friendshipStatus < c2.friendshipStatus)
-//
-//    }
     
     func updateContacts(){
 

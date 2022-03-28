@@ -55,15 +55,15 @@ final class ApiGateway: ObservableObject {
                         UserData.shared.pendingFriendRequestsIn = newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""]
                         UserData.shared.pendingFriendRequestsOut = newUserData["pendingFriendRequestsOut"] as? Array<String> ?? [""]
                         UserData.shared.friends = self.loadFriendsArray(from: newUserData["friends"] as? Array<[String:String]> ?? [["":""]])
-                        self.setPotentialFriends(requestsIn: newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""])
                         UserData.shared.profileImage = self.addProfilePictureToUser(with: newUserData["phone"] as? String ?? "")
                         UserData.shared.createdDate = newUserData["createdDate"] as? String ?? ""
                         UserData.shared.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         UserData.shared.deleted = newUserData["deleted"] as? Bool ?? false
                         UserData.shared.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
-                        print(UserData.shared.nearbyFriends)
-                        print(UserData.shared.potentialFriends)
-                        completionHandler()
+                        self.findAppUsers(for: ContactsApp.shared.contacts, completionHandler: {
+                            self.setPotentialFriends(requestsIn: newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""])
+                            completionHandler()
+                        })
                         }
                         else {
                             print("Couldn't parse the JSON file. Check the data type")
@@ -83,7 +83,8 @@ final class ApiGateway: ObservableObject {
     func setPotentialFriends(requestsIn: Array<String>){
         UserData.shared.potentialFriends = []
         for username in requestsIn {
-            if !UserData.shared.potentialFriends.contains(where: {$0.username == username}){
+            if !UserData.shared.potentialFriends.contains(where: {$0.username == username}) && !ContactsApp.shared.contacts.contains(where: {$0.username == username})
+            {
                 UserData.shared.potentialFriends.append(UserData.PotentialFriend(username: username, friendshipStatus: .requestReceived))
             }
             
@@ -152,7 +153,6 @@ final class ApiGateway: ObservableObject {
     
     func findAppUsers(for contacts: Array<ContactsApp.Contact>, completionHandler: @escaping () -> ()) {
         let phoneList = createPhoneList(from: contacts)
-        
         let message = #"{ "phoneList": \#(phoneList)}"#
         let request = RESTRequest(path: "/checknumbers", body: message.data(using: .utf8))
         let contacts = ContactsApp.shared.contacts
@@ -174,9 +174,8 @@ final class ApiGateway: ObservableObject {
                                     }
                                 }
                             }
-                            completionHandler()
-                            
                         }
+                        completionHandler()
                     }
                     else {
                         print("Couldn't parse the JSON file. Check the data type")
