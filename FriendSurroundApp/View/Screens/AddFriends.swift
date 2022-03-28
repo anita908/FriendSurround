@@ -26,6 +26,13 @@ struct AddFriends: View {
             .onAppear(perform: contactsManager.updateContacts)
         Spacer()
             .navigationTitle("Add Friends")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Refresh") {
+                        contactsManager.updateContacts()
+                    }
+                }
+            }
             .sheet(isPresented: $showMessageModel) {
                 MessageComponentView(recicipents: [invitePhoneNumber], body: "INSTALL THIS APP") {
                     messageSent in

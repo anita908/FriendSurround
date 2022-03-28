@@ -24,7 +24,7 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = 10
+        manager.distanceFilter = 100
         manager.allowsBackgroundLocationUpdates = true
         manager.delegate = self
         return manager
