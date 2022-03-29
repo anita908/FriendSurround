@@ -35,7 +35,10 @@ struct AddFriends: View {
                 }
             }
             .sheet(isPresented: $showMessageModel) {
-                MessageComponentView(recicipents: [invitePhoneNumber], body: "INSTALL THIS APP") {
+                MessageComponentView(
+                    recicipents: [invitePhoneNumber],
+                    body: "\(UserData.shared.firstName) is inviting you to try out FriendSurround! This app is currently in the testing phase so you will have to download it through Apple TestFlight at this link. https://testflight.apple.com/join/LFdUYZCj Thanks for your support!"
+                ) {
                     messageSent in
                     showMessageModel = false
                 }
@@ -143,8 +146,8 @@ struct AddFriends: View {
     @ViewBuilder
     func inviteToAppButton(_ phoneNumber: String) -> some View {
         Button("Invite to app") {
-            showMessageModel = true
             invitePhoneNumber = phoneNumber
+            showMessageModel = true
         }
             .font(.system(size: 10 * scale, weight: .semibold))
             .foregroundColor(.black)

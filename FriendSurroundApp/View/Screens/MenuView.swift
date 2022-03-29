@@ -114,9 +114,6 @@ struct MenuView: View {
                 .listRowBackground(Color(0xFFB186))
                 .padding()
             }
-            .background(Color.white)
-            .navigationBarTitle("")
-            .navigationBarBackButtonHidden(true)
         }
     }
 }

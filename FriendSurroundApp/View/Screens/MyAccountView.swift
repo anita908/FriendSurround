@@ -21,103 +21,99 @@ struct MyAccountView: View {
     @State private var message: String = ""
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    HStack {
-                        Spacer()
-                        if userDataManager.userData.profileImage != nil {
-                            Image(uiImage: UIImage(data: userDataManager.userData.profileImage!)!)
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .center)
-                                .padding()
-                        }
-                        else {
-                            Image(systemName: "person.crop.circle.fill")
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .center)
-                                .padding()
-                        }
-                        Spacer()
+        VStack {
+            Form {
+                HStack {
+                    Spacer()
+                    if userDataManager.userData.profileImage != nil {
+                        Image(uiImage: UIImage(data: userDataManager.userData.profileImage!)!)
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .center)
+                            .padding()
                     }
-                    
-                    Section {
-                        List {
-                            HStack {
-                                Text("Phone")
-                                Spacer()
-                                EditableText(
-                                    text: "\(userDataManager.userData.phone)",
-                                    isEditing: editMode.isEditing,
-                                    textAlignment: .trailing
-                                ) { updatedText in
-                                    phone = updatedText
-                                    print("Phone: \(updatedText)")
-                                }
+                    else {
+                        Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .center)
+                            .padding()
+                    }
+                    Spacer()
+                }
+                
+                Section {
+                    List {
+                        HStack {
+                            Text("Phone")
+                            Spacer()
+                            EditableText(
+                                text: "\(userDataManager.userData.phone)",
+                                isEditing: editMode.isEditing,
+                                textAlignment: .trailing
+                            ) { updatedText in
+                                phone = updatedText
+                                print("Phone: \(updatedText)")
                             }
-                            HStack {
-                                Text("First Name")
-                                Spacer()
-                                EditableText(
-                                    text: "\(userDataManager.userData.firstName)",
-                                    isEditing: editMode.isEditing,
-                                    textAlignment: .trailing
-                                ) { updatedText in
-                                    print("FNAME: \(updatedText)")
-                                    firstName = updatedText
-                                }
+                        }
+                        HStack {
+                            Text("First Name")
+                            Spacer()
+                            EditableText(
+                                text: "\(userDataManager.userData.firstName)",
+                                isEditing: editMode.isEditing,
+                                textAlignment: .trailing
+                            ) { updatedText in
+                                print("FNAME: \(updatedText)")
+                                firstName = updatedText
                             }
-                            
-                            HStack {
-                                Text("Last Name")
-                                Spacer()
-                                EditableText(
-                                    text: "\(userDataManager.userData.lastName)",
-                                    isEditing: editMode.isEditing,
-                                    textAlignment: .trailing
-                                ) { updatedText in
-                                    lastName = updatedText
-                                    print("LNAME: \(updatedText)")
-                                }
+                        }
+                        
+                        HStack {
+                            Text("Last Name")
+                            Spacer()
+                            EditableText(
+                                text: "\(userDataManager.userData.lastName)",
+                                isEditing: editMode.isEditing,
+                                textAlignment: .trailing
+                            ) { updatedText in
+                                lastName = updatedText
+                                print("LNAME: \(updatedText)")
                             }
-                            HStack {
-                                Text("Email")
-                                Spacer()
-                                EditableText(
-                                    text: "\(userDataManager.userData.email)",
-                                    isEditing: editMode.isEditing,
-                                    textAlignment: .trailing
-                                ) { updatedText in
-                                    print("Email: \(updatedText)")
-                                    email = updatedText
-                                }
+                        }
+                        HStack {
+                            Text("Email")
+                            Spacer()
+                            EditableText(
+                                text: "\(userDataManager.userData.email)",
+                                isEditing: editMode.isEditing,
+                                textAlignment: .trailing
+                            ) { updatedText in
+                                print("Email: \(updatedText)")
+                                email = updatedText
                             }
                         }
                     }
                 }
-                
-                Text(message)
-                    .foregroundColor(.red)
-                
-                VStack{
-                    HStack {
-                        Button("SIGN OUT", action: sessionManager.signOut)
-                    }
-                    .font(.system(size: 25, weight: .semibold))
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 70)
-                    .background(Color.red)
-                    .cornerRadius(15.0)
-                    .shadow(radius: 5.0, x: 10, y: 5)
-                    .padding()
-                }
-                .padding([.vertical], 10)
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
+            
+            Text(message)
+                .foregroundColor(.red)
+            
+            Button(action: sessionManager.signOut) {
+                HStack {
+                    Spacer()
+                    Text("SIGN OUT")
+                    Spacer()
+                }
+            }
+            .font(.system(size: 25, weight: .semibold))
+            .frame(width: 300, height: 70)
+            .foregroundColor(.white)
+            .background(.red)
+            .cornerRadius(15.0)
+            .shadow(radius: 5.0, x: 10, y: 5)
+            .padding()
         }
-        .navigationBarTitle(Text("My Account"), displayMode: .inline)
+        .navigationBarTitle("My Account", displayMode: .inline)
 //        .navigationBarItems(
 //            trailing: EditButton()
 //        )

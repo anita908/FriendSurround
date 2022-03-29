@@ -45,18 +45,24 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Button("Sign In", action: {
+                Button(action: {
                     sessionManager.login(
                         username: username,
                         password: password)
-                })
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 300, height: 50)
-                    .background(Color(0xFFB186))
-                    .cornerRadius(15.0)
-                    .shadow(radius: 5.0, x: 10, y: 5)
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Sign In")
+                        Spacer()
+                    }
+                }
+                .font(.system(size: 25, weight: .semibold))
+                .frame(width: 300, height: 50)
+                .foregroundColor(.white)
+                .background(Color(0xFFB186))
+                .cornerRadius(15.0)
+                .shadow(radius: 5.0, x: 10, y: 5)
+                .padding()
                 
                 if sessionManager.signinErrorMessage != "" {
                     Text("\(sessionManager.signinErrorMessage)")
