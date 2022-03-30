@@ -27,129 +27,131 @@ struct SignUpView: View {
     @State var isEditing: Bool = false
     
     var body: some View {
-        VStack {
-//                VStack {
-//                    Image(uiImage: self.image)
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width: 90, height: 90, alignment: .center)
-//                        .edgesIgnoringSafeArea(.all)
-//
-//                    Button(action: {
-//                        self.isShowPhotoLibrary = true
-//                    }) {
-//                        Text("Add Photo")
-//                            .font(.headline)
-//                            .padding()
-//                    }
-//                    .foregroundColor(.white)
-//                    .background(Color(0xFFB186))
-//                }
-//                .border(Color.black)
-//                .cornerRadius(5.0)
-//                .sheet(isPresented: $isShowPhotoLibrary) {
-//                    ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
-//                }
-            Text("Sign Up")
-                .font(.system(size: 25, weight: .semibold))
-           
+        ScrollView {
             VStack {
-                TextField("First name", text: $firstName)
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-                    .disableAutocorrection(true)
-                TextField("Last name", text: $lastName)
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-                    .disableAutocorrection(true)
-                TextField("Email", text: $email)
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                iPhoneNumberField(text: $phone, isEditing: $isEditing)
-                    .flagHidden(true)
-                    .flagSelectable(true)
-                    .maximumDigits(10)
-                    .clearButtonMode(.whileEditing)
-                    .onClear { _ in isEditing.toggle() }
-                    .prefixHidden(false)
-                    .flagSelectable(false)
-                    .accessibility(label: Text("Phone Number"))
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-                TextField("Username", text: $username)
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                SecureField("Password", text: $password)
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-                SecureField("Re-enter Password", text: $passwordCheck)
-                    .padding()
-                    .border(.gray, width: 1)
-                    .cornerRadius(6.0)
-            }
-        }
-        .padding()
-        
-        Button(action: {
-            showTermsAndPrivacyPolicy = true
-        }, label: {
-            (Text("By continuing you agree to our ")
-                + Text("Terms ")
-                    .foregroundColor(Color.blue)
-                + Text(" and ")
-             + Text("Privacy Policy")
-                .foregroundColor(Color.blue)
-                )
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(Font.system(size: 14, weight: .medium))
-                .foregroundColor(Color.black)
-                .fixedSize(horizontal: false, vertical: true)
-        })
-        .padding(.vertical)
-//        .padding([.vertical], 10)
-//            .sheet(isPresented: $showTermsAndPrivacyPolicy) {
-//                showTermsAndPrivacyPolicyView(onDismiss: {
-//                    showTermsAndPrivacyPolicy = false
-//                })
-//            }
-        
-        Spacer()
-        
-        VStack {
-            HStack{
-                Text("Already have an account? ")
-                Button(action: {sessionManager.showLogin()}){
-                    Text("Log in")
+    //                VStack {
+    //                    Image(uiImage: self.image)
+    //                        .resizable()
+    //                        .scaledToFill()
+    //                        .frame(width: 90, height: 90, alignment: .center)
+    //                        .edgesIgnoringSafeArea(.all)
+    //
+    //                    Button(action: {
+    //                        self.isShowPhotoLibrary = true
+    //                    }) {
+    //                        Text("Add Photo")
+    //                            .font(.headline)
+    //                            .padding()
+    //                    }
+    //                    .foregroundColor(.white)
+    //                    .background(Color(0xFFB186))
+    //                }
+    //                .border(Color.black)
+    //                .cornerRadius(5.0)
+    //                .sheet(isPresented: $isShowPhotoLibrary) {
+    //                    ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
+    //                }
+                Text("Sign Up")
+                    .font(.system(size: 25, weight: .semibold))
+               
+                VStack {
+                    TextField("First name", text: $firstName)
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
+                        .disableAutocorrection(true)
+                    TextField("Last name", text: $lastName)
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
+                        .disableAutocorrection(true)
+                    TextField("Email", text: $email)
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    iPhoneNumberField(text: $phone, isEditing: $isEditing)
+                        .flagHidden(true)
+                        .flagSelectable(true)
+                        .maximumDigits(10)
+                        .clearButtonMode(.whileEditing)
+                        .onClear { _ in isEditing.toggle() }
+                        .prefixHidden(false)
+                        .flagSelectable(false)
+                        .accessibility(label: Text("Phone Number"))
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
+                    TextField("Username", text: $username)
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
+                    SecureField("Re-enter Password", text: $passwordCheck)
+                        .padding()
+                        .border(.gray, width: 1)
+                        .cornerRadius(6.0)
                 }
             }
+            .padding()
             
-            Button(action: {
-                sigupCheck()
-            }) {
-                HStack {
-                    Spacer()
-                    Text("Creat Account")
-                    Spacer()
+    //        Button(action: {
+    //            showTermsAndPrivacyPolicy = true
+    //        }, label: {
+    //            (Text("By continuing you agree to our ")
+    //                + Text("Terms ")
+    //                    .foregroundColor(Color.blue)
+    //                + Text(" and ")
+    //             + Text("Privacy Policy")
+    //                .foregroundColor(Color.blue)
+    //                )
+    //                .frame(maxWidth: .infinity, alignment: .leading)
+    //                .font(Font.system(size: 14, weight: .medium))
+    //                .foregroundColor(Color.black)
+    //                .fixedSize(horizontal: false, vertical: true)
+    //        })
+    //        .padding(.vertical)
+    //        .padding([.vertical], 10)
+    //            .sheet(isPresented: $showTermsAndPrivacyPolicy) {
+    //                showTermsAndPrivacyPolicyView(onDismiss: {
+    //                    showTermsAndPrivacyPolicy = false
+    //                })
+    //            }
+            
+            Spacer()
+            
+            VStack {
+                HStack{
+                    Text("Already have an account? ")
+                    Button(action: {sessionManager.showLogin()}){
+                        Text("Log in")
+                    }
                 }
+                
+                Button(action: {
+                    sigupCheck()
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Create Account")
+                        Spacer()
+                    }
+                }
+                .font(.system(size: 25, weight: .semibold))
+                .frame(width: 300, height: 70)
+                .foregroundColor(.white)
+                .background(Color(0xFFB186))
+                .cornerRadius(15.0)
+                .shadow(radius: 5.0, x: 10, y: 5)
+                .padding(.top)
+    //                    .disabled(firstName.isEmpty || lastName.isEmpty || email.isEmpty || phone.isEmpty )
             }
-            .font(.system(size: 25, weight: .semibold))
-            .frame(width: 300, height: 70)
-            .foregroundColor(.white)
-            .background(Color.orange)
-            .cornerRadius(15.0)
-            .shadow(radius: 5.0, x: 10, y: 5)
-            .padding(.top)
-//                    .disabled(firstName.isEmpty || lastName.isEmpty || email.isEmpty || phone.isEmpty )
         }
 //        .padding([.vertical], 10)
         if sessionManager.signupErrorMessage != "" {
