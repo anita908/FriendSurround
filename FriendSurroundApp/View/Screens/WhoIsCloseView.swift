@@ -55,6 +55,14 @@ struct WhoIsCloseView: View {
             }
         }
         .navigationBarTitle("Who's Close", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Refresh") {
+                    userDataManager.updateLocation()
+                }
+            }
+        }
+        .onAppear(perform: userDataManager.updateLocation)
     }
 }
 

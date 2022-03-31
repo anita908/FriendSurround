@@ -60,6 +60,7 @@ final class ApiGateway: ObservableObject {
                         UserData.shared.deletedDate = newUserData["deletedDate"] as? String ?? ""
                         UserData.shared.deleted = newUserData["deleted"] as? Bool ?? false
                         UserData.shared.blockedPeople = newUserData["blockedPeople"] as? Array<[String:String]> ?? [["":""]]
+                        UserData.shared.updateNearbyFriends(previousNearbyFriends: UserData.shared.nearbyFriends)
                         self.findAppUsers(for: ContactsApp.shared.contacts, completionHandler: {
                             self.setPotentialFriends(requestsIn: newUserData["pendingFriendRequestsIn"] as? Array<String> ?? [""])
                             completionHandler()

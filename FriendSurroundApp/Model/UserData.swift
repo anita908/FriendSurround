@@ -27,13 +27,16 @@ class UserData: Identifiable {
     var blockedPeople: Array<[String:String]> = []
     var profileImage: Data? = nil
     var delegate = NotificationDelelegate()
-    private var previousNearbyFriends: [Friend] = []
+    var nearbyFriends: [Friend] = []
     
-    var nearbyFriends: [Friend] {
+    func updateNearbyFriends(previousNearbyFriends: [Friend]){
         print("previous nearby frirn")
         print(previousNearbyFriends)
-        var newCloseFriends: [Friend] = []
+        //All close friends including previous close friends
         var closeFriends: [Friend] = []
+        //Only newly added close friends
+        var newCloseFriends: [Friend] = []
+        
         if let loc = convertLocation(from: userLocation) {
             for friend in self.friends {
                 
@@ -52,11 +55,6 @@ class UserData: Identifiable {
                 newCloseFriends.append(friend)
             }
         }
-//        print("")
-//        print("close")
-//        print(closeFriends)
-//        print("new close")
-//        print(newCloseFriends)
         if newCloseFriends.count == 1 {
             scheduleNotification(newCloseFriends[0].firstName, 1)
             UNUserNotificationCenter.current().delegate = delegate
@@ -65,9 +63,8 @@ class UserData: Identifiable {
             scheduleNotification("", closeFriends.count)
             UNUserNotificationCenter.current().delegate = delegate
         }
-        previousNearbyFriends = closeFriends
         
-        return closeFriends
+        self.nearbyFriends = closeFriends
     }
     
     struct Friend: Hashable, Identifiable {

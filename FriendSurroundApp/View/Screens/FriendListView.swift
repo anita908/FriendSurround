@@ -76,7 +76,13 @@ struct FriendListView: View {
 //                    Text("Invite")
 //                }
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Refresh") {
+                    userDataManager.updateLocation()
+                }
+            }
         }
+        .onAppear(perform: userDataManager.updateLocation)
     }
 }
 
